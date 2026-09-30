@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.abzal.tripsplit.core.designsystem.TripSplitTheme
 import com.abzal.tripsplit.core.navigation.AppNavHost
 import com.abzal.tripsplit.core.navigation.Routes
 
@@ -20,8 +21,10 @@ class MainActivity : ComponentActivity() {
             if (container.authRepository.currentUser.value != null) Routes.HOME else Routes.SIGN_IN
 
         setContent {
-            Surface(modifier = Modifier.fillMaxSize()) {
-                AppNavHost(startDestination = startDestination)
+            TripSplitTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    AppNavHost(startDestination = startDestination)
+                }
             }
         }
     }

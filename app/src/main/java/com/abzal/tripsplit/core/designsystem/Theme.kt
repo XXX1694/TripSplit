@@ -1,0 +1,53 @@
+package com.abzal.tripsplit.core.designsystem
+
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.staticCompositionLocalOf
+
+private val LocalAppColors = staticCompositionLocalOf { LightAppColors }
+
+/** Entry point to app colors: `AppTheme.colors.primary`. Text styles and shapes live in [MaterialTheme]. */
+object AppTheme {
+    val colors: AppColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalAppColors.current
+}
+
+private fun AppColors.toMaterialColorScheme() = lightColorScheme(
+    primary = primary,
+    onPrimary = onPrimary,
+    primaryContainer = primaryContainer,
+    onPrimaryContainer = primary,
+    background = background,
+    onBackground = textPrimary,
+    surface = surface,
+    onSurface = textPrimary,
+    onSurfaceVariant = textSecondary,
+    outline = outline,
+    outlineVariant = divider,
+    error = negative,
+    errorContainer = negativeContainer,
+    onErrorContainer = negative,
+)
+
+@Composable
+fun TripSplitTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit,
+) {
+    val colors = if (darkTheme) DarkAppColors else LightAppColors
+
+    CompositionLocalProvider(LocalAppColors provides colors) {
+        MaterialTheme(
+            colorScheme = colors.toMaterialColorScheme(),
+            typography = AppTypography,
+            shapes = AppShapes,
+            content = content,
+        )
+    }
+}

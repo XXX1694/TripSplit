@@ -1,0 +1,135 @@
+package com.abzal.tripsplit.core.designsystem.components
+
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
+import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.designsystem.Spacing
+
+/** Filled green button: the main action of a screen. */
+@Composable
+fun PrimaryButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
+    enabled: Boolean = true,
+    isLoading: Boolean = false,
+) {
+    val colors = AppTheme.colors
+    Button(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth().height(Sizes.button),
+        enabled = enabled && !isLoading,
+        shape = MaterialTheme.shapes.medium,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = colors.primary,
+            contentColor = colors.onPrimary,
+            disabledContainerColor = colors.primary,
+            disabledContentColor = colors.onPrimary,
+        ),
+    ) {
+        ButtonContent(text, icon, isLoading)
+    }
+}
+
+/** White button with border: secondary action ("Create an account"). */
+@Composable
+fun SecondaryButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
+    enabled: Boolean = true,
+) {
+    val colors = AppTheme.colors
+    OutlinedButton(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth().height(Sizes.button),
+        enabled = enabled,
+        shape = MaterialTheme.shapes.medium,
+        border = BorderStroke(1.dp, colors.outline),
+        colors = ButtonDefaults.outlinedButtonColors(containerColor = colors.surface, contentColor = colors.primary),
+    ) {
+        ButtonContent(text, icon, isLoading = false)
+    }
+}
+
+/** Red tinted button for destructive actions ("Delete trip"). */
+@Composable
+fun DangerButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
+    enabled: Boolean = true,
+) {
+    val colors = AppTheme.colors
+    Button(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth().height(Sizes.button),
+        enabled = enabled,
+        shape = MaterialTheme.shapes.medium,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = colors.negativeContainer,
+            contentColor = colors.negative,
+            disabledContainerColor = colors.negativeContainer,
+            disabledContentColor = colors.negative,
+        ),
+    ) {
+        ButtonContent(text, icon, isLoading = false)
+    }
+}
+
+/** Text-only green action: "Save", "Forgot password?", "Back to sign in". */
+@Composable
+fun AppTextButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+) {
+    TextButton(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        colors = ButtonDefaults.textButtonColors(contentColor = AppTheme.colors.primary),
+    ) {
+        Text(text = text, style = MaterialTheme.typography.labelLarge)
+    }
+}
+
+@Composable
+private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: Boolean) {
+    if (isLoading) {
+        CircularProgressIndicator(
+            modifier = Modifier.size(18.dp),
+            color = LocalContentColor.current,
+            strokeWidth = 2.dp,
+        )
+        Spacer(Modifier.width(Spacing.xs))
+    } else if (icon != null) {
+        Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.icon))
+        Spacer(Modifier.width(Spacing.xs))
+    }
+    Text(text = text, style = MaterialTheme.typography.labelLarge)
+}
