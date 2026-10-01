@@ -106,6 +106,7 @@ fun AppTextButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
     enabled: Boolean = true,
 ) {
     TextButton(
@@ -114,7 +115,7 @@ fun AppTextButton(
         enabled = enabled,
         colors = ButtonDefaults.textButtonColors(contentColor = AppTheme.colors.primary),
     ) {
-        Text(text = text, style = MaterialTheme.typography.labelLarge)
+        ButtonContent(text, icon, isLoading = false)
     }
 }
 

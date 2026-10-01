@@ -35,6 +35,7 @@ fun TripFormFields(
     onDraftChange: (TripDraft) -> Unit,
     onPickCurrencyClick: () -> Unit,
     modifier: Modifier = Modifier,
+    infoText: String = "You can add expenses in any currency. Conversion rates are saved per expense.",
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
         CoverImage(modifier = Modifier.fillMaxWidth().height(120.dp).clip(RoundedCornerShape(22.dp)))
@@ -75,7 +76,7 @@ fun TripFormFields(
             trailing = { RowValue("${draft.currency}  ${currencySymbol(draft.currency)}") },
         )
         InfoBanner(
-            text = "You can add expenses in any currency. Conversion rates are saved per expense.",
+            text = infoText,
             icon = Icons.Outlined.Info,
         )
     }
