@@ -1,6 +1,7 @@
 package com.abzal.tripsplit.features.trips.data.repository
 
 import com.abzal.tripsplit.features.trips.domain.model.Trip
+import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import com.abzal.tripsplit.features.trips.domain.repository.TripRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,13 +17,15 @@ class TripRepositoryImpl : TripRepository {
     override fun observeTrip(tripId: String): Flow<Trip?> =
         trips.map { list -> list.firstOrNull { it.id == tripId } }
 
-    override suspend fun createTrip(
-        name: String,
-        currency: String,
-        startDateMillis: Long?,
-        endDateMillis: Long?,
-    ): Trip {
-        val trip = Trip(UUID.randomUUID().toString(), name, currency, startDateMillis, endDateMillis)
+    override suspend fun createTrip(draft: TripDraft): Trip {
+        val trip = Trip(
+            id = UUID.randomUUID().toString(),
+            name = draft.name,
+            currency = draft.currency,
+            startDateMillis = draft.startDateMillis,
+            endDateMillis = draft.endDateMillis,
+            destination = draft.destination,
+        )
         trips.update { it + trip }
         return trip
     }

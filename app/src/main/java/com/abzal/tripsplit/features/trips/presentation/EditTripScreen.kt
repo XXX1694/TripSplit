@@ -27,7 +27,7 @@ fun EditTripRoute(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     EditTripScreen(
         uiState = uiState,
-        onSaveClick = { name, currency, start, end -> viewModel.save(name, currency, start, end, onSaved) },
+        onSaveClick = { draft -> viewModel.save(draft, onSaved) },
         onDeleteClick = onDeleteClick,
         onBackClick = onBackClick,
         onPickCurrencyClick = onPickCurrencyClick,
@@ -38,7 +38,7 @@ fun EditTripRoute(
 @Composable
 fun EditTripScreen(
     uiState: EditTripUiState,
-    onSaveClick: (String, String, Long?, Long?) -> Unit,
+    onSaveClick: (TripDraft) -> Unit,
     onDeleteClick: () -> Unit,
     onBackClick: () -> Unit,
     onPickCurrencyClick: () -> Unit,

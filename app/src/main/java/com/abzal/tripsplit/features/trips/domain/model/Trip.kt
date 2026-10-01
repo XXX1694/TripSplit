@@ -6,4 +6,5 @@ data class Trip(
     val currency: String,
     val startDateMillis: Long? = null,
     val endDateMillis: Long? = null,
+    val destination: String = "",
 )

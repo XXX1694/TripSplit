@@ -36,17 +36,19 @@ class EditTripViewModel(
         }
     }
 
-    fun save(
-        name: String,
-        currency: String,
-        startDateMillis: Long?,
-        endDateMillis: Long?,
-        onSaved: () -> Unit,
-    ) {
+    fun save(draft: TripDraft, onSaved: () -> Unit) {
         val current = _uiState.value.trip ?: return
         viewModelScope.launch {
             _uiState.update { it.copy(isSaving = true) }
-            tripRepository.updateTrip(current.copy(name = name, currency = currency, startDateMillis = startDateMillis, endDateMillis = endDateMillis))
+            tripRepository.updateTrip(
+                current.copy(
+                    name = draft.name,
+                    destination = draft.destination,
+                    currency = draft.currency,
+                    startDateMillis = draft.startDateMillis,
+                    endDateMillis = draft.endDateMillis,
+                ),
+            )
             _uiState.update { it.copy(isSaving = false) }
             onSaved()
         }
