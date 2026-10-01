@@ -37,3 +37,13 @@ fun formatTripDates(startMillis: Long?, endMillis: Long?): String {
 /** "TUESDAY, 29 SEP" */
 fun formatToday(): String =
     SimpleDateFormat("EEEE, d MMM", Locale.getDefault()).format(Date()).uppercase()
+
+/** "12 Sep 2026" */
+fun formatDate(millis: Long): String =
+    SimpleDateFormat("d MMM yyyy", Locale.getDefault()).format(Date(millis))
+
+fun currencyName(code: String): String =
+    runCatching { Currency.getInstance(code).displayName }.getOrDefault(code)
+
+fun currencySymbol(code: String): String =
+    runCatching { Currency.getInstance(code).symbol }.getOrDefault(code)

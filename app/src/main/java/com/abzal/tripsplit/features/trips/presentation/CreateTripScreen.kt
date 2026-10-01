@@ -1,19 +1,21 @@
 package com.abzal.tripsplit.features.trips.presentation
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.abzal.tripsplit.core.designsystem.TripSplitTheme
+import com.abzal.tripsplit.core.designsystem.components.AppScaffold
+import com.abzal.tripsplit.core.designsystem.components.AppTextButton
+import com.abzal.tripsplit.core.designsystem.components.AppTopBar
+import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
+import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.di.injectedViewModel
-import com.abzal.tripsplit.features.autharization.domain.model.*
-import com.abzal.tripsplit.features.balances.domain.model.*
-import com.abzal.tripsplit.features.expenses.domain.model.*
-import com.abzal.tripsplit.features.insights.domain.model.*
-import com.abzal.tripsplit.features.participants.domain.model.*
-import com.abzal.tripsplit.features.trips.domain.model.*
+import com.abzal.tripsplit.features.trips.domain.model.TripDraft
+import com.abzal.tripsplit.features.trips.presentation.components.TripFormFields
 
 @Composable
 fun CreateTripRoute(
@@ -21,27 +23,71 @@ fun CreateTripRoute(
     onCreated: (String) -> Unit,
     onPickCurrencyClick: () -> Unit,
     pickedCurrency: String?,
-    viewModel: CreateTripViewModel = injectedViewModel { c, h -> CreateTripViewModel(c.tripRepository) },
+    viewModel: CreateTripViewModel = injectedViewModel { c, _ -> CreateTripViewModel(c.tripRepository) },
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(pickedCurrency) {
+        if (pickedCurrency != null) viewModel.onCurrencyPicked(pickedCurrency)
+    }
+
     CreateTripScreen(
         uiState = uiState,
-        onSaveClick = { name, currency, start, end -> viewModel.createTrip(name, currency, start, end, onCreated) },
+        onDraftChange = viewModel::onDraftChange,
+        onSaveClick = { viewModel.createTrip(onCreated) },
         onBackClick = onBackClick,
         onPickCurrencyClick = onPickCurrencyClick,
-        pickedCurrency = pickedCurrency,
     )
 }
 
 @Composable
 fun CreateTripScreen(
     uiState: CreateTripUiState,
-    onSaveClick: (String, String, Long?, Long?) -> Unit,
+    onDraftChange: (TripDraft) -> Unit,
+    onSaveClick: () -> Unit,
     onBackClick: () -> Unit,
     onPickCurrencyClick: () -> Unit,
-    pickedCurrency: String?,
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Text(text = "CreateTrip")
+    AppScaffold(
+        topBar = {
+            AppTopBar(
+                title = "Create trip",
+                onBackClick = onBackClick,
+                actions = {
+                    AppTextButton(text = "Create", onClick = onSaveClick, enabled = uiState.draft.isValid)
+                },
+            )
+        },
+        bottomBar = {
+            BottomActionBar {
+                PrimaryButton(
+                    text = "Create trip",
+                    icon = Icons.Outlined.Add,
+                    onClick = onSaveClick,
+                    enabled = uiState.draft.isValid,
+                    isLoading = uiState.isSaving,
+                )
+            }
+        },
+    ) {
+        TripFormFields(
+            draft = uiState.draft,
+            onDraftChange = onDraftChange,
+            onPickCurrencyClick = onPickCurrencyClick,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CreateTripScreenPreview() {
+    TripSplitTheme {
+        CreateTripScreen(
+            uiState = CreateTripUiState(TripDraft(name = "Lisbon Friends 2026", destination = "Lisbon, Portugal")),
+            onDraftChange = {},
+            onSaveClick = {},
+            onBackClick = {},
+            onPickCurrencyClick = {},
+        )
     }
 }

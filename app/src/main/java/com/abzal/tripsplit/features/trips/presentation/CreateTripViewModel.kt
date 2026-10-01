@@ -1,14 +1,8 @@
 package com.abzal.tripsplit.features.trips.presentation
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.abzal.tripsplit.features.autharization.domain.model.*
-import com.abzal.tripsplit.features.balances.domain.model.*
-import com.abzal.tripsplit.features.expenses.domain.model.*
-import com.abzal.tripsplit.features.insights.domain.model.*
-import com.abzal.tripsplit.features.participants.domain.model.*
-import com.abzal.tripsplit.features.trips.domain.model.*
+import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import com.abzal.tripsplit.features.trips.domain.repository.TripRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,27 +11,30 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class CreateTripUiState(
+    val draft: TripDraft = TripDraft(),
     val isSaving: Boolean = false,
-    val error: String? = null,
 )
 
 class CreateTripViewModel(
     private val tripRepository: TripRepository,
 ) : ViewModel() {
-
     private val _uiState = MutableStateFlow(CreateTripUiState())
     val uiState: StateFlow<CreateTripUiState> = _uiState.asStateFlow()
 
-    fun createTrip(
-        name: String,
-        currency: String,
-        startDateMillis: Long?,
-        endDateMillis: Long?,
-        onCreated: (String) -> Unit,
-    ) {
+    fun onDraftChange(draft: TripDraft) {
+        _uiState.update { it.copy(draft = draft) }
+    }
+
+    fun onCurrencyPicked(currency: String) {
+        _uiState.update { it.copy(draft = it.draft.copy(currency = currency)) }
+    }
+
+    fun createTrip(onCreated: (tripId: String) -> Unit) {
+        val draft = _uiState.value.draft
+        if (!draft.isValid) return
         viewModelScope.launch {
             _uiState.update { it.copy(isSaving = true) }
-            val trip = tripRepository.createTrip(name, currency, startDateMillis, endDateMillis)
+            val trip = tripRepository.createTrip(draft)
             _uiState.update { it.copy(isSaving = false) }
             onCreated(trip.id)
         }
