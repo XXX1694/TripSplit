@@ -14,25 +14,29 @@ import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 
-/** White rounded card that groups related content. */
+/** White rounded card that groups related content. Pass [onClick] to make the whole card clickable. */
 @Composable
 fun AppCard(
     modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
     contentPadding: Dp = Spacing.md,
     verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(Spacing.sm),
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        shape = MaterialTheme.shapes.extraLarge,
-        color = AppTheme.colors.surface,
-        shadowElevation = 2.dp,
-    ) {
+    val cardModifier = modifier.fillMaxWidth()
+    val shape = MaterialTheme.shapes.extraLarge
+    val color = AppTheme.colors.surface
+    val cardContent: @Composable () -> Unit = {
         Column(
             modifier = Modifier.padding(contentPadding),
             verticalArrangement = verticalArrangement,
             content = content,
         )
+    }
+    if (onClick != null) {
+        Surface(onClick = onClick, modifier = cardModifier, shape = shape, color = color, shadowElevation = 2.dp, content = cardContent)
+    } else {
+        Surface(modifier = cardModifier, shape = shape, color = color, shadowElevation = 2.dp, content = cardContent)
     }
 }
 

@@ -91,6 +91,7 @@ fun AppNavHost(
         composable(Routes.HOME) {
             HomeRoute(
                 onTripClick = { navController.navigate(Routes.tripOverview(it)) },
+                onEditTripClick = { navController.navigate(Routes.editTrip(it)) },
                 onCreateTripClick = { navController.navigate(Routes.CREATE_TRIP) },
                 onJoinTripClick = { navController.navigate(Routes.JOIN_TRIP) },
                 onProfileClick = { navController.navigate(Routes.PROFILE) },
