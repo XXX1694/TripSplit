@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface ParticipantRepository {
     fun observeParticipants(tripId: String): Flow<List<Participant>>
     suspend fun addParticipant(tripId: String, name: String, email: String?): Participant
+    suspend fun renameParticipant(participantId: String, name: String)
     suspend fun removeParticipant(participantId: String)
 
     fun observeInvitations(tripId: String): Flow<List<Invitation>>

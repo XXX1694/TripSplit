@@ -23,6 +23,10 @@ class ParticipantRepositoryImpl : ParticipantRepository {
         return participant
     }
 
+    override suspend fun renameParticipant(participantId: String, name: String) {
+        participants.update { list -> list.map { if (it.id == participantId) it.copy(name = name) else it } }
+    }
+
     override suspend fun removeParticipant(participantId: String) {
         participants.update { list -> list.filterNot { it.id == participantId } }
     }
