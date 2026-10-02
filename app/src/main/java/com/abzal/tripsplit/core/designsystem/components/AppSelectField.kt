@@ -22,7 +22,7 @@ import com.abzal.tripsplit.core.designsystem.Spacing
 
 /**
  * Field that looks like [AppTextField] but opens something on click (date picker, currency list, dropdown).
- * Shows a small [label], the [value] and an optional [caption].
+ * Shows a small [label], the [value] and an optional [caption]. [leadingContent] replaces [leadingIcon] (e.g. an avatar).
  */
 @Composable
 fun AppSelectField(
@@ -33,6 +33,7 @@ fun AppSelectField(
     leadingIcon: ImageVector? = null,
     caption: String? = null,
     isPlaceholder: Boolean = false,
+    leadingContent: @Composable (() -> Unit)? = null,
     trailing: @Composable (() -> Unit)? = null,
 ) {
     val colors = AppTheme.colors
@@ -48,7 +49,9 @@ fun AppSelectField(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
         ) {
-            if (leadingIcon != null) {
+            if (leadingContent != null) {
+                leadingContent()
+            } else if (leadingIcon != null) {
                 Icon(leadingIcon, contentDescription = null, tint = colors.textSecondary)
             }
             Column(modifier = Modifier.weight(1f)) {
