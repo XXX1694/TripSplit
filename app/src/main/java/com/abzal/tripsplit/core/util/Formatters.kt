@@ -47,3 +47,22 @@ fun currencyName(code: String): String =
 
 fun currencySymbol(code: String): String =
     runCatching { Currency.getInstance(code).symbol }.getOrDefault(code)
+
+/** "+€186.40" for positive and "−€104.20" for negative amounts. */
+fun formatSignedMoney(amount: Double, currencyCode: String): String {
+    val sign = if (amount >= 0) "+" else "−"
+    return sign + formatMoney(kotlin.math.abs(amount), currencyCode)
+}
+
+/** "Today", "Yesterday" or "29 Sep". */
+fun formatRelativeDate(millis: Long): String {
+    val day = 24 * 60 * 60 * 1000L
+    val zoneOffset = java.util.TimeZone.getDefault().getOffset(millis)
+    val nowOffset = java.util.TimeZone.getDefault().getOffset(System.currentTimeMillis())
+    val daysAgo = ((System.currentTimeMillis() + nowOffset) / day) - ((millis + zoneOffset) / day)
+    return when (daysAgo) {
+        0L -> "Today"
+        1L -> "Yesterday"
+        else -> SimpleDateFormat("d MMM", Locale.getDefault()).format(Date(millis))
+    }
+}
