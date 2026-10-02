@@ -197,6 +197,7 @@ fun AppNavHost(
             EditExpenseRoute(
                 onBackClick = { navController.popBackStack() },
                 onSaved = { navController.popBackStack() },
+                onDeleted = { navController.popBackStack(Routes.EXPENSE_DETAIL, inclusive = true) },
                 onPickCurrencyClick = { navController.navigate(Routes.CURRENCY_PICKER) },
                 pickedCurrency = entry.pickedCurrency(),
             )
