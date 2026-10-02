@@ -6,17 +6,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.MoreVert
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,7 +15,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.TripSplitTheme
 import com.abzal.tripsplit.core.designsystem.components.AppFab
+import com.abzal.tripsplit.core.designsystem.components.AppOverflowMenu
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
+import com.abzal.tripsplit.core.designsystem.components.MenuItem
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.designsystem.components.TripBottomBar
@@ -87,7 +80,11 @@ fun TripOverviewScreen(
                 title = trip?.name.orEmpty(),
                 subtitle = trip?.let { "${formatTripDates(it.startDateMillis, it.endDateMillis)} · ${it.currency}" },
                 onBackClick = onBackClick,
-                actions = { TripMenu(onEditTripClick = onEditTripClick, onParticipantsClick = onParticipantsClick) },
+                actions = {
+                    AppOverflowMenu(
+                        listOf(MenuItem("Edit trip", onEditTripClick), MenuItem("Participants", onParticipantsClick)),
+                    )
+                },
             )
         },
         bottomBar = {
@@ -134,18 +131,6 @@ private fun RecentExpenses(
                 onClick = { onExpenseClick(expense.id) },
             )
         }
-    }
-}
-
-@Composable
-private fun TripMenu(onEditTripClick: () -> Unit, onParticipantsClick: () -> Unit) {
-    var isOpen by remember { mutableStateOf(false) }
-    IconButton(onClick = { isOpen = true }) {
-        Icon(Icons.Outlined.MoreVert, contentDescription = "Trip menu")
-    }
-    DropdownMenu(expanded = isOpen, onDismissRequest = { isOpen = false }) {
-        DropdownMenuItem(text = { Text("Edit trip") }, onClick = { isOpen = false; onEditTripClick() })
-        DropdownMenuItem(text = { Text("Participants") }, onClick = { isOpen = false; onParticipantsClick() })
     }
 }
 

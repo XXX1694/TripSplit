@@ -75,3 +75,7 @@ fun formatDayHeader(millis: Long): String {
         else -> date
     }.uppercase()
 }
+
+/** "15 Sep 2026 at 20:42" */
+fun formatDateTime(millis: Long): String =
+    SimpleDateFormat("d MMM yyyy 'at' HH:mm", Locale.getDefault()).format(Date(millis))
