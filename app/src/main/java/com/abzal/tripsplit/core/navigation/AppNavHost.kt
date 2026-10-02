@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.abzal.tripsplit.core.designsystem.components.TripTab
 import com.abzal.tripsplit.features.autharization.presentation.PasswordResetRoute
 import com.abzal.tripsplit.features.autharization.presentation.ProfileRoute
 import com.abzal.tripsplit.features.autharization.presentation.SignInRoute
@@ -48,6 +49,23 @@ private fun NavBackStackEntry.pickedCurrency(): String? {
 private fun NavHostController.navigateAndClear(route: String, clearUpTo: String) {
     navigate(route) {
         popUpTo(clearUpTo) { inclusive = true }
+        launchSingleTop = true
+    }
+}
+
+/** Switches between the bottom tabs of a trip without piling up screens in the back stack. */
+private fun NavHostController.navigateToTripTab(tripId: String, tab: TripTab) {
+    if (tab == TripTab.Overview) {
+        popBackStack(Routes.TRIP_OVERVIEW, inclusive = false)
+        return
+    }
+    val route = when (tab) {
+        TripTab.Expenses -> Routes.expenseHistory(tripId)
+        TripTab.Balances -> Routes.balances(tripId)
+        else -> Routes.insights(tripId)
+    }
+    navigate(route) {
+        popUpTo(Routes.TRIP_OVERVIEW)
         launchSingleTop = true
     }
 }
@@ -153,7 +171,7 @@ fun AppNavHost(
         composable(Routes.EXPENSE_HISTORY) { entry ->
             val tripId = entry.tripId()
             ExpenseHistoryRoute(
-                onBackClick = { navController.popBackStack() },
+                onTabClick = { navController.navigateToTripTab(tripId, it) },
                 onExpenseClick = { navController.navigate(Routes.expenseDetail(tripId, it)) },
                 onAddExpenseClick = { navController.navigate(Routes.addExpense(tripId)) },
             )

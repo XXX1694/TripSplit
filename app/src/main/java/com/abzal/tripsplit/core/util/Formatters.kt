@@ -66,3 +66,12 @@ fun formatRelativeDate(millis: Long): String {
         else -> SimpleDateFormat("d MMM", Locale.getDefault()).format(Date(millis))
     }
 }
+
+/** "TODAY · 15 SEP", "YESTERDAY · 14 SEP" or "13 SEP". */
+fun formatDayHeader(millis: Long): String {
+    val date = SimpleDateFormat("d MMM", Locale.getDefault()).format(Date(millis))
+    return when (val relative = formatRelativeDate(millis)) {
+        "Today", "Yesterday" -> "$relative · $date"
+        else -> date
+    }.uppercase()
+}
