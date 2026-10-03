@@ -38,6 +38,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.components.AmountCard
 import com.abzal.tripsplit.core.designsystem.components.AppChip
 import com.abzal.tripsplit.core.designsystem.components.AppSelectField
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
@@ -48,6 +49,7 @@ import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.toInitials
 import com.abzal.tripsplit.core.util.currencySymbol
 import com.abzal.tripsplit.features.expenses.presentation.ExpenseDraft
+import com.abzal.tripsplit.features.participants.presentation.components.ParticipantSelect
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 
 /** All fields of the add / edit expense forms. State lives in the caller. */
@@ -75,7 +77,8 @@ fun ExpenseFormFields(
         )
         Overline("Category")
         CategoryChips(selected = draft.category, onSelect = { onDraftChange(draft.copy(category = it)) })
-        PaidBySelect(
+        ParticipantSelect(
+            label = "Paid by",
             participants = participants,
             selectedId = draft.paidById,
             onSelect = { onDraftChange(draft.copy(paidById = it)) },
@@ -93,67 +96,6 @@ fun ExpenseFormFields(
     }
 }
 
-/** Big bordered card: currency chip on the left, amount input on the right. */
-@Composable
-private fun AmountCard(
-    amountText: String,
-    currency: String,
-    onAmountChange: (String) -> Unit,
-    onCurrencyClick: () -> Unit,
-) {
-    val colors = AppTheme.colors
-    Surface(
-        shape = MaterialTheme.shapes.extraLarge,
-        color = colors.surface,
-        border = BorderStroke(2.dp, colors.primary),
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(Spacing.md),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Surface(onClick = onCurrencyClick, shape = RoundedCornerShape(50), color = colors.primaryContainer) {
-                Row(
-                    modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xs),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(currency, style = MaterialTheme.typography.labelLarge, color = colors.primary)
-                    Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null, tint = colors.primary, modifier = Modifier.size(18.dp))
-                }
-            }
-            Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.End) {
-                Overline("Amount")
-                AmountInput(amountText, currencySymbol(currency), onAmountChange)
-            }
-        }
-    }
-}
-
-@Composable
-private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit) {
-    val colors = AppTheme.colors
-    val style = MaterialTheme.typography.headlineLarge.copy(
-        color = if (text.isEmpty()) colors.textDisabled else colors.textPrimary,
-        textAlign = TextAlign.End,
-    )
-    BasicTextField(
-        value = text,
-        onValueChange = onChange,
-        singleLine = true,
-        textStyle = style,
-        cursorBrush = SolidColor(colors.primary),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-        decorationBox = { inner ->
-            Row(horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.CenterVertically) {
-                Text(symbol, style = style.copy(color = colors.textDisabled))
-                Box(contentAlignment = Alignment.CenterEnd) {
-                    if (text.isEmpty()) Text("0.00", style = style)
-                    inner()
-                }
-            }
-        },
-    )
-}
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CategoryChips(selected: String, onSelect: (String) -> Unit) {
@@ -165,33 +107,6 @@ private fun CategoryChips(selected: String, onSelect: (String) -> Unit) {
                 selected = category == selected,
                 onClick = { onSelect(category) },
             )
-        }
-    }
-}
-
-@Composable
-private fun PaidBySelect(participants: List<Participant>, selectedId: String?, onSelect: (String) -> Unit) {
-    var isOpen by remember { mutableStateOf(false) }
-    val selected = participants.firstOrNull { it.id == selectedId }
-
-    Box {
-        AppSelectField(
-            label = "Paid by",
-            value = selected?.name.orEmpty(),
-            onClick = { isOpen = true },
-            leadingContent = { Avatar(initials = selected?.name.orEmpty().toInitials()) },
-            trailing = { Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null) },
-        )
-        DropdownMenu(expanded = isOpen, onDismissRequest = { isOpen = false }) {
-            participants.forEach { participant ->
-                DropdownMenuItem(
-                    text = { Text(participant.name) },
-                    onClick = {
-                        isOpen = false
-                        onSelect(participant.id)
-                    },
-                )
-            }
         }
     }
 }

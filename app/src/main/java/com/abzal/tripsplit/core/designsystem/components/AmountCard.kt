@@ -1,0 +1,92 @@
+package com.abzal.tripsplit.core.designsystem.components
+
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.KeyboardArrowDown
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.util.currencySymbol
+
+/** Big bordered card: currency chip on the left, amount input on the right. */
+@Composable
+fun AmountCard(
+    amountText: String,
+    currency: String,
+    onAmountChange: (String) -> Unit,
+    onCurrencyClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val colors = AppTheme.colors
+    Surface(
+        modifier = modifier,
+        shape = MaterialTheme.shapes.extraLarge,
+        color = colors.surface,
+        border = BorderStroke(2.dp, colors.primary),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(Spacing.md),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Surface(onClick = onCurrencyClick, shape = RoundedCornerShape(50), color = colors.primaryContainer) {
+                Row(
+                    modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xs),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(currency, style = MaterialTheme.typography.labelLarge, color = colors.primary)
+                    Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null, tint = colors.primary, modifier = Modifier.size(18.dp))
+                }
+            }
+            Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.End) {
+                Overline("Amount")
+                AmountInput(amountText, currencySymbol(currency), onAmountChange)
+            }
+        }
+    }
+}
+
+@Composable
+private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit) {
+    val colors = AppTheme.colors
+    val style = MaterialTheme.typography.headlineLarge.copy(
+        color = if (text.isEmpty()) colors.textDisabled else colors.textPrimary,
+        textAlign = TextAlign.End,
+    )
+    BasicTextField(
+        value = text,
+        onValueChange = onChange,
+        singleLine = true,
+        textStyle = style,
+        cursorBrush = SolidColor(colors.primary),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        decorationBox = { inner ->
+            Row(horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.CenterVertically) {
+                Text(symbol, style = style.copy(color = colors.textDisabled))
+                Box(contentAlignment = Alignment.CenterEnd) {
+                    if (text.isEmpty()) Text("0.00", style = style)
+                    inner()
+                }
+            }
+        },
+    )
+}
