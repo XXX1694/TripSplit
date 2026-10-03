@@ -263,8 +263,8 @@ fun AppNavHost(
         }
 
         // ---------- Insights ----------
-        composable(Routes.INSIGHTS) {
-            SpendingInsightsRoute(onBackClick = { navController.popBackStack() })
+        composable(Routes.INSIGHTS) { entry ->
+            SpendingInsightsRoute(onTabClick = { navController.navigateToTripTab(entry.tripId(), it) })
         }
     }
 }

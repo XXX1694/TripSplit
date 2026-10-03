@@ -79,3 +79,13 @@ fun formatDayHeader(millis: Long): String {
 /** "15 Sep 2026 at 20:42" */
 fun formatDateTime(millis: Long): String =
     SimpleDateFormat("d MMM yyyy 'at' HH:mm", Locale.getDefault()).format(Date(millis))
+
+/** Midnight of the day that contains [millis] (device time zone). */
+fun startOfDay(millis: Long): Long =
+    Calendar.getInstance().apply {
+        timeInMillis = millis
+        set(Calendar.HOUR_OF_DAY, 0)
+        set(Calendar.MINUTE, 0)
+        set(Calendar.SECOND, 0)
+        set(Calendar.MILLISECOND, 0)
+    }.timeInMillis
