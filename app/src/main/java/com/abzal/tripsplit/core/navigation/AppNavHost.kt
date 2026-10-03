@@ -243,7 +243,7 @@ fun AppNavHost(
         composable(Routes.BALANCES) { entry ->
             val tripId = entry.tripId()
             BalancesRoute(
-                onBackClick = { navController.popBackStack() },
+                onTabClick = { navController.navigateToTripTab(tripId, it) },
                 onOptimizedClick = { navController.navigate(Routes.optimizedSettlement(tripId)) },
                 onRecordSettlementClick = { navController.navigate(Routes.recordSettlement(tripId)) },
             )
