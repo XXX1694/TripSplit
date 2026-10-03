@@ -3,6 +3,7 @@ package com.abzal.tripsplit.features.balances.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.balances.domain.model.Settlement
 import com.abzal.tripsplit.features.balances.domain.model.Transfer
 import com.abzal.tripsplit.features.balances.domain.repository.BalanceRepository

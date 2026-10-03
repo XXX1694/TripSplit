@@ -4,15 +4,12 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Email
-import androidx.compose.material.icons.outlined.PersonAdd
 import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.PersonAdd
 import androidx.compose.material.icons.outlined.VpnKey
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.abzal.tripsplit.core.designsystem.TripSplitTheme
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
@@ -22,27 +19,10 @@ import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.designsystem.components.Tone
-import com.abzal.tripsplit.core.di.injectedViewModel
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.features.participants.presentation.components.TripHeaderCard
-import com.abzal.tripsplit.features.trips.domain.model.Trip
-
-@Composable
-fun AddParticipantRoute(
-    onBackClick: () -> Unit,
-    onAdded: () -> Unit,
-    viewModel: AddParticipantViewModel = injectedViewModel { c, h ->
-        AddParticipantViewModel(h, c.tripRepository, c.participantRepository)
-    },
-) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    AddParticipantScreen(
-        uiState = uiState,
-        onNameChange = viewModel::onNameChange,
-        onEmailChange = viewModel::onEmailChange,
-        onAddClick = { viewModel.add(onAdded) },
-        onBackClick = onBackClick,
-    )
-}
+import com.abzal.tripsplit.features.participants.presentation.components.label
+import com.abzal.tripsplit.features.participants.presentation.components.tone
 
 @Composable
 fun AddParticipantScreen(
@@ -97,14 +77,13 @@ fun AddParticipantScreen(
 @Preview(showBackground = true)
 @Composable
 private fun AddParticipantScreenPreview() {
-    TripSplitTheme {
+    AppPreview {
         AddParticipantScreen(
-            uiState = AddParticipantUiState(
-                trip = Trip("1", "Lisbon Friends 2026", "EUR"),
-                name = "Inês Silva",
-                email = "ines.silva@gmail.com",
-            ),
-            onNameChange = {}, onEmailChange = {}, onAddClick = {}, onBackClick = {},
+            uiState = sampleAddParticipantUiState,
+            onNameChange = {},
+            onEmailChange = {},
+            onAddClick = {},
+            onBackClick = {},
         )
     }
 }

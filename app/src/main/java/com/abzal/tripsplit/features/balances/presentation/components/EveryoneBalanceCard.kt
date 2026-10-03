@@ -2,54 +2,29 @@ package com.abzal.tripsplit.features.balances.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
 import com.abzal.tripsplit.core.designsystem.components.AppProgressBar
 import com.abzal.tripsplit.core.designsystem.components.Avatar
-import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
+import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.designsystem.components.toInitials
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.core.util.formatSignedMoney
 import com.abzal.tripsplit.features.balances.presentation.BalancesUiState
+import com.abzal.tripsplit.features.balances.presentation.sampleBalancesUiState
+import com.abzal.tripsplit.features.participants.presentation.components.tone
 import kotlin.math.abs
-
-private val mutedWhite = Color.White.copy(alpha = 0.8f)
-
-/** Dark card: how much is still to settle, with trip total, per person and already paid back. */
-@Composable
-fun BalanceSummaryCard(uiState: BalancesUiState, modifier: Modifier = Modifier) {
-    HeroCard(modifier = modifier) {
-        Text("STILL TO SETTLE", style = MaterialTheme.typography.labelSmall, color = mutedWhite)
-        Text(formatMoney(uiState.unsettledTotal, uiState.currency), style = MaterialTheme.typography.displayMedium)
-        HorizontalDivider(color = Color.White.copy(alpha = 0.3f))
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            SummaryStat("TRIP TOTAL", formatMoney(uiState.totalSpent, uiState.currency))
-            SummaryStat("PER PERSON", formatMoney(uiState.perPerson, uiState.currency))
-            SummaryStat("PAID BACK", formatMoney(uiState.settledTotal, uiState.currency))
-        }
-    }
-}
-
-@Composable
-private fun SummaryStat(label: String, value: String) {
-    Column {
-        Text(label, style = MaterialTheme.typography.labelSmall, color = mutedWhite)
-        Text(value, style = MaterialTheme.typography.titleSmall)
-    }
-}
 
 /** Everyone's paid amount, share and net balance with a bar. */
 @Composable
@@ -68,7 +43,7 @@ fun EveryoneBalanceCard(uiState: BalancesUiState, modifier: Modifier = Modifier)
                     title = name,
                     subtitle = "Paid ${formatMoney(uiState.paidBy(balance.participantId), uiState.currency)} · " +
                         "Share ${formatMoney(uiState.shareOf(balance.participantId), uiState.currency)}",
-                    leading = { Avatar(initials = name.toInitials(), tone = avatarToneAt(index), size = 48.dp) },
+                    leading = { Avatar(initials = name.toInitials(), tone = avatarToneAt(index), size = Sizes.avatarMedium) },
                     trailing = {
                         Column(horizontalAlignment = Alignment.End) {
                             Text(
@@ -87,5 +62,15 @@ fun EveryoneBalanceCard(uiState: BalancesUiState, modifier: Modifier = Modifier)
                 AppProgressBar(progress = (abs(balance.amount) / maxAmount).toFloat(), color = color)
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun EveryoneBalanceCardPreview() {
+    AppPreview {
+        EveryoneBalanceCard(
+            uiState = sampleBalancesUiState,
+        )
     }
 }

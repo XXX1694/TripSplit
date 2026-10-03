@@ -2,6 +2,7 @@ package com.abzal.tripsplit.features.trips.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import com.abzal.tripsplit.features.trips.domain.repository.TripRepository
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -3,6 +3,7 @@ package com.abzal.tripsplit.features.expenses.presentation
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.core.util.formatDayHeader
 import com.abzal.tripsplit.features.expenses.domain.model.Expense
 import com.abzal.tripsplit.features.expenses.domain.repository.ExpenseRepository

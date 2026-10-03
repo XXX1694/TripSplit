@@ -1,13 +1,14 @@
 package com.abzal.tripsplit.features.trips.data.repository
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.trips.domain.model.Trip
 import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import com.abzal.tripsplit.features.trips.domain.repository.TripRepository
+import java.util.UUID
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
-import java.util.UUID
 
 class TripRepositoryImpl : TripRepository {
     private val trips = MutableStateFlow<List<Trip>>(emptyList())

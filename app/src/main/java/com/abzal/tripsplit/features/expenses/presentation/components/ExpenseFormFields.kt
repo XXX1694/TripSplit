@@ -1,56 +1,25 @@
 package com.abzal.tripsplit.features.expenses.presentation.components
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Calculate
-import androidx.compose.material.icons.outlined.Check
-import androidx.compose.material.icons.outlined.KeyboardArrowDown
 import androidx.compose.material.icons.outlined.Receipt
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import com.abzal.tripsplit.core.designsystem.AppTheme
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AmountCard
-import com.abzal.tripsplit.core.designsystem.components.AppChip
-import com.abzal.tripsplit.core.designsystem.components.AppSelectField
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
-import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.Overline
-import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
-import com.abzal.tripsplit.core.designsystem.components.toInitials
-import com.abzal.tripsplit.core.util.currencySymbol
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.features.expenses.presentation.ExpenseDraft
-import com.abzal.tripsplit.features.participants.presentation.components.ParticipantSelect
+import com.abzal.tripsplit.features.expenses.presentation.sampleExpenseDraft
 import com.abzal.tripsplit.features.participants.domain.model.Participant
+import com.abzal.tripsplit.features.participants.presentation.components.ParticipantSelect
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 /** All fields of the add / edit expense forms. State lives in the caller. */
 @Composable
@@ -96,97 +65,15 @@ fun ExpenseFormFields(
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+@Preview(showBackground = true)
 @Composable
-private fun CategoryChips(selected: String, onSelect: (String) -> Unit) {
-    FlowRow(horizontalArrangement = Arrangement.spacedBy(Spacing.xs), verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
-        expenseCategories.forEach { category ->
-            AppChip(
-                text = category,
-                icon = categoryIcon(category),
-                selected = category == selected,
-                onClick = { onSelect(category) },
-            )
-        }
-    }
-}
-
-@Composable
-private fun SplitHeader(draft: ExpenseDraft) {
-    val count = draft.participantIds.size
-    val share = draft.amount?.takeIf { count > 0 }?.let { "%.2f".format(it / count) }
-    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        Overline("Split between")
-        Text(
-            text = "Equally · " + (share?.let { "${draft.currency} $it each" } ?: "$count people"),
-            style = MaterialTheme.typography.labelMedium,
-            color = AppTheme.colors.positive,
+private fun ExpenseFormFieldsPreview() {
+    AppPreview {
+        ExpenseFormFields(
+            draft = sampleExpenseDraft,
+            participants = sampleParticipants,
+            onDraftChange = {},
+            onPickCurrencyClick = {},
         )
-    }
-}
-
-/** Participants in two columns; tap to include or exclude from the split. */
-@Composable
-private fun SplitGrid(participants: List<Participant>, selectedIds: Set<String>, onToggle: (String) -> Unit) {
-    val percent = if (selectedIds.isEmpty()) 0 else 100 / selectedIds.size
-    Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-        participants.chunked(2).forEach { pair ->
-            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-                pair.forEach { participant ->
-                    val isSelected = participant.id in selectedIds
-                    SplitTile(
-                        participant = participant,
-                        toneIndex = participants.indexOf(participant),
-                        isSelected = isSelected,
-                        percent = if (isSelected) percent else null,
-                        onClick = { onToggle(participant.id) },
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                if (pair.size == 1) Box(Modifier.weight(1f))
-            }
-        }
-    }
-}
-
-@Composable
-private fun SplitTile(
-    participant: Participant,
-    toneIndex: Int,
-    isSelected: Boolean,
-    percent: Int?,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val colors = AppTheme.colors
-    Surface(
-        onClick = onClick,
-        modifier = modifier,
-        shape = MaterialTheme.shapes.medium,
-        color = if (isSelected) colors.primaryContainer else colors.surface,
-        border = BorderStroke(1.dp, if (isSelected) colors.primary else colors.outline),
-    ) {
-        Row(
-            modifier = Modifier.padding(Spacing.sm),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
-        ) {
-            Avatar(initials = participant.name.toInitials(), tone = avatarToneAt(toneIndex), size = 28.dp)
-            Text(
-                text = participant.name.substringBefore(' '),
-                modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.titleSmall,
-                color = colors.textPrimary,
-            )
-            if (percent != null) {
-                Text("$percent%", style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
-                Icon(
-                    imageVector = Icons.Outlined.Check,
-                    contentDescription = "Included",
-                    tint = colors.onPrimary,
-                    modifier = Modifier.size(20.dp).background(colors.primary, RoundedCornerShape(6.dp)),
-                )
-            }
-        }
     }
 }

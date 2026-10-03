@@ -1,8 +1,8 @@
 package com.abzal.tripsplit.features.participants.presentation
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.autharization.domain.model.*
 import com.abzal.tripsplit.features.balances.domain.model.*
 import com.abzal.tripsplit.features.expenses.domain.model.*

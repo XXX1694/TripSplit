@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.insights.domain.repository
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.insights.domain.model.CategorySpending
 import kotlinx.coroutines.flow.Flow
 

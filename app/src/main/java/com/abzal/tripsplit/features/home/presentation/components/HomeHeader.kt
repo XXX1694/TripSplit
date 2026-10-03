@@ -2,9 +2,11 @@ package com.abzal.tripsplit.features.home.presentation.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -12,9 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.components.Avatar
+import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.designsystem.components.toInitials
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.util.formatToday
 
 /** "TUESDAY, 29 SEP / Where to next, Maya?" with the profile avatar on the right. */
@@ -41,9 +47,22 @@ fun HomeGreeting(
                 color = AppTheme.colors.textPrimary,
             )
         }
-        Avatar(
-            initials = userName.toInitials(),
-            modifier = Modifier.clip(CircleShape).clickable(onClick = onProfileClick),
+        Box(
+            modifier = Modifier.size(Sizes.touchTarget).clip(CircleShape).clickable(onClick = onProfileClick),
+            contentAlignment = Alignment.Center,
+        ) {
+            Avatar(initials = userName.toInitials())
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeGreetingPreview() {
+    AppPreview {
+        HomeGreeting(
+            userName = "Sample text",
+            onProfileClick = {},
         )
     }
 }

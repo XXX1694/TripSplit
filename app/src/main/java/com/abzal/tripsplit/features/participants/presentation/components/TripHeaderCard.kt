@@ -15,11 +15,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
+import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
+import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.sampleTrip
 import com.abzal.tripsplit.core.util.formatTripDates
 import com.abzal.tripsplit.features.trips.domain.model.Trip
 
@@ -34,7 +38,7 @@ fun TripHeaderCard(
     HeroCard(modifier = modifier) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
             Box(
-                modifier = Modifier.size(48.dp).clip(MaterialTheme.shapes.medium).background(Color.White.copy(alpha = 0.15f)),
+                modifier = Modifier.size(Sizes.iconBadgeLarge).clip(MaterialTheme.shapes.medium).background(AppTheme.colors.heroOverlay),
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(icon, contentDescription = null)
@@ -44,9 +48,20 @@ fun TripHeaderCard(
                 Text(
                     text = listOfNotNull(trip?.let { formatTripDates(it.startDateMillis, it.endDateMillis) }, caption).joinToString(" · "),
                     style = MaterialTheme.typography.bodySmall,
-                    color = Color.White.copy(alpha = 0.8f),
+                    color = AppTheme.colors.onHeroMuted,
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun TripHeaderCardPreview() {
+    AppPreview {
+        TripHeaderCard(
+            trip = sampleTrip,
+            caption = "Caption",
+        )
     }
 }

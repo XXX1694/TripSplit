@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.expenses.presentation
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.expenses.domain.model.Expense
 
 /** Values of the add / edit expense form. The amount is kept as text while the user types. */

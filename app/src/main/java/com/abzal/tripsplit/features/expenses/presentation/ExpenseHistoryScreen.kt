@@ -15,46 +15,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.abzal.tripsplit.core.designsystem.TripSplitTheme
+import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppFab
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.TripBottomBar
 import com.abzal.tripsplit.core.designsystem.components.TripTab
-import com.abzal.tripsplit.core.di.injectedViewModel
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.util.formatMoney
-import com.abzal.tripsplit.features.expenses.domain.model.Expense
 import com.abzal.tripsplit.features.expenses.presentation.components.EmptyHint
 import com.abzal.tripsplit.features.expenses.presentation.components.ExpenseDaySection
 import com.abzal.tripsplit.features.expenses.presentation.components.ExpenseFilterRow
-import com.abzal.tripsplit.features.participants.domain.model.Participant
-import com.abzal.tripsplit.features.trips.domain.model.Trip
-
-@Composable
-fun ExpenseHistoryRoute(
-    onTabClick: (TripTab) -> Unit,
-    onExpenseClick: (String) -> Unit,
-    onAddExpenseClick: () -> Unit,
-    viewModel: ExpenseHistoryViewModel = injectedViewModel { c, h ->
-        ExpenseHistoryViewModel(h, c.tripRepository, c.expenseRepository, c.participantRepository)
-    },
-) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    ExpenseHistoryScreen(
-        uiState = uiState,
-        onQueryChange = viewModel::onQueryChange,
-        onCategoryFilter = viewModel::onCategoryFilter,
-        onPayerFilter = viewModel::onPayerFilter,
-        onCurrencyFilter = viewModel::onCurrencyFilter,
-        onClearFilters = viewModel::clearFilters,
-        onTabClick = onTabClick,
-        onExpenseClick = onExpenseClick,
-        onAddExpenseClick = onAddExpenseClick,
-    )
-}
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 @Composable
 fun ExpenseHistoryScreen(
@@ -107,23 +80,16 @@ fun ExpenseHistoryScreen(
         uiState.groups.forEach { group ->
             ExpenseDaySection(group = group, uiState = uiState, onExpenseClick = onExpenseClick)
         }
-        Spacer(Modifier.height(80.dp))
+        Spacer(Modifier.height(Spacing.fabClearance))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun ExpenseHistoryScreenPreview() {
-    TripSplitTheme {
+    AppPreview {
         ExpenseHistoryScreen(
-            uiState = ExpenseHistoryUiState(
-                trip = Trip("1", "Lisbon Friends 2026", "EUR"),
-                participants = listOf(Participant("a", "1", "Maya Kim")),
-                expenses = listOf(
-                    Expense(tripId = "1", title = "Dinner at Prado", amount = 148.0, currency = "EUR", paidById = "a", participantIds = listOf("a"), category = "Food"),
-                    Expense(tripId = "1", title = "Alfama apartment", amount = 320.0, currency = "EUR", paidById = "a", participantIds = listOf("a"), category = "Stay", dateMillis = System.currentTimeMillis() - 86_400_000L),
-                ),
-            ),
+            uiState = sampleExpenseHistoryUiState,
             onQueryChange = {},
             onCategoryFilter = {},
             onPayerFilter = {},

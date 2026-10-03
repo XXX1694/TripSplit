@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.insights.data.repository
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.expenses.domain.repository.ExpenseRepository
 import com.abzal.tripsplit.features.insights.domain.model.CategorySpending
 import com.abzal.tripsplit.features.insights.domain.repository.InsightsRepository

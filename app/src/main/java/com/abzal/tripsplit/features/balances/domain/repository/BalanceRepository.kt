@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.balances.domain.repository
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.balances.domain.model.Balance
 import com.abzal.tripsplit.features.balances.domain.model.Settlement
 import com.abzal.tripsplit.features.balances.domain.model.Transfer

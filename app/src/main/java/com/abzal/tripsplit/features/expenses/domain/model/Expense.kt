@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.expenses.domain.model
 
+import com.abzal.tripsplit.core.navigation.tripId
 import java.util.UUID
 
 data class Expense(

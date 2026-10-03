@@ -8,13 +8,10 @@ import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
-import com.abzal.tripsplit.core.designsystem.TripSplitTheme
 import com.abzal.tripsplit.core.designsystem.components.AmountCard
 import com.abzal.tripsplit.core.designsystem.components.AppDateField
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
@@ -23,29 +20,12 @@ import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
-import com.abzal.tripsplit.core.di.injectedViewModel
+import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.features.balances.presentation.components.TransferFlow
-import com.abzal.tripsplit.features.participants.domain.model.Participant
 import com.abzal.tripsplit.features.participants.presentation.components.ParticipantSelect
-import com.abzal.tripsplit.features.trips.domain.model.Trip
-
-@Composable
-fun RecordSettlementRoute(
-    onBackClick: () -> Unit,
-    onRecorded: () -> Unit,
-    viewModel: RecordSettlementViewModel = injectedViewModel { c, h ->
-        RecordSettlementViewModel(h, c.tripRepository, c.balanceRepository, c.participantRepository)
-    },
-) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    RecordSettlementScreen(
-        uiState = uiState,
-        onDraftChange = viewModel::onDraftChange,
-        onRecordClick = { viewModel.record(onRecorded) },
-        onBackClick = onBackClick,
-    )
-}
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 @Composable
 fun RecordSettlementScreen(
@@ -78,15 +58,15 @@ fun RecordSettlementScreen(
         },
     ) {
         HeroCard {
-            Text("PAYMENT", style = MaterialTheme.typography.labelSmall, color = Color.White.copy(alpha = 0.8f))
+            Text("PAYMENT", style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.onHeroMuted)
             TransferFlow(
                 fromName = uiState.nameOf(draft.fromId),
                 toName = uiState.nameOf(draft.toId),
                 amountText = draft.amount?.let { formatMoney(it, uiState.currency) } ?: "—",
                 fromToneIndex = uiState.toneIndexOf(draft.fromId),
                 toToneIndex = uiState.toneIndexOf(draft.toId),
-                contentColor = Color.White,
-                nameColor = Color.White,
+                contentColor = AppTheme.colors.onHero,
+                nameColor = AppTheme.colors.onHero,
             )
         }
         Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
@@ -123,13 +103,9 @@ fun RecordSettlementScreen(
 @Preview(showBackground = true)
 @Composable
 private fun RecordSettlementScreenPreview() {
-    TripSplitTheme {
+    AppPreview {
         RecordSettlementScreen(
-            uiState = RecordSettlementUiState(
-                trip = Trip("1", "Lisbon Friends 2026", "EUR"),
-                participants = listOf(Participant("a", "1", "Maya Kim"), Participant("b", "1", "Leo Evans")),
-                draft = SettlementDraft(fromId = "b", toId = "a", amountText = "104.20"),
-            ),
+            uiState = sampleRecordSettlementUiState,
             onDraftChange = {},
             onRecordClick = {},
             onBackClick = {},

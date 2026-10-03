@@ -1,0 +1,42 @@
+package com.abzal.tripsplit.features.home.presentation.components
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.util.formatMoney
+import com.abzal.tripsplit.features.home.presentation.TripSummary
+import com.abzal.tripsplit.features.home.presentation.sampleTripSummary
+
+@Composable
+fun TripTotal(summary: TripSummary, amountColor: Color) {
+    Column(horizontalAlignment = Alignment.End) {
+        Text(
+            text = "Total spent",
+            style = MaterialTheme.typography.bodySmall,
+            color = AppTheme.colors.textSecondary,
+        )
+        Text(
+            text = formatMoney(summary.totalSpent, summary.trip.currency),
+            style = MaterialTheme.typography.titleMedium,
+            color = amountColor,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun TripTotalPreview() {
+    AppPreview {
+        TripTotal(
+            summary = sampleTripSummary,
+            amountColor = AppTheme.colors.primary,
+        )
+    }
+}

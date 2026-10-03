@@ -1,5 +1,7 @@
 package com.abzal.tripsplit.features.participants.domain.model
 
+import com.abzal.tripsplit.core.navigation.tripId
+
 data class Invitation(
     val id: String,
     val tripId: String,

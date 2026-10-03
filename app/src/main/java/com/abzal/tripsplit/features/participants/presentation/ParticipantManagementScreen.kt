@@ -5,53 +5,23 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
-import com.abzal.tripsplit.core.designsystem.TripSplitTheme
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppDivider
 import com.abzal.tripsplit.core.designsystem.components.AppOverflowMenu
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.MenuItem
-import com.abzal.tripsplit.core.di.injectedViewModel
+import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 import com.abzal.tripsplit.features.participants.presentation.components.EditParticipantPanel
 import com.abzal.tripsplit.features.participants.presentation.components.ParticipantRow
 import com.abzal.tripsplit.features.participants.presentation.components.QuickAddParticipantCard
-import com.abzal.tripsplit.features.trips.domain.model.Trip
-
-@Composable
-fun ParticipantManagementRoute(
-    onBackClick: () -> Unit,
-    onAddParticipantClick: () -> Unit,
-    onInviteClick: () -> Unit,
-    onInvitationsClick: () -> Unit,
-    viewModel: ParticipantManagementViewModel = injectedViewModel { c, h ->
-        ParticipantManagementViewModel(h, c.tripRepository, c.participantRepository)
-    },
-) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    ParticipantManagementScreen(
-        uiState = uiState,
-        onBackClick = onBackClick,
-        onAddParticipantClick = onAddParticipantClick,
-        onInviteClick = onInviteClick,
-        onInvitationsClick = onInvitationsClick,
-        onEmailChange = viewModel::onEmailChange,
-        onQuickAddClick = viewModel::addByEmail,
-        onEditClick = viewModel::startEditing,
-        onEditingNameChange = viewModel::onEditingNameChange,
-        onCancelEditClick = viewModel::cancelEditing,
-        onSaveEditClick = viewModel::saveEditing,
-        onRemoveClick = viewModel::removeEditing,
-    )
-}
 
 @Composable
 fun ParticipantManagementScreen(
@@ -121,21 +91,20 @@ fun ParticipantManagementScreen(
 @Preview(showBackground = true)
 @Composable
 private fun ParticipantManagementScreenPreview() {
-    val participants = listOf(
-        Participant("a", "1", "Maya Kim", "maya@hey.com"),
-        Participant("b", "1", "Leo Evans", "leo.evans@gmail.com"),
-    )
-    TripSplitTheme {
+    AppPreview {
         ParticipantManagementScreen(
-            uiState = ParticipantManagementUiState(
-                trip = Trip("1", "Lisbon Friends 2026", "EUR"),
-                participants = participants,
-                editingId = "b",
-                editingName = "Leo Evans",
-            ),
-            onBackClick = {}, onAddParticipantClick = {}, onInviteClick = {}, onInvitationsClick = {},
-            onEmailChange = {}, onQuickAddClick = {}, onEditClick = {}, onEditingNameChange = {},
-            onCancelEditClick = {}, onSaveEditClick = {}, onRemoveClick = {},
+            uiState = sampleParticipantManagementUiState,
+            onBackClick = {},
+            onAddParticipantClick = {},
+            onInviteClick = {},
+            onInvitationsClick = {},
+            onEmailChange = {},
+            onQuickAddClick = {},
+            onEditClick = {},
+            onEditingNameChange = {},
+            onCancelEditClick = {},
+            onSaveEditClick = {},
+            onRemoveClick = {},
         )
     }
 }

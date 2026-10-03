@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.trips.domain.repository
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.trips.domain.model.Trip
 import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import kotlinx.coroutines.flow.Flow

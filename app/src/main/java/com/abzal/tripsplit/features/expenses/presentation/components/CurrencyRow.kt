@@ -15,14 +15,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.sampleCurrencies
 import com.abzal.tripsplit.features.expenses.domain.model.CurrencyInfo
+import com.abzal.tripsplit.features.participants.presentation.components.tone
 
 /** One currency: colored code badge, name, symbol and a check mark when selected. */
 @Composable
@@ -48,7 +52,7 @@ fun CurrencyRow(
                 if (isSelected) {
                     Icon(Icons.Outlined.CheckCircle, contentDescription = "Selected", tint = AppTheme.colors.primary)
                 } else {
-                    Box(Modifier.width(24.dp))
+                    Box(Modifier.width(Sizes.iconDefault))
                 }
             }
         },
@@ -59,9 +63,22 @@ fun CurrencyRow(
 private fun CurrencyCodeBadge(code: String, tone: Tone) {
     val colors = tone.colors()
     Box(
-        modifier = Modifier.size(48.dp).clip(MaterialTheme.shapes.medium).background(colors.container),
+        modifier = Modifier.size(Sizes.iconBadgeLarge).clip(MaterialTheme.shapes.medium).background(colors.container),
         contentAlignment = Alignment.Center,
     ) {
         Text(text = code, style = MaterialTheme.typography.labelMedium, color = colors.content)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CurrencyRowPreview() {
+    AppPreview {
+        CurrencyRow(
+            currency = sampleCurrencies.first(),
+            toneIndex = 0,
+            isSelected = true,
+            onClick = {},
+        )
     }
 }

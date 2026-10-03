@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.participants.domain.repository
 
+import com.abzal.tripsplit.core.navigation.tripId
 import com.abzal.tripsplit.features.participants.domain.model.Invitation
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 import kotlinx.coroutines.flow.Flow

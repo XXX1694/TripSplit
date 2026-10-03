@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.balances.domain.model
 
+import com.abzal.tripsplit.core.navigation.tripId
 import java.util.UUID
 
 data class Settlement(

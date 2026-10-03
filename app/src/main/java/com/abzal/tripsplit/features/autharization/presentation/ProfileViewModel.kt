@@ -1,9 +1,9 @@
 package com.abzal.tripsplit.features.autharization.presentation
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.abzal.tripsplit.features.autharization.domain.model.*
+import com.abzal.tripsplit.features.autharization.domain.model.User
 import com.abzal.tripsplit.features.autharization.domain.repository.AuthRepository
 import com.abzal.tripsplit.features.balances.domain.model.*
 import com.abzal.tripsplit.features.expenses.domain.model.*

@@ -2,10 +2,10 @@ package com.abzal.tripsplit.features.autharization.data.repository
 
 import com.abzal.tripsplit.features.autharization.domain.model.User
 import com.abzal.tripsplit.features.autharization.domain.repository.AuthRepository
+import java.util.UUID
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import java.util.UUID
 
 /** Local in-memory stub. Replace with Room/remote data source later. */
 class AuthRepositoryImpl : AuthRepository {
