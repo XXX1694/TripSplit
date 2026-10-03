@@ -8,10 +8,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** Base of every screen: background, optional top/bottom bars and a scrollable padded column. */
 @Composable
@@ -53,4 +56,24 @@ fun BottomActionBar(
         verticalArrangement = Arrangement.spacedBy(Spacing.xs),
         content = content,
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppScaffoldPreview() {
+    AppPreview {
+        AppScaffold(
+            content = { Text("Content") },
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun BottomActionBarPreview() {
+    AppPreview {
+        BottomActionBar(
+            content = { Text("Content") },
+        )
+    }
 }

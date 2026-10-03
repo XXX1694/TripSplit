@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
+import com.abzal.tripsplit.core.designsystem.components.colors
 
 private val LocalAppColors = staticCompositionLocalOf { LightAppColors }
 

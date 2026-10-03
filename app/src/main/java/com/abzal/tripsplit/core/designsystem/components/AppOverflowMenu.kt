@@ -12,6 +12,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 class MenuItem(val label: String, val onClick: () -> Unit)
 
@@ -33,5 +36,15 @@ fun AppOverflowMenu(items: List<MenuItem>) {
                 },
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppOverflowMenuPreview() {
+    AppPreview {
+        AppOverflowMenu(
+            items = listOf(MenuItem("Edit") {}, MenuItem("Delete") {}),
+        )
     }
 }

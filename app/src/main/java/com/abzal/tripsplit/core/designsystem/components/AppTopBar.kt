@@ -17,8 +17,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** Title with optional subtitle, back arrow and action slot (icons or [AppTextButton]) on the right. */
 @Composable
@@ -51,5 +53,15 @@ fun AppTopBar(
             }
         }
         actions()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppTopBarPreview() {
+    AppPreview {
+        AppTopBar(
+            title = "Title",
+        )
     }
 }

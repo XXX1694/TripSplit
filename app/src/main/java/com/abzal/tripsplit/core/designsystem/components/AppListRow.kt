@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.KeyboardArrowRight
@@ -16,8 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /**
  * Universal row: [leading] (avatar / icon badge), title with subtitle, [trailing] (amount, switch, arrow).
@@ -36,6 +40,7 @@ fun AppListRow(
         modifier = modifier
             .fillMaxWidth()
             .let { if (onClick != null) it.clickable(onClick = onClick) else it }
+            .heightIn(min = Sizes.touchTarget)
             .padding(vertical = Spacing.xs),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
@@ -71,4 +76,40 @@ fun ChevronIcon(modifier: Modifier = Modifier) {
 @Composable
 fun RowValue(text: String, modifier: Modifier = Modifier, color: Color = AppTheme.colors.primary) {
     Text(text = text, modifier = modifier, style = MaterialTheme.typography.labelLarge, color = color)
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppDividerPreview() {
+    AppPreview {
+        AppDivider()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppListRowPreview() {
+    AppPreview {
+        AppListRow(
+            title = "Title",
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ChevronIconPreview() {
+    AppPreview {
+        ChevronIcon()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun RowValuePreview() {
+    AppPreview {
+        RowValue(
+            text = "Sample text",
+        )
+    }
 }

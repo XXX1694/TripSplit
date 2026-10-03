@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,10 +19,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 class BottomNavItem(val label: String, val icon: ImageVector)
 
@@ -54,7 +57,10 @@ private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> 
     val colors = AppTheme.colors
     val contentColor = if (selected) colors.primary else colors.textDisabled
     Column(
-        modifier = Modifier.clickable(onClick = onClick).padding(horizontal = Spacing.sm),
+        modifier = Modifier
+            .heightIn(min = Sizes.touchTarget)
+            .clickable(onClick = onClick)
+            .padding(horizontal = Spacing.sm),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Surface(shape = CircleShape, color = if (selected) colors.primaryContainer else colors.surface) {
@@ -62,9 +68,21 @@ private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> 
                 imageVector = item.icon,
                 contentDescription = null,
                 tint = contentColor,
-                modifier = Modifier.padding(horizontal = Spacing.md, vertical = 4.dp).size(Sizes.icon),
+                modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xxs).size(Sizes.icon),
             )
         }
         Text(text = item.label, style = MaterialTheme.typography.labelMedium, color = contentColor)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppBottomNavBarPreview() {
+    AppPreview {
+        AppBottomNavBar(
+            items = TripTab.entries.map { BottomNavItem(it.label, it.icon) },
+            selectedIndex = 0,
+            onItemClick = {},
+        )
     }
 }

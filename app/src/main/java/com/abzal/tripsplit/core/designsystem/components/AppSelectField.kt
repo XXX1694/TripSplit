@@ -15,10 +15,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 /**
  * Field that looks like [AppTextField] but opens something on click (date picker, currency list, dropdown).
@@ -42,7 +45,7 @@ fun AppSelectField(
         modifier = modifier.fillMaxWidth().heightIn(min = Sizes.field),
         shape = MaterialTheme.shapes.large,
         color = colors.surface,
-        border = BorderStroke(1.dp, colors.outline),
+        border = BorderStroke(Strokes.thin, colors.outline),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xs),
@@ -67,5 +70,17 @@ fun AppSelectField(
             }
             trailing?.invoke()
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppSelectFieldPreview() {
+    AppPreview {
+        AppSelectField(
+            label = "Label",
+            value = "Value",
+            onClick = {},
+        )
     }
 }

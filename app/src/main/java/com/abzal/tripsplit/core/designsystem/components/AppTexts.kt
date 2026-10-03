@@ -8,7 +8,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** Section title with optional green action on the right: "Balances  See all". */
 @Composable
@@ -39,4 +41,24 @@ fun Overline(text: String, modifier: Modifier = Modifier) {
         style = MaterialTheme.typography.labelSmall,
         color = AppTheme.colors.textSecondary,
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SectionHeaderPreview() {
+    AppPreview {
+        SectionHeader(
+            title = "Title",
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun OverlinePreview() {
+    AppPreview {
+        Overline(
+            text = "Sample text",
+        )
+    }
 }

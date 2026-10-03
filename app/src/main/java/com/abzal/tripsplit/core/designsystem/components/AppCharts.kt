@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,9 +20,17 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.sampleBarSegments
+import com.abzal.tripsplit.core.preview.sampleBarValues
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 class BarValue(val label: String, val value: Double, val isHighlighted: Boolean = false)
 
@@ -35,7 +42,7 @@ fun AppBarChart(
     highlightColor: Color,
     labelColor: Color,
     modifier: Modifier = Modifier,
-    chartHeight: Dp = 90.dp,
+    chartHeight: Dp = Sizes.chartHeight,
 ) {
     val max = values.maxOfOrNull { it.value }?.takeIf { it > 0 } ?: 1.0
     Row(
@@ -47,9 +54,9 @@ fun AppBarChart(
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Box(
                     modifier = Modifier
-                        .width(32.dp)
-                        .height((chartHeight.value * (bar.value / max)).dp.coerceAtLeast(6.dp))
-                        .background(if (bar.isHighlighted) highlightColor else barColor, RoundedCornerShape(8.dp)),
+                        .width(Sizes.chartBar)
+                        .height((chartHeight.value * (bar.value / max)).dp.coerceAtLeast(Spacing.xs))
+                        .background(if (bar.isHighlighted) highlightColor else barColor, MaterialTheme.shapes.extraSmall),
                 )
                 Text(bar.label, style = MaterialTheme.typography.bodySmall, color = labelColor)
             }
@@ -62,8 +69,8 @@ fun AppBarChart(
 fun AppDonutChart(
     segments: List<BarSegment>,
     modifier: Modifier = Modifier,
-    size: Dp = 120.dp,
-    strokeWidth: Dp = 18.dp,
+    size: Dp = Sizes.donut,
+    strokeWidth: Dp = Strokes.donut,
     center: @Composable () -> Unit = {},
 ) {
     val trackColor = AppTheme.colors.track
@@ -94,5 +101,28 @@ fun AppDonutChart(
             }
         }
         center()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppBarChartPreview() {
+    AppPreview {
+        AppBarChart(
+            values = sampleBarValues(),
+            barColor = AppTheme.colors.primary,
+            highlightColor = AppTheme.colors.primary,
+            labelColor = AppTheme.colors.primary,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppDonutChartPreview() {
+    AppPreview {
+        AppDonutChart(
+            segments = sampleBarSegments(),
+        )
     }
 }

@@ -11,7 +11,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.tooling.preview.Preview
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.util.formatDate
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 /** [AppSelectField] that opens a date picker. [dateMillis] is null while no date is chosen. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -51,5 +54,17 @@ fun AppDateField(
         ) {
             DatePicker(state = pickerState)
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppDateFieldPreview() {
+    AppPreview {
+        AppDateField(
+            label = "Label",
+            dateMillis = null,
+            onDateSelected = {},
+        )
     }
 }

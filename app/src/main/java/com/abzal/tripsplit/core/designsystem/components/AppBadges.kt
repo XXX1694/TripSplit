@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,11 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.features.participants.presentation.components.label
+import com.abzal.tripsplit.features.participants.presentation.components.tone
 
 /** Circle with person initials ("MK"). */
 @Composable
@@ -76,7 +81,7 @@ fun StatusPill(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Spacing.xxs),
         ) {
-            if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(14.dp))
+            if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.iconTiny))
             Text(text = text, style = MaterialTheme.typography.labelMedium)
         }
     }
@@ -117,13 +122,64 @@ fun BigIconBadge(
     contentColor: Color = AppTheme.colors.onPrimary,
 ) {
     Box(
-        modifier = modifier.size(68.dp).clip(MaterialTheme.shapes.extraLarge).background(containerColor),
+        modifier = modifier.size(Sizes.bigBadge).clip(MaterialTheme.shapes.extraLarge).background(containerColor),
         contentAlignment = Alignment.Center,
     ) {
-        Icon(icon, contentDescription = null, tint = contentColor, modifier = Modifier.size(32.dp))
+        Icon(icon, contentDescription = null, tint = contentColor, modifier = Modifier.size(Sizes.iconLarge))
     }
 }
 
 /** "Maya Kim" -> "MK". */
 fun String.toInitials(): String =
     trim().split(" ").filter { it.isNotEmpty() }.take(2).joinToString("") { it.first().uppercase() }
+
+@Preview(showBackground = true)
+@Composable
+private fun AvatarPreview() {
+    AppPreview {
+        Avatar(
+            initials = "MK",
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun IconBadgePreview() {
+    AppPreview {
+        IconBadge(
+            icon = Icons.Outlined.Star,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun StatusPillPreview() {
+    AppPreview {
+        StatusPill(
+            text = "Sample text",
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun InfoBannerPreview() {
+    AppPreview {
+        InfoBanner(
+            text = "Sample text",
+            icon = Icons.Outlined.Star,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun BigIconBadgePreview() {
+    AppPreview {
+        BigIconBadge(
+            icon = Icons.Outlined.Star,
+        )
+    }
+}

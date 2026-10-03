@@ -7,12 +7,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Elevations
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** White rounded card that groups related content. Pass [onClick] to make the whole card clickable. */
 @Composable
@@ -34,9 +37,9 @@ fun AppCard(
         )
     }
     if (onClick != null) {
-        Surface(onClick = onClick, modifier = cardModifier, shape = shape, color = color, shadowElevation = 2.dp, content = cardContent)
+        Surface(onClick = onClick, modifier = cardModifier, shape = shape, color = color, shadowElevation = Elevations.card, content = cardContent)
     } else {
-        Surface(modifier = cardModifier, shape = shape, color = color, shadowElevation = 2.dp, content = cardContent)
+        Surface(modifier = cardModifier, shape = shape, color = color, shadowElevation = Elevations.card, content = cardContent)
     }
 }
 
@@ -57,6 +60,26 @@ fun HeroCard(
             modifier = Modifier.padding(Spacing.lg),
             verticalArrangement = verticalArrangement,
             content = content,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppCardPreview() {
+    AppPreview {
+        AppCard(
+            content = { Text("Content") },
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HeroCardPreview() {
+    AppPreview {
+        HeroCard(
+            content = { Text("Content") },
         )
     }
 }

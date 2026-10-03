@@ -11,9 +11,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.features.participants.presentation.components.tone
 
 private val avatarTones = listOf(Tone.Primary, Tone.Warning, Tone.Info, Tone.Negative)
 
@@ -64,7 +67,25 @@ fun CoverImage(modifier: Modifier = Modifier) {
             imageVector = Icons.Outlined.Landscape,
             contentDescription = null,
             tint = AppTheme.colors.primary,
-            modifier = Modifier.size(32.dp),
+            modifier = Modifier.size(Sizes.iconLarge),
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AvatarStackPreview() {
+    AppPreview {
+        AvatarStack(
+            names = listOf("Food", "Stay", "Transit"),
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CoverImagePreview() {
+    AppPreview {
+        CoverImage()
     }
 }

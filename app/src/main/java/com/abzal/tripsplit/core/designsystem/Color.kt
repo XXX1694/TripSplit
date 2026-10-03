@@ -2,6 +2,7 @@ package com.abzal.tripsplit.core.designsystem
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
+import com.abzal.tripsplit.core.designsystem.components.colors
 
 /** All colors used by the app. Screens read them via [AppTheme.colors]. */
 @Immutable
@@ -23,6 +24,13 @@ class AppColors(
     val onPrimary: Color,
     val primaryDark: Color,
     val primaryContainer: Color,
+
+    // Content on dark primary cards (hero cards)
+    val onHero: Color,
+    val onHeroMuted: Color,
+    val heroOverlay: Color,
+    val heroOutline: Color,
+    val heroBar: Color,
 
     // Money / status
     val positive: Color,
@@ -50,6 +58,12 @@ val LightAppColors = AppColors(
     primaryDark = Color(0xFF0D4C3D),
     primaryContainer = Color(0xFFDCEFE8),
 
+    onHero = Color(0xFFFFFFFF),
+    onHeroMuted = Color(0xCCFFFFFF),
+    heroOverlay = Color(0x26FFFFFF),
+    heroOutline = Color(0x4DFFFFFF),
+    heroBar = Color(0x59FFFFFF),
+
     positive = Color(0xFF17805E),
     negative = Color(0xFFC84B4B),
     negativeContainer = Color(0xFFFCE7E5),
@@ -60,4 +74,5 @@ val LightAppColors = AppColors(
 )
 
 // TODO: dark palette is not decided yet. Until then dark theme reuses the light colors.
+
 val DarkAppColors = LightAppColors

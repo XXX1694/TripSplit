@@ -11,6 +11,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /**
  * Filter chip that opens a menu of [options]. Shows [title] until something is [selected].
@@ -38,5 +40,18 @@ fun AppDropdownChip(
         options.forEach { option ->
             DropdownMenuItem(text = { Text(option) }, onClick = { isOpen = false; onSelect(option) })
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppDropdownChipPreview() {
+    AppPreview {
+        AppDropdownChip(
+            title = "Title",
+            options = listOf("Food", "Stay", "Transit"),
+            selected = "Food",
+            onSelect = {},
+        )
     }
 }

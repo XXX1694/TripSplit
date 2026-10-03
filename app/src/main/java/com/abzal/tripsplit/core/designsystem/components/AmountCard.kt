@@ -6,9 +6,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -23,9 +24,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.util.currencySymbol
 
 /** Big bordered card: currency chip on the left, amount input on the right. */
@@ -42,19 +46,24 @@ fun AmountCard(
         modifier = modifier,
         shape = MaterialTheme.shapes.extraLarge,
         color = colors.surface,
-        border = BorderStroke(2.dp, colors.primary),
+        border = BorderStroke(Strokes.thick, colors.primary),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(Spacing.md),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Surface(onClick = onCurrencyClick, shape = RoundedCornerShape(50), color = colors.primaryContainer) {
+            Surface(
+                onClick = onCurrencyClick,
+                modifier = Modifier.heightIn(min = Sizes.touchTarget),
+                shape = CircleShape,
+                color = colors.primaryContainer,
+            ) {
                 Row(
                     modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xs),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(currency, style = MaterialTheme.typography.labelLarge, color = colors.primary)
-                    Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null, tint = colors.primary, modifier = Modifier.size(18.dp))
+                    Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null, tint = colors.primary, modifier = Modifier.size(Sizes.iconSmall))
                 }
             }
             Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.End) {
@@ -89,4 +98,17 @@ private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit
             }
         },
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AmountCardPreview() {
+    AppPreview {
+        AmountCard(
+            amountText = "104.20",
+            currency = "EUR",
+            onAmountChange = {},
+            onCurrencyClick = {},
+        )
+    }
 }

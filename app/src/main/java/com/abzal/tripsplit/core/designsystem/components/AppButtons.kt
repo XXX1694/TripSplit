@@ -1,11 +1,11 @@
 package com.abzal.tripsplit.core.designsystem.components
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
@@ -20,10 +20,12 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** Filled green button: the main action of a screen. */
 @Composable
@@ -67,7 +69,7 @@ fun SecondaryButton(
         modifier = modifier.fillMaxWidth().height(Sizes.button),
         enabled = enabled,
         shape = MaterialTheme.shapes.medium,
-        border = BorderStroke(1.dp, colors.outline),
+        border = BorderStroke(Strokes.thin, colors.outline),
         colors = ButtonDefaults.outlinedButtonColors(containerColor = colors.surface, contentColor = colors.primary),
     ) {
         ButtonContent(text, icon, isLoading = false)
@@ -111,7 +113,7 @@ fun AppTextButton(
 ) {
     TextButton(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.heightIn(min = Sizes.touchTarget),
         enabled = enabled,
         colors = ButtonDefaults.textButtonColors(contentColor = AppTheme.colors.primary),
     ) {
@@ -123,9 +125,9 @@ fun AppTextButton(
 private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: Boolean) {
     if (isLoading) {
         CircularProgressIndicator(
-            modifier = Modifier.size(18.dp),
+            modifier = Modifier.size(Sizes.iconSmall),
             color = LocalContentColor.current,
-            strokeWidth = 2.dp,
+            strokeWidth = Strokes.thick,
         )
         Spacer(Modifier.width(Spacing.xs))
     } else if (icon != null) {
@@ -133,4 +135,48 @@ private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: 
         Spacer(Modifier.width(Spacing.xs))
     }
     Text(text = text, style = MaterialTheme.typography.labelLarge)
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PrimaryButtonPreview() {
+    AppPreview {
+        PrimaryButton(
+            text = "Sample text",
+            onClick = {},
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SecondaryButtonPreview() {
+    AppPreview {
+        SecondaryButton(
+            text = "Sample text",
+            onClick = {},
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DangerButtonPreview() {
+    AppPreview {
+        DangerButton(
+            text = "Sample text",
+            onClick = {},
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppTextButtonPreview() {
+    AppPreview {
+        AppTextButton(
+            text = "Sample text",
+            onClick = {},
+        )
+    }
 }

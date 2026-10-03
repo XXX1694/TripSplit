@@ -11,7 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
+import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.sampleBarSegments
 
 /** Bar split into colored parts. Each part is a [weight] (any positive number) and a [color]. */
 class BarSegment(val weight: Float, val color: Color)
@@ -21,15 +25,25 @@ fun AppSegmentedBar(
     segments: List<BarSegment>,
     modifier: Modifier = Modifier,
 ) {
-    Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+    Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Spacing.hairline)) {
         segments.filter { it.weight > 0f }.forEach { segment ->
             Box(
                 modifier = Modifier
                     .weight(segment.weight)
-                    .height(8.dp)
+                    .height(Sizes.segmentBar)
                     .clip(CircleShape)
                     .background(segment.color),
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppSegmentedBarPreview() {
+    AppPreview {
+        AppSegmentedBar(
+            segments = sampleBarSegments(),
+        )
     }
 }

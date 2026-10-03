@@ -1,5 +1,7 @@
 package com.abzal.tripsplit.core.designsystem.components
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
@@ -8,8 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.Elevations
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** Green floating button with icon and text: "Create trip", "Add expense". */
 @Composable
@@ -25,8 +29,20 @@ fun AppFab(
         containerColor = AppTheme.colors.primary,
         contentColor = AppTheme.colors.onPrimary,
         shape = MaterialTheme.shapes.large,
-        elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp),
+        elevation = FloatingActionButtonDefaults.elevation(defaultElevation = Elevations.fab),
         icon = { Icon(icon, contentDescription = null) },
         text = { Text(text = text, style = MaterialTheme.typography.labelLarge) },
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppFabPreview() {
+    AppPreview {
+        AppFab(
+            text = "Sample text",
+            icon = Icons.Outlined.Star,
+            onClick = {},
+        )
+    }
 }

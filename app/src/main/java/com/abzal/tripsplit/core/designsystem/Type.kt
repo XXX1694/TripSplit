@@ -7,6 +7,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.abzal.tripsplit.R
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 val InterFamily = FontFamily(
     Font(R.font.inter_regular, FontWeight.Normal),

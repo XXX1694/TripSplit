@@ -22,7 +22,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.features.participants.presentation.components.label
 
 /**
  * Text field with floating label, optional leading icon and trailing slot.
@@ -113,4 +116,27 @@ fun AppPasswordField(
             }
         },
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppTextFieldPreview() {
+    AppPreview {
+        AppTextField(
+            value = "Value",
+            onValueChange = {},
+            label = "Label",
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppPasswordFieldPreview() {
+    AppPreview {
+        AppPasswordField(
+            value = "Value",
+            onValueChange = {},
+        )
+    }
 }

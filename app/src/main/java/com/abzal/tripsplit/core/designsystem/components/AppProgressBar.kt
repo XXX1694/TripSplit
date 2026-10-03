@@ -10,8 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.preview.AppPreview
 
 /** Thin rounded bar. [progress] is from 0f to 1f. */
 @Composable
@@ -33,6 +35,16 @@ fun AppProgressBar(
                 .fillMaxWidth(progress.coerceIn(0f, 1f))
                 .clip(CircleShape)
                 .background(color),
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AppProgressBarPreview() {
+    AppPreview {
+        AppProgressBar(
+            progress = 0.6f,
         )
     }
 }
