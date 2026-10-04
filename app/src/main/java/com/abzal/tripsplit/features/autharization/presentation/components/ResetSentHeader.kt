@@ -13,9 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import com.abzal.tripsplit.core.designsystem.AppTheme
@@ -43,7 +41,7 @@ fun ResetSentHeader(email: String) {
         Text(
             text = buildAnnotatedString {
                 append("We sent a secure reset link to ")
-                withStyle(SpanStyle(fontWeight = FontWeight.SemiBold, color = AppTheme.colors.text)) { append(email) }
+                withStyle(MaterialTheme.typography.titleSmall.toSpanStyle().copy(color = AppTheme.colors.text)) { append(email) }
                 append(".")
             },
             style = MaterialTheme.typography.bodyMedium,
