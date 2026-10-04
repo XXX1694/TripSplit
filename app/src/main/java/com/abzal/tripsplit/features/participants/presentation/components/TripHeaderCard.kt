@@ -16,13 +16,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleTrip
 import com.abzal.tripsplit.core.util.formatTripDates
 import com.abzal.tripsplit.features.trips.domain.model.Trip
@@ -55,7 +55,7 @@ fun TripHeaderCard(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun TripHeaderCardPreview() {
     AppPreview {

@@ -5,11 +5,11 @@ import androidx.compose.material.icons.outlined.CloudOff
 import androidx.compose.material.icons.outlined.Download
 import androidx.compose.material.icons.outlined.Storage
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppDivider
 import com.abzal.tripsplit.core.designsystem.components.ChevronIcon
 import com.abzal.tripsplit.core.designsystem.components.RowValue
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 @Composable
 fun LocalDataCard() {
@@ -37,7 +37,7 @@ fun LocalDataCard() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun LocalDataCardPreview() {
     AppPreview {

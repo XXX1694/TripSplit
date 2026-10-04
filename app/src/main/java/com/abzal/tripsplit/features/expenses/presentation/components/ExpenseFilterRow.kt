@@ -6,11 +6,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppChip
 import com.abzal.tripsplit.core.designsystem.components.AppDropdownChip
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.expenses.presentation.ExpenseHistoryUiState
 import com.abzal.tripsplit.features.expenses.presentation.sampleExpenseHistoryUiState
 
@@ -50,7 +50,7 @@ fun ExpenseFilterRow(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ExpenseFilterRowPreview() {
     AppPreview {

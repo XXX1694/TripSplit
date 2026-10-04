@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
@@ -21,6 +20,7 @@ import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
 import com.abzal.tripsplit.features.participants.presentation.components.FilterChips
 import com.abzal.tripsplit.features.participants.presentation.components.InvitationCard
@@ -76,7 +76,7 @@ fun InvitationManagementScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun InvitationManagementScreenPreview() {
     AppPreview {

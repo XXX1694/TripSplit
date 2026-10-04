@@ -3,13 +3,13 @@ package com.abzal.tripsplit.features.autharization.presentation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Shield
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.Overline
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.autharization.presentation.components.AccountCard
 import com.abzal.tripsplit.features.autharization.presentation.components.AppVersionText
 import com.abzal.tripsplit.features.autharization.presentation.components.LocalDataCard
@@ -45,7 +45,7 @@ fun ProfileScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ProfileScreenPreview() {
     AppPreview {

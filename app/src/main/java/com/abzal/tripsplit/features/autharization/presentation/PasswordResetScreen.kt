@@ -5,8 +5,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.autharization.presentation.components.ResetFormContent
 import com.abzal.tripsplit.features.autharization.presentation.components.ResetSentContent
 
@@ -34,7 +34,7 @@ fun PasswordResetScreen(
 
 // ---------- Step 1: enter email ----------
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun PasswordResetScreenPreview() {
     AppPreview {

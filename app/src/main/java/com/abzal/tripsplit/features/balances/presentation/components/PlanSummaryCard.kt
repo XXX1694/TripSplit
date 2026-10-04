@@ -9,7 +9,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
@@ -17,6 +16,7 @@ import com.abzal.tripsplit.core.designsystem.components.IconBadge
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.balances.presentation.OptimizedSettlementUiState
 import com.abzal.tripsplit.features.balances.presentation.sampleOptimizedSettlementUiState
 import com.abzal.tripsplit.features.participants.presentation.components.tone
@@ -38,7 +38,7 @@ fun PlanSummaryCard(uiState: OptimizedSettlementUiState) {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun PlanSummaryCardPreview() {
     AppPreview {

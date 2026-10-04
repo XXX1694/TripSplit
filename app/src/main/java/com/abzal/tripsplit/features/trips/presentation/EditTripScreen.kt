@@ -6,13 +6,13 @@ import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextButton
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import com.abzal.tripsplit.features.trips.presentation.components.TripFormFields
 
@@ -62,7 +62,7 @@ fun EditTripScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun EditTripScreenPreview() {
     AppPreview {

@@ -11,12 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.domain.model.Invitation
 import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
 import com.abzal.tripsplit.features.participants.presentation.InvitationManagementUiState
@@ -53,7 +53,7 @@ private fun CountTile(count: Int, label: String, modifier: Modifier = Modifier) 
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun InvitationOverviewCardPreview() {
     AppPreview {

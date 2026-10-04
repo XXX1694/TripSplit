@@ -7,7 +7,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
@@ -18,6 +17,7 @@ import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.MenuItem
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 import com.abzal.tripsplit.features.participants.presentation.components.EditParticipantPanel
 import com.abzal.tripsplit.features.participants.presentation.components.ParticipantRow
@@ -88,7 +88,7 @@ fun ParticipantManagementScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ParticipantManagementScreenPreview() {
     AppPreview {

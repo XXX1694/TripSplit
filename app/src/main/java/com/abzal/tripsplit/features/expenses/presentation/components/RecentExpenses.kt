@@ -3,10 +3,10 @@ package com.abzal.tripsplit.features.expenses.presentation.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.expenses.presentation.TripOverviewUiState
 import com.abzal.tripsplit.features.expenses.presentation.components.ExpenseRow
 import com.abzal.tripsplit.features.expenses.presentation.sampleTripOverviewUiState
@@ -33,7 +33,7 @@ fun RecentExpenses(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun RecentExpensesPreview() {
     AppPreview {

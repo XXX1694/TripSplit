@@ -4,10 +4,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppChip
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -24,7 +24,7 @@ fun CategoryChips(selected: String, onSelect: (String) -> Unit) {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun CategoryChipsPreview() {
     AppPreview {

@@ -15,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
@@ -27,6 +26,7 @@ import com.abzal.tripsplit.core.designsystem.components.IconBadge
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.core.util.formatTripDates
 import com.abzal.tripsplit.features.expenses.domain.model.Expense
@@ -75,7 +75,7 @@ private fun LossRow(icon: ImageVector, title: String, subtitle: String) {
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun DeleteTripSummaryCardPreview() {
     AppPreview {

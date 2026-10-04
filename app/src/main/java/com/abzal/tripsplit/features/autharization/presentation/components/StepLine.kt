@@ -6,12 +6,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Strokes
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 @Composable
 fun StepLine(isActive: Boolean, modifier: Modifier = Modifier) {
@@ -23,7 +23,7 @@ fun StepLine(isActive: Boolean, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun StepLinePreview() {
     AppPreview {

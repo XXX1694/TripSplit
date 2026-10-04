@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
@@ -25,6 +24,7 @@ import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.designsystem.components.toInitials
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 import com.abzal.tripsplit.features.participants.presentation.components.tone
@@ -71,7 +71,7 @@ fun SplitTile(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SplitTilePreview() {
     AppPreview {

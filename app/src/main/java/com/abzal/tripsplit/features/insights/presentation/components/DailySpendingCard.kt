@@ -9,13 +9,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.components.AppBarChart
 import com.abzal.tripsplit.core.designsystem.components.BarValue
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.core.util.formatTripDates
 import com.abzal.tripsplit.features.insights.presentation.SpendingInsightsUiState
@@ -64,7 +64,7 @@ fun DailySpendingCard(uiState: SpendingInsightsUiState, modifier: Modifier = Mod
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun DailySpendingCardPreview() {
     AppPreview {

@@ -14,7 +14,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppFab
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
@@ -23,6 +22,7 @@ import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.TripBottomBar
 import com.abzal.tripsplit.core.designsystem.components.TripTab
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.features.expenses.presentation.components.EmptyHint
 import com.abzal.tripsplit.features.expenses.presentation.components.ExpenseDaySection
@@ -84,7 +84,7 @@ fun ExpenseHistoryScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ExpenseHistoryScreenPreview() {
     AppPreview {

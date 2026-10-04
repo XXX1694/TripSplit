@@ -9,7 +9,6 @@ import androidx.compose.material.icons.outlined.PersonAdd
 import androidx.compose.material.icons.outlined.VpnKey
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
@@ -20,6 +19,7 @@ import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.TripHeaderCard
 import com.abzal.tripsplit.features.participants.presentation.components.label
 import com.abzal.tripsplit.features.participants.presentation.components.tone
@@ -74,7 +74,7 @@ fun AddParticipantScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AddParticipantScreenPreview() {
     AppPreview {

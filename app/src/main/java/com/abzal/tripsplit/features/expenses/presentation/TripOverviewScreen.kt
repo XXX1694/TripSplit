@@ -6,7 +6,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppFab
 import com.abzal.tripsplit.core.designsystem.components.AppOverflowMenu
@@ -16,6 +15,7 @@ import com.abzal.tripsplit.core.designsystem.components.MenuItem
 import com.abzal.tripsplit.core.designsystem.components.TripBottomBar
 import com.abzal.tripsplit.core.designsystem.components.TripTab
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatTripDates
 import com.abzal.tripsplit.features.expenses.presentation.components.BalancesPreviewCard
 import com.abzal.tripsplit.features.expenses.presentation.components.CategorySpendingCard
@@ -74,7 +74,7 @@ fun TripOverviewScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun TripOverviewScreenPreview() {
     AppPreview {

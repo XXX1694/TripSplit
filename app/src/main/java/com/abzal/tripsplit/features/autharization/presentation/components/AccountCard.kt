@@ -5,11 +5,11 @@ import androidx.compose.material.icons.automirrored.outlined.Logout
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.PersonRemove
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppDivider
 import com.abzal.tripsplit.core.designsystem.components.ChevronIcon
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.tone
 
 @Composable
@@ -34,7 +34,7 @@ fun AccountCard(onSignOutClick: () -> Unit, onDeleteAccountClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AccountCardPreview() {
     AppPreview {

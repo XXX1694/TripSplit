@@ -10,12 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppCheckboxRow
 import com.abzal.tripsplit.core.designsystem.components.AppPasswordField
 import com.abzal.tripsplit.core.designsystem.components.AppTextButton
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
 
 @Composable
@@ -54,7 +54,7 @@ fun SignInForm(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SignInFormPreview() {
     AppPreview {

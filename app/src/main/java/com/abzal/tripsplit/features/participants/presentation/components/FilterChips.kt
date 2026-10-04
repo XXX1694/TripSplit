@@ -3,10 +3,10 @@ package com.abzal.tripsplit.features.participants.presentation.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppChip
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
 import com.abzal.tripsplit.features.participants.presentation.InvitationManagementUiState
 import com.abzal.tripsplit.features.participants.presentation.components.label
@@ -30,7 +30,7 @@ fun FilterChips(uiState: InvitationManagementUiState, onFilterChange: (Invitatio
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun FilterChipsPreview() {
     AppPreview {

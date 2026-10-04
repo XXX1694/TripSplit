@@ -8,7 +8,6 @@ import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.VpnKey
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
@@ -17,6 +16,7 @@ import com.abzal.tripsplit.core.designsystem.components.IconBadge
 import com.abzal.tripsplit.core.designsystem.components.SecondaryButton
 import com.abzal.tripsplit.core.designsystem.components.StatusPill
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleInvitations
 import com.abzal.tripsplit.features.participants.domain.model.Invitation
 import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
@@ -46,7 +46,7 @@ fun InvitationCard(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun InvitationCardPreview() {
     AppPreview {

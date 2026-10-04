@@ -9,13 +9,13 @@ import androidx.compose.material.icons.outlined.Link
 import androidx.compose.material.icons.outlined.Send
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.domain.model.Invitation
 import com.abzal.tripsplit.features.participants.presentation.components.InviteCodeCard
 import com.abzal.tripsplit.features.participants.presentation.components.TripHeaderCard
@@ -62,7 +62,7 @@ private fun shareInvitation(context: Context, tripName: String, code: String) {
     context.startActivity(Intent.createChooser(intent, "Share invite"))
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun InviteParticipantsScreenPreview() {
     AppPreview {

@@ -13,11 +13,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppSelectField
 import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.toInitials
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 
@@ -55,7 +55,7 @@ fun ParticipantSelect(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ParticipantSelectPreview() {
     AppPreview {

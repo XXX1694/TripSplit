@@ -6,10 +6,10 @@ import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppPasswordField
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
 
 @Composable
@@ -58,7 +58,7 @@ fun SignUpFields(
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SignUpFieldsPreview() {
     AppPreview {

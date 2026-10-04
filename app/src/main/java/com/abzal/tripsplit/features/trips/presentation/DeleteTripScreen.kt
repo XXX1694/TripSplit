@@ -11,7 +11,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppCheckboxRow
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextButton
@@ -22,6 +21,7 @@ import com.abzal.tripsplit.core.designsystem.components.DangerButton
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
 import com.abzal.tripsplit.features.participants.presentation.components.tone
 import com.abzal.tripsplit.features.trips.presentation.components.DeleteTripHeader
@@ -76,7 +76,7 @@ fun DeleteTripScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun DeleteTripScreenPreview() {
     AppPreview {

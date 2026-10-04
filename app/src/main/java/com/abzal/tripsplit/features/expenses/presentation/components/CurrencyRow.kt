@@ -15,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
@@ -24,6 +23,7 @@ import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleCurrencies
 import com.abzal.tripsplit.features.expenses.domain.model.CurrencyInfo
 import com.abzal.tripsplit.features.participants.presentation.components.tone
@@ -70,7 +70,7 @@ private fun CurrencyCodeBadge(code: String, tone: Tone) {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun CurrencyRowPreview() {
     AppPreview {

@@ -9,11 +9,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppDivider
 import com.abzal.tripsplit.core.designsystem.components.AppSwitch
 import com.abzal.tripsplit.core.designsystem.components.RowValue
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.balances.domain.model.Settlement
 import com.abzal.tripsplit.features.expenses.domain.model.Expense
 
@@ -46,7 +46,7 @@ fun PreferencesCard() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun PreferencesCardPreview() {
     AppPreview {

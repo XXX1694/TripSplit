@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
@@ -24,6 +23,7 @@ import com.abzal.tripsplit.core.designsystem.components.DangerButton
 import com.abzal.tripsplit.core.designsystem.components.SecondaryButton
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Red box that asks to confirm the deletion. */
 @Composable
@@ -59,7 +59,7 @@ fun DeleteExpenseConfirmation(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun DeleteExpenseConfirmationPreview() {
     AppPreview {

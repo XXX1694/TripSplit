@@ -14,13 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.designsystem.components.toInitials
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatToday
 
 /** "TUESDAY, 29 SEP / Where to next, Maya?" with the profile avatar on the right. */
@@ -56,7 +56,7 @@ fun HomeGreeting(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun HomeGreetingPreview() {
     AppPreview {

@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
@@ -25,6 +24,7 @@ import com.abzal.tripsplit.core.designsystem.components.BarSegment
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.features.expenses.presentation.components.categoryTone
 import com.abzal.tripsplit.features.insights.presentation.SpendingInsightsUiState
@@ -71,7 +71,7 @@ private fun LegendRow(color: Color, name: String, percent: Double, amount: Strin
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun CategoryBreakdownCardPreview() {
     AppPreview {

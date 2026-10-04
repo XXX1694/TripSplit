@@ -6,13 +6,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
 import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.toInitials
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 
@@ -35,7 +35,7 @@ fun ParticipantRow(
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ParticipantRowPreview() {
     AppPreview {

@@ -1,12 +1,12 @@
 package com.abzal.tripsplit.features.insights.presentation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.TripBottomBar
 import com.abzal.tripsplit.core.designsystem.components.TripTab
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.insights.presentation.components.CategoryBreakdownCard
 import com.abzal.tripsplit.features.insights.presentation.components.CurrencyTotalsCard
 import com.abzal.tripsplit.features.insights.presentation.components.DailySpendingCard
@@ -26,7 +26,7 @@ fun SpendingInsightsScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SpendingInsightsScreenPreview() {
     AppPreview {

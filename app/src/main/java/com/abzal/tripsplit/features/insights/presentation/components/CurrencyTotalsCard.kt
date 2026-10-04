@@ -7,12 +7,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatMoney
 import com.abzal.tripsplit.features.insights.presentation.SpendingInsightsUiState
 import com.abzal.tripsplit.features.insights.presentation.sampleSpendingInsightsUiState
@@ -31,7 +31,7 @@ fun CurrencyTotalsCard(uiState: SpendingInsightsUiState, modifier: Modifier = Mo
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun CurrencyTotalsCardPreview() {
     AppPreview {

@@ -16,7 +16,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppDateField
@@ -26,6 +25,7 @@ import com.abzal.tripsplit.core.designsystem.components.CoverImage
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.RowValue
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.currencyName
 import com.abzal.tripsplit.core.util.currencySymbol
 import com.abzal.tripsplit.features.participants.presentation.components.label
@@ -87,7 +87,7 @@ fun TripFormFields(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun TripFormFieldsPreview() {
     AppPreview {

@@ -7,7 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppCheckboxRow
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
@@ -15,6 +14,7 @@ import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.Tone
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.autharization.presentation.components.MIN_PASSWORD_LENGTH
 import com.abzal.tripsplit.features.autharization.presentation.components.SignUpFields
 import com.abzal.tripsplit.features.autharization.presentation.components.SignUpFooter
@@ -81,7 +81,7 @@ fun SignUpScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SignUpScreenPreview() {
     AppPreview {

@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.features.participants.domain.model.Participant
 
@@ -37,7 +37,7 @@ fun SplitGrid(participants: List<Participant>, selectedIds: Set<String>, onToggl
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SplitGridPreview() {
     AppPreview {

@@ -4,10 +4,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Card without inner gaps: rows are separated by dividers. */
 @Composable
@@ -15,7 +15,7 @@ fun SettingsCard(content: @Composable ColumnScope.() -> Unit) {
     AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.none), content = content)
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SettingsCardPreview() {
     AppPreview {

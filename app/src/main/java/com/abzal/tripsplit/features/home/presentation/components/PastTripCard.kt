@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
@@ -21,6 +20,7 @@ import com.abzal.tripsplit.core.designsystem.components.AvatarStack
 import com.abzal.tripsplit.core.designsystem.components.CoverImage
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.home.presentation.TripSummary
 import com.abzal.tripsplit.features.home.presentation.sampleTripSummary
 
@@ -53,7 +53,7 @@ fun PastTripCard(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun PastTripCardPreview() {
     AppPreview {

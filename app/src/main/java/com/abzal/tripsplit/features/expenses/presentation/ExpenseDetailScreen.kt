@@ -7,13 +7,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.components.AppOverflowMenu
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.MenuItem
 import com.abzal.tripsplit.core.designsystem.components.SecondaryButton
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.expenses.domain.model.Expense
 import com.abzal.tripsplit.features.expenses.presentation.components.DeleteExpenseConfirmation
 import com.abzal.tripsplit.features.expenses.presentation.components.ExpenseSharesCard
@@ -62,7 +62,7 @@ fun ExpenseDetailScreen(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ExpenseDetailScreenPreview() {
     AppPreview {

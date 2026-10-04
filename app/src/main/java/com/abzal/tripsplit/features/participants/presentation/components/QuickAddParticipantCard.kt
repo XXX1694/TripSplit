@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
@@ -18,6 +17,7 @@ import com.abzal.tripsplit.core.designsystem.components.AppTextField
 import com.abzal.tripsplit.core.designsystem.components.IconBadge
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Quick add: an email field and the "Add" button. */
 @Composable
@@ -47,7 +47,7 @@ fun QuickAddParticipantCard(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun QuickAddParticipantCardPreview() {
     AppPreview {

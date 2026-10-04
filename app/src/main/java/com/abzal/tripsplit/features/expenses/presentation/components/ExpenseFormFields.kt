@@ -7,13 +7,13 @@ import androidx.compose.material.icons.outlined.Calculate
 import androidx.compose.material.icons.outlined.Receipt
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AmountCard
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.Overline
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.features.expenses.presentation.ExpenseDraft
 import com.abzal.tripsplit.features.expenses.presentation.sampleExpenseDraft
@@ -65,7 +65,7 @@ fun ExpenseFormFields(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ExpenseFormFieldsPreview() {
     AppPreview {
