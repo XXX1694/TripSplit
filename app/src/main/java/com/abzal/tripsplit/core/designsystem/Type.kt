@@ -31,11 +31,16 @@ private fun style(size: Int, lineHeight: Int, weight: FontWeight, letterSpacing:
  *  title    - top bar and card titles
  *  body     - regular text
  *  label    - buttons, chips, captions, uppercase overlines
+ *
+ * Every Material style is listed so no text falls back to the system font: the whole app uses Inter.
  */
 val AppTypography = Typography(
+    displayLarge = style(48, 56, FontWeight.Medium),
     displayMedium = style(40, 46, FontWeight.Medium),
+    displaySmall = style(32, 38, FontWeight.Medium),
     headlineLarge = style(28, 34, FontWeight.Medium),
     headlineMedium = style(24, 30, FontWeight.Medium),
+    headlineSmall = style(22, 28, FontWeight.Medium),
     titleLarge = style(20, 26, FontWeight.Medium),
     titleMedium = style(16, 22, FontWeight.Medium),
     titleSmall = style(14, 20, FontWeight.SemiBold),
