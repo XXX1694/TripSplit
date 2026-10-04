@@ -48,9 +48,9 @@ fun AppSelectField(
         border = BorderStroke(Strokes.thin, colors.border),
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xs),
+            modifier = Modifier.padding(horizontal = Spacing.space16, vertical = Spacing.space8),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.space12),
         ) {
             if (leadingContent != null) {
                 leadingContent()

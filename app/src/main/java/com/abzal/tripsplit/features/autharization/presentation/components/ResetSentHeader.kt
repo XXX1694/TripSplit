@@ -31,7 +31,7 @@ fun ResetSentHeader(email: String) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Spacing.xs),
+        verticalArrangement = Arrangement.spacedBy(Spacing.space8),
     ) {
         BigIconBadge(icon = Icons.Outlined.MarkEmailRead)
         StatusPill(text = "Email sent", icon = Icons.Outlined.CheckCircle)

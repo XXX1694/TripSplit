@@ -41,9 +41,9 @@ fun AppListRow(
             .fillMaxWidth()
             .let { if (onClick != null) it.clickable(onClick = onClick) else it }
             .heightIn(min = Sizes.touchTarget)
-            .padding(vertical = Spacing.xs),
+            .padding(vertical = Spacing.space8),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+        horizontalArrangement = Arrangement.spacedBy(Spacing.space12),
     ) {
         leading?.invoke()
         Column(modifier = Modifier.weight(1f)) {

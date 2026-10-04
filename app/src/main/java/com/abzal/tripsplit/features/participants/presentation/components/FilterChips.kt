@@ -14,7 +14,7 @@ import com.abzal.tripsplit.features.participants.presentation.sampleInvitationMa
 
 @Composable
 fun FilterChips(uiState: InvitationManagementUiState, onFilterChange: (InvitationStatus?) -> Unit) {
-    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         AppChip(
             text = "All ${uiState.invitations.size}",
             selected = uiState.statusFilter == null,

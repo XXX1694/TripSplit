@@ -61,7 +61,7 @@ fun InvitationManagementScreen(
         InvitationStatus.entries.forEach { status ->
             val group = visible.filter { it.status == status }
             if (group.isNotEmpty()) {
-                Column(verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+                Column(verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
                     InvitationSectionTitle(status, group.size)
                     group.forEach { invitation ->
                         InvitationCard(

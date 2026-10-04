@@ -129,10 +129,10 @@ private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: 
             color = LocalContentColor.current,
             strokeWidth = Strokes.thick,
         )
-        Spacer(Modifier.width(Spacing.xs))
+        Spacer(Modifier.width(Spacing.space8))
     } else if (icon != null) {
         Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.icon))
-        Spacer(Modifier.width(Spacing.xs))
+        Spacer(Modifier.width(Spacing.space8))
     }
     Text(text = text, style = MaterialTheme.typography.labelLarge)
 }

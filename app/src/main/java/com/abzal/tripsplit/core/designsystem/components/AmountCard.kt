@@ -49,7 +49,7 @@ fun AmountCard(
         border = BorderStroke(Strokes.thick, colors.accent),
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(Spacing.md),
+            modifier = Modifier.fillMaxWidth().padding(Spacing.space16),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Surface(
@@ -59,7 +59,7 @@ fun AmountCard(
                 color = colors.accentSoft,
             ) {
                 Row(
-                    modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xs),
+                    modifier = Modifier.padding(horizontal = Spacing.space12, vertical = Spacing.space8),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(currency, style = MaterialTheme.typography.labelLarge, color = colors.accent)

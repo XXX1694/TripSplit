@@ -12,7 +12,7 @@ import com.abzal.tripsplit.core.preview.ThemePreviews
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CategoryChips(selected: String, onSelect: (String) -> Unit) {
-    FlowRow(horizontalArrangement = Arrangement.spacedBy(Spacing.xs), verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+    FlowRow(horizontalArrangement = Arrangement.spacedBy(Spacing.space8), verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         expenseCategories.forEach { category ->
             AppChip(
                 text = category,

@@ -31,14 +31,14 @@ import kotlin.math.abs
 fun EveryoneBalanceCard(uiState: BalancesUiState, modifier: Modifier = Modifier) {
     val maxAmount = uiState.balances.maxOfOrNull { abs(it.amount) }?.takeIf { it > 0 } ?: 1.0
 
-    AppCard(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+    AppCard(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
         Text("Everyone's balance", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
         uiState.balances.forEachIndexed { index, balance ->
             val name = uiState.participants.firstOrNull { it.id == balance.participantId }?.name.orEmpty()
             val isOwed = balance.amount >= 0
             val color = if (isOwed) AppTheme.colors.positive else AppTheme.colors.danger
 
-            Column(verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+            Column(verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
                 AppListRow(
                     title = name,
                     subtitle = "Paid ${formatMoney(uiState.paidBy(balance.participantId), uiState.currency)} · " +

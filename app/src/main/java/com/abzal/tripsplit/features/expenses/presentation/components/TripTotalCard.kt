@@ -29,7 +29,7 @@ import com.abzal.tripsplit.features.expenses.presentation.sampleTripOverviewUiSt
 fun TripTotalCard(uiState: TripOverviewUiState, modifier: Modifier = Modifier) {
     HeroCard(modifier = modifier) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.xxs)) {
+            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.space4)) {
                 Text("TOTAL SPENDING", style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.onHeroMuted)
                 Text(formatMoney(uiState.totalSpent, uiState.currency), style = MaterialTheme.typography.displayMedium)
                 Text(

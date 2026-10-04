@@ -69,7 +69,7 @@ fun RecordSettlementScreen(
                 nameColor = AppTheme.colors.onHero,
             )
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             ParticipantSelect(
                 label = "Paid by",
                 participants = uiState.participants,

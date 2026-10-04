@@ -9,7 +9,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.components.AppFab
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
@@ -73,7 +73,7 @@ fun HomeScreen(
             }
         }
         // keeps the last card above the floating button
-        Spacer(Modifier.height(Spacing.fabClearance))
+        Spacer(Modifier.height(Sizes.fabClearance))
     }
 }
 

@@ -30,7 +30,7 @@ import com.abzal.tripsplit.features.autharization.domain.model.User
 @Composable
 fun ProfileHeader(user: User?) {
     HeroCard {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space16)) {
             Avatar(initials = (user?.name ?: "").toInitials(), size = Sizes.avatarLarge)
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = user?.name ?: "", style = MaterialTheme.typography.titleLarge)

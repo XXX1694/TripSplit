@@ -13,7 +13,7 @@ import com.abzal.tripsplit.core.preview.ThemePreviews
 
 @Composable
 fun SignUpIntro() {
-    Column(verticalArrangement = Arrangement.spacedBy(Spacing.xxs)) {
+    Column(verticalArrangement = Arrangement.spacedBy(Spacing.space4)) {
         Text(
             text = "Start your next shared trip",
             style = MaterialTheme.typography.headlineMedium,

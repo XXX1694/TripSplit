@@ -43,7 +43,7 @@ fun CurrencyRow(
         onClick = onClick,
         leading = { CurrencyCodeBadge(code = currency.code, tone = avatarToneAt(toneIndex)) },
         trailing = {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
                 Text(
                     text = currency.symbol,
                     style = MaterialTheme.typography.titleMedium,

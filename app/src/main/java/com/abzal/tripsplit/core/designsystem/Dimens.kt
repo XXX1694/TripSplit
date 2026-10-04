@@ -4,23 +4,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
-/** Gaps between elements. */
+/** The spacing scale from the design: 4, 8, 12, 16, 24, 32 dp. */
 object Spacing {
     val none = 0.dp
-    val hairline = 2.dp
-    val xxs = 4.dp
-    val xs = 8.dp
-    val sm = 12.dp
-    val md = 16.dp
-    val lg = 20.dp
-    val xl = 24.dp
-    val xxl = 32.dp
+    val space4 = 4.dp
+    val space8 = 8.dp
+    val space12 = 12.dp
+    val space16 = 16.dp
+    val space24 = 24.dp
+    val space32 = 32.dp
 
     /** Horizontal padding of every screen. */
-    val screen = 18.dp
-
-    /** Empty space under the last item so the floating button does not cover it. */
-    val fabClearance = 80.dp
+    val screen = space16
 }
 
 /** Fixed sizes of reusable elements. */
@@ -31,6 +26,9 @@ object Sizes {
     val button = 50.dp
     val field = 56.dp
     val bottomBar = 64.dp
+
+    /** Empty space under the last item so the floating button does not cover it. */
+    val fabClearance = 80.dp
 
     // icons
     val iconTiny = 14.dp

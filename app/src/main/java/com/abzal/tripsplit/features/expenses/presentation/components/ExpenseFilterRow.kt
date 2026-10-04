@@ -26,7 +26,7 @@ fun ExpenseFilterRow(
 ) {
     Row(
         modifier = modifier.horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
+        horizontalArrangement = Arrangement.spacedBy(Spacing.space8),
     ) {
         AppChip(text = "All", selected = !uiState.hasFilters, onClick = onClearFilters)
         AppDropdownChip(

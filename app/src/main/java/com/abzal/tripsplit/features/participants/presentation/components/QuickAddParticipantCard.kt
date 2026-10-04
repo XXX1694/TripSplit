@@ -33,7 +33,7 @@ fun QuickAddParticipantCard(
             subtitle = "Invite by email or add without an account",
             leading = { IconBadge(Icons.Outlined.PersonAdd) },
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.xs), verticalAlignment = Alignment.CenterVertically) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space8), verticalAlignment = Alignment.CenterVertically) {
             AppTextField(
                 value = email,
                 onValueChange = onEmailChange,

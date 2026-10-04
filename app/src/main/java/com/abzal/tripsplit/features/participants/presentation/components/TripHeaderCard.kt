@@ -36,7 +36,7 @@ fun TripHeaderCard(
     icon: ImageVector = Icons.Outlined.PersonAdd,
 ) {
     HeroCard(modifier = modifier) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space16)) {
             Box(
                 modifier = Modifier.size(Sizes.iconBadgeLarge).clip(MaterialTheme.shapes.medium).background(AppTheme.colors.heroOverlay),
                 contentAlignment = Alignment.Center,

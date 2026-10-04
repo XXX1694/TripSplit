@@ -6,7 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.components.AppFab
 import com.abzal.tripsplit.core.designsystem.components.AppOverflowMenu
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
@@ -70,7 +70,7 @@ fun TripOverviewScreen(
         CategorySpendingCard(uiState, onInsightsClick = onInsightsClick)
         BalancesPreviewCard(uiState, onSeeAllClick = onBalancesClick)
         RecentExpenses(uiState, onExpenseClick, onViewAllClick = onExpenseHistoryClick)
-        Spacer(Modifier.height(Spacing.fabClearance))
+        Spacer(Modifier.height(Sizes.fabClearance))
     }
 }
 

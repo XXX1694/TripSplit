@@ -37,7 +37,7 @@ fun AppScaffold(
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = Spacing.screen),
-            verticalArrangement = Arrangement.spacedBy(Spacing.md),
+            verticalArrangement = Arrangement.spacedBy(Spacing.space16),
             content = content,
         )
     }
@@ -52,8 +52,8 @@ fun BottomActionBar(
     Column(
         modifier = modifier
             .navigationBarsPadding()
-            .padding(horizontal = Spacing.screen, vertical = Spacing.md),
-        verticalArrangement = Arrangement.spacedBy(Spacing.xs),
+            .padding(horizontal = Spacing.screen, vertical = Spacing.space16),
+        verticalArrangement = Arrangement.spacedBy(Spacing.space8),
         content = content,
     )
 }

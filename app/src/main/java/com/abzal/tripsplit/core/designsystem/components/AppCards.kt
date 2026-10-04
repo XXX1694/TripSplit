@@ -22,8 +22,8 @@ import com.abzal.tripsplit.core.preview.ThemePreviews
 fun AppCard(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
-    contentPadding: Dp = Spacing.md,
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(Spacing.sm),
+    contentPadding: Dp = Spacing.space16,
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(Spacing.space12),
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val cardModifier = modifier.fillMaxWidth()
@@ -47,7 +47,7 @@ fun AppCard(
 @Composable
 fun HeroCard(
     modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(Spacing.sm),
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(Spacing.space12),
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Surface(
@@ -57,7 +57,7 @@ fun HeroCard(
         contentColor = AppTheme.colors.onHero,
     ) {
         Column(
-            modifier = Modifier.padding(Spacing.lg),
+            modifier = Modifier.padding(Spacing.space16),
             verticalArrangement = verticalArrangement,
             content = content,
         )

@@ -17,7 +17,7 @@ fun RecentExpenses(
     onExpenseClick: (String) -> Unit,
     onViewAllClick: () -> Unit,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+    Column(verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         SectionHeader(
             title = "Recent expenses",
             actionText = "View all ${uiState.expenses.size}",

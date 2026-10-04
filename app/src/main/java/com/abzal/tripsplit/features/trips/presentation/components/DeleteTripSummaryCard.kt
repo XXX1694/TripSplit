@@ -40,7 +40,7 @@ fun DeleteTripSummaryCard(uiState: DeleteTripUiState, modifier: Modifier = Modif
     val trip = uiState.trip ?: return
 
     AppCard(modifier = modifier) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             CoverImage(modifier = Modifier.size(Sizes.coverThumb).clip(MaterialTheme.shapes.medium))
             Column {
                 Text(text = trip.name, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)

@@ -30,7 +30,7 @@ import com.abzal.tripsplit.features.participants.presentation.components.label
 @Composable
 fun ResetStep(number: Int, label: String, state: StepState) {
     val colors = AppTheme.colors
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(horizontal = Spacing.xxs)) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(horizontal = Spacing.space4)) {
         val circle = Modifier.size(Sizes.stepCircle).clip(CircleShape)
         Box(
             modifier = if (state == StepState.Todo) circle.border(Strokes.thin, colors.border, CircleShape) else circle.background(colors.accent),
@@ -48,7 +48,7 @@ fun ResetStep(number: Int, label: String, state: StepState) {
         }
         Text(
             text = label,
-            modifier = Modifier.padding(top = Spacing.xxs).width(Sizes.stepLabelWidth),
+            modifier = Modifier.padding(top = Spacing.space4).width(Sizes.stepLabelWidth),
             style = MaterialTheme.typography.labelMedium,
             color = if (state == StepState.Todo) colors.textDisabled else colors.accent,
             textAlign = TextAlign.Center,

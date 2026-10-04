@@ -47,9 +47,9 @@ fun SplitTile(
         border = BorderStroke(Strokes.thin, if (isSelected) colors.accent else colors.border),
     ) {
         Row(
-            modifier = Modifier.padding(Spacing.sm),
+            modifier = Modifier.padding(Spacing.space12),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.space8),
         ) {
             Avatar(initials = participant.name.toInitials(), tone = avatarToneAt(toneIndex), size = Sizes.avatarSmall)
             Text(

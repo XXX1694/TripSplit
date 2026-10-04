@@ -60,7 +60,7 @@ fun ParticipantManagementScreen(
     ) {
         QuickAddParticipantCard(email = uiState.newEmail, onEmailChange = onEmailChange, onAddClick = onQuickAddClick)
 
-        AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.xxs)) {
+        AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.space4)) {
             uiState.participants.forEachIndexed { index, participant ->
                 if (index > 0) AppDivider()
                 ParticipantRow(participant = participant, toneIndex = index, onEditClick = { onEditClick(participant) })

@@ -35,7 +35,7 @@ fun AppTopBar(
         modifier = modifier
             .fillMaxWidth()
             .statusBarsPadding()
-            .padding(horizontal = Spacing.xs, vertical = Spacing.sm),
+            .padding(horizontal = Spacing.space8, vertical = Spacing.space12),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (onBackClick != null) {
@@ -44,7 +44,7 @@ fun AppTopBar(
             }
         } else {
             // keeps title aligned with screen content
-            Spacer(Modifier.width(Spacing.xs))
+            Spacer(Modifier.width(Spacing.space8))
         }
         Column(modifier = Modifier.weight(1f)) {
             Text(text = title, style = MaterialTheme.typography.titleLarge, color = AppTheme.colors.text)

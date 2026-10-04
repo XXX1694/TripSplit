@@ -43,7 +43,7 @@ fun SignInScreen(
     AppScaffold(
         bottomBar = { SignInFooter(onSignUpClick = onSignUpClick) },
     ) {
-        Spacer(Modifier.statusBarsPadding().height(Spacing.xl))
+        Spacer(Modifier.statusBarsPadding().height(Spacing.space24))
         SignInHeader()
         AppCard {
             SignInForm(

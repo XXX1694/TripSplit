@@ -47,9 +47,9 @@ fun AppChip(
         border = if (selected) null else BorderStroke(Strokes.thin, colors.border),
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xs),
+            modifier = Modifier.padding(horizontal = Spacing.space16, vertical = Spacing.space8),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.space8),
         ) {
             if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.iconSmall))
             Text(text = text, style = MaterialTheme.typography.labelMedium)
@@ -100,7 +100,7 @@ fun AppCheckboxRow(
                 uncheckedColor = AppTheme.colors.border,
                 checkmarkColor = AppTheme.colors.onAccent,
             ),
-            modifier = Modifier.padding(horizontal = Spacing.sm),
+            modifier = Modifier.padding(horizontal = Spacing.space12),
         )
         Text(text = text, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textMuted)
     }

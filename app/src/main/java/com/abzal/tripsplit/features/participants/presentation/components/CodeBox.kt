@@ -27,7 +27,7 @@ fun CodeBox(code: String) {
     val clipboard = LocalClipboardManager.current
     Surface(shape = MaterialTheme.shapes.small, color = AppTheme.colors.canvas) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = Spacing.md),
+            modifier = Modifier.fillMaxWidth().padding(start = Spacing.space16),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {

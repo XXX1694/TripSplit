@@ -42,7 +42,7 @@ fun TripFormFields(
     modifier: Modifier = Modifier,
     infoText: String = "You can add expenses in any currency. Conversion rates are saved per expense.",
 ) {
-    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
         CoverImage(modifier = Modifier.fillMaxWidth().height(Sizes.coverBanner).clip(MaterialTheme.shapes.extraLarge))
         AppTextField(
             value = draft.name,
@@ -56,7 +56,7 @@ fun TripFormFields(
             label = "Destination",
             leadingIcon = Icons.Outlined.Place,
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             AppDateField(
                 label = "Starts",
                 dateMillis = draft.startDateMillis,

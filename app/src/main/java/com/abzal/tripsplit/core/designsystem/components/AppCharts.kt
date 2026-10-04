@@ -55,7 +55,7 @@ fun AppBarChart(
                 Box(
                     modifier = Modifier
                         .width(Sizes.chartBar)
-                        .height((chartHeight.value * (bar.value / max)).dp.coerceAtLeast(Spacing.xs))
+                        .height((chartHeight.value * (bar.value / max)).dp.coerceAtLeast(Spacing.space8))
                         .background(if (bar.isHighlighted) highlightColor else barColor, MaterialTheme.shapes.extraSmall),
                 )
                 Text(bar.label, style = MaterialTheme.typography.bodySmall, color = labelColor)

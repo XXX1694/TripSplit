@@ -60,7 +60,7 @@ private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> 
         modifier = Modifier
             .heightIn(min = Sizes.touchTarget)
             .clickable(onClick = onClick)
-            .padding(horizontal = Spacing.sm),
+            .padding(horizontal = Spacing.space12),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Surface(shape = CircleShape, color = if (selected) colors.accentSoft else colors.surface) {
@@ -68,7 +68,7 @@ private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> 
                 imageVector = item.icon,
                 contentDescription = null,
                 tint = contentColor,
-                modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xxs).size(Sizes.icon),
+                modifier = Modifier.padding(horizontal = Spacing.space16, vertical = Spacing.space4).size(Sizes.icon),
             )
         }
         Text(text = item.label, style = MaterialTheme.typography.labelMedium, color = contentColor)

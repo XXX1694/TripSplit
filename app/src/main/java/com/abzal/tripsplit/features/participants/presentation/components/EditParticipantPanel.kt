@@ -44,13 +44,13 @@ fun EditParticipantPanel(
         color = colors.warningContainer,
         border = BorderStroke(Strokes.thin, colors.warning),
     ) {
-        Column(modifier = Modifier.padding(Spacing.md), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+        Column(modifier = Modifier.padding(Spacing.space16), verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Text("Editing ${participantName.substringBefore(' ')}", style = MaterialTheme.typography.titleMedium)
                 AppTextButton(text = "Cancel", onClick = onCancelClick)
             }
             AppTextField(value = editingName, onValueChange = onNameChange, label = "Display name")
-            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
                 DangerButton(text = "Remove", icon = Icons.Outlined.Delete, onClick = onRemoveClick, modifier = Modifier.weight(1f))
                 PrimaryButton(
                     text = "Save",

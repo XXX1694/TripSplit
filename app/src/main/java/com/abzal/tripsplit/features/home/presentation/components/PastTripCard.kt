@@ -36,8 +36,8 @@ fun PastTripCard(
         Row(modifier = Modifier.height(IntrinsicSize.Min)) {
             CoverImage(modifier = Modifier.width(Sizes.coverSide).fillMaxHeight())
             Column(
-                modifier = Modifier.weight(1f).padding(Spacing.md),
-                verticalArrangement = Arrangement.spacedBy(Spacing.sm),
+                modifier = Modifier.weight(1f).padding(Spacing.space16),
+                verticalArrangement = Arrangement.spacedBy(Spacing.space12),
             ) {
                 TripTitleRow(summary, onMoreClick)
                 Row(

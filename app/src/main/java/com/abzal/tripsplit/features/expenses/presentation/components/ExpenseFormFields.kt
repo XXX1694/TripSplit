@@ -30,7 +30,7 @@ fun ExpenseFormFields(
     onPickCurrencyClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
         AmountCard(
             amountText = draft.amountText,
             currency = draft.currency,

@@ -14,7 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.components.AppFab
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
@@ -80,7 +80,7 @@ fun ExpenseHistoryScreen(
         uiState.groups.forEach { group ->
             ExpenseDaySection(group = group, uiState = uiState, onExpenseClick = onExpenseClick)
         }
-        Spacer(Modifier.height(Spacing.fabClearance))
+        Spacer(Modifier.height(Sizes.fabClearance))
     }
 }
 

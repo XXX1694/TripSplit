@@ -37,7 +37,7 @@ fun CategoryBreakdownCard(uiState: SpendingInsightsUiState, modifier: Modifier =
 
     AppCard(modifier = modifier) {
         SectionHeader(title = "Category breakdown")
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space16)) {
             AppDonutChart(
                 segments = uiState.spending.map { BarSegment(it.total.toFloat(), categoryTone(it.category).colors().content) },
                 center = {
@@ -47,7 +47,7 @@ fun CategoryBreakdownCard(uiState: SpendingInsightsUiState, modifier: Modifier =
                     }
                 },
             )
-            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
                 uiState.spending.forEach { item ->
                     LegendRow(
                         color = categoryTone(item.category).colors().content,
@@ -63,7 +63,7 @@ fun CategoryBreakdownCard(uiState: SpendingInsightsUiState, modifier: Modifier =
 
 @Composable
 private fun LegendRow(color: Color, name: String, percent: Double, amount: String) {
-    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         Box(Modifier.size(Sizes.dot).clip(CircleShape).background(color))
         Text(name, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.text)
         Text("%.1f%%".format(percent), style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)

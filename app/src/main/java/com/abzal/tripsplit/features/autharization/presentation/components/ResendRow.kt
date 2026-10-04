@@ -42,7 +42,7 @@ fun ResendRow(onResendClick: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Spacing.xs),
+        verticalArrangement = Arrangement.spacedBy(Spacing.space8),
     ) {
         Text(
             text = "Didn't receive it? Check spam or",

@@ -57,7 +57,7 @@ fun ExpenseSharesCard(uiState: ExpenseDetailUiState, modifier: Modifier = Modifi
                 title = participant.name,
                 leading = { Avatar(initials = participant.name.toInitials(), tone = avatarToneAt(index)) },
                 trailing = {
-                    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.md), verticalAlignment = Alignment.CenterVertically) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space16), verticalAlignment = Alignment.CenterVertically) {
                         Text("$percent%", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
                         Text(
                             text = formatMoney(uiState.sharePerPerson, expense.currency),

@@ -41,8 +41,8 @@ fun DeleteExpenseConfirmation(
         color = colors.dangerContainer,
         border = BorderStroke(Strokes.thin, colors.danger),
     ) {
-        Column(modifier = Modifier.padding(Spacing.md), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+        Column(modifier = Modifier.padding(Spacing.space16), verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
                 Icon(Icons.Outlined.WarningAmber, contentDescription = null, tint = colors.danger)
                 Text("Delete $expenseTitle?", style = MaterialTheme.typography.titleMedium, color = colors.danger)
             }
@@ -51,7 +51,7 @@ fun DeleteExpenseConfirmation(
                 style = MaterialTheme.typography.bodySmall,
                 color = colors.danger,
             )
-            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
                 SecondaryButton(text = "Cancel", onClick = onCancelClick, modifier = Modifier.weight(1f))
                 DangerButton(text = "Delete expense", icon = Icons.Outlined.Delete, onClick = onDeleteClick, modifier = Modifier.weight(1f))
             }

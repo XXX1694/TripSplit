@@ -28,7 +28,7 @@ fun ExpenseDaySection(
     onExpenseClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(group.title, style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textMuted)
             Text(
@@ -37,7 +37,7 @@ fun ExpenseDaySection(
                 color = AppTheme.colors.textMuted,
             )
         }
-        AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.xxs)) {
+        AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.space4)) {
             group.expenses.forEach { expense ->
                 ExpenseRow(
                     expense = expense,

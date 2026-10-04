@@ -25,10 +25,10 @@ fun SignInHeader() {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Spacing.xs),
+        verticalArrangement = Arrangement.spacedBy(Spacing.space8),
     ) {
         BigIconBadge(icon = Icons.Outlined.ReceiptLong)
-        Spacer(Modifier.height(Spacing.xs))
+        Spacer(Modifier.height(Spacing.space8))
         Text(
             text = "Welcome back",
             style = MaterialTheme.typography.headlineLarge,

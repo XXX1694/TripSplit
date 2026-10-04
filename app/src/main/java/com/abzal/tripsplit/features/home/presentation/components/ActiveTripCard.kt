@@ -31,7 +31,7 @@ fun ActiveTripCard(
 ) {
     AppCard(modifier = modifier, onClick = onClick, contentPadding = Spacing.none, verticalArrangement = Arrangement.Top) {
         CoverImage(modifier = Modifier.fillMaxWidth().height(Sizes.coverCard))
-        Column(modifier = Modifier.padding(Spacing.md), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+        Column(modifier = Modifier.padding(Spacing.space16), verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             TripTitleRow(summary, onMoreClick)
             Row(
                 modifier = Modifier.fillMaxWidth(),

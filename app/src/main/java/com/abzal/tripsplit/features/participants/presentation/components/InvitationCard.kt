@@ -38,7 +38,7 @@ fun InvitationCard(
             trailing = { StatusPill(text = status.label(), tone = status.tone()) },
         )
         if (status == InvitationStatus.PENDING) {
-            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
                 SecondaryButton(text = "Copy code", icon = Icons.Outlined.ContentCopy, onClick = onCopyClick, modifier = Modifier.weight(1f))
                 DangerButton(text = "Revoke", icon = Icons.Outlined.Close, onClick = onRevokeClick, modifier = Modifier.weight(1f))
             }

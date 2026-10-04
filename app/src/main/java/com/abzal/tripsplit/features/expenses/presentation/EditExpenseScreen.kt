@@ -40,7 +40,7 @@ fun EditExpenseScreen(
         },
         bottomBar = {
             BottomActionBar {
-                Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
                     DangerButton(
                         text = "Delete",
                         icon = Icons.Outlined.Delete,

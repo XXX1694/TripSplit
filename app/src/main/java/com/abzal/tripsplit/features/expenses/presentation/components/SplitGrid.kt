@@ -17,9 +17,9 @@ import com.abzal.tripsplit.features.participants.domain.model.Participant
 @Composable
 fun SplitGrid(participants: List<Participant>, selectedIds: Set<String>, onToggle: (String) -> Unit) {
     val percent = if (selectedIds.isEmpty()) 0 else 100 / selectedIds.size
-    Column(verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+    Column(verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
         participants.chunked(2).forEach { pair ->
-            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
                 pair.forEach { participant ->
                     val isSelected = participant.id in selectedIds
                     SplitTile(

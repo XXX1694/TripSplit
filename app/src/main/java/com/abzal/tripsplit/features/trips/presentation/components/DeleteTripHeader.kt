@@ -23,7 +23,7 @@ fun DeleteTripHeader(tripName: String) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Spacing.xs),
+        verticalArrangement = Arrangement.spacedBy(Spacing.space8),
     ) {
         BigIconBadge(
             icon = Icons.Outlined.Delete,

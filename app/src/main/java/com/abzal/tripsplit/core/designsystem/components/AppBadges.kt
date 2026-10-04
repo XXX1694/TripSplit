@@ -77,9 +77,9 @@ fun StatusPill(
     val colors = tone.colors()
     Surface(modifier = modifier, shape = CircleShape, color = colors.container, contentColor = colors.content) {
         Row(
-            modifier = Modifier.padding(horizontal = Spacing.xs, vertical = Spacing.xxs),
+            modifier = Modifier.padding(horizontal = Spacing.space8, vertical = Spacing.space4),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.xxs),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.space4),
         ) {
             if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.iconTiny))
             Text(text = text, style = MaterialTheme.typography.labelMedium)
@@ -103,9 +103,9 @@ fun InfoBanner(
         contentColor = colors.content,
     ) {
         Row(
-            modifier = Modifier.padding(Spacing.sm),
+            modifier = Modifier.padding(Spacing.space12),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.sm),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.space12),
         ) {
             Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.icon))
             Text(text = text, style = MaterialTheme.typography.bodyMedium)

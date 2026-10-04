@@ -30,7 +30,7 @@ fun InvitationOverviewCard(uiState: InvitationManagementUiState, modifier: Modif
             Text("Invitation overview", style = MaterialTheme.typography.titleLarge)
             Text("Organizer view · Member access by default", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.onHeroMuted)
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
             InvitationStatus.entries.forEach { status ->
                 CountTile(count = uiState.countOf(status), label = status.label().lowercase(), modifier = Modifier.weight(1f))
             }
@@ -44,7 +44,7 @@ private fun CountTile(count: Int, label: String, modifier: Modifier = Modifier) 
         modifier = modifier
             .clip(MaterialTheme.shapes.medium)
             .background(AppTheme.colors.heroOverlay)
-            .padding(horizontal = Spacing.sm, vertical = Spacing.sm),
+            .padding(horizontal = Spacing.space12, vertical = Spacing.space12),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
