@@ -45,12 +45,12 @@ class AppColors(
 val LightAppColors = AppColors(
     background = Color(0xFFF5F7F5),
     surface = Color(0xFFFFFFFF),
-    outline = Color(0xFFDCE3DF),
+    outline = Color(0xFFDDE5E1),
     divider = Color(0xFFE9EEEB),
     track = Color(0xFFE9EEEB),
 
-    textPrimary = Color(0xFF1B2420),
-    textSecondary = Color(0xFF6B7570),
+    textPrimary = Color(0xFF18221F),
+    textSecondary = Color(0xFF65726D),
     textDisabled = Color(0xFFA5ADA9),
 
     primary = Color(0xFF176B57),
@@ -73,25 +73,25 @@ val LightAppColors = AppColors(
     infoContainer = Color(0xFFE6EFFB),
 )
 
-/** Dark palette: values taken from complete_design/DarkTheme. */
+/** Dark palette: canvas, surface, text, muted text, accent and border are from the designer's token sheet. */
 val DarkAppColors = AppColors(
-    background = Color(0xFF071713),
-    surface = Color(0xFF10231F),
-    outline = Color(0xFF29423A),
+    background = Color(0xFF0B1513),
+    surface = Color(0xFF12211E),
+    outline = Color(0xFF29413B),
     divider = Color(0xFF223833),
-    track = Color(0xFF142B25),
+    track = Color(0xFF223833),
 
-    textPrimary = Color(0xFFF2F8F6),
-    textSecondary = Color(0xFF9EB2AC),
-    textDisabled = Color(0xFF6F8680),
+    textPrimary = Color(0xFFF2FAF7),
+    textSecondary = Color(0xFFA9BBB5),
+    textDisabled = Color(0xFF7C918B),
 
     primary = Color(0xFF55D7B1),
     onPrimary = Color(0xFF0B1513),
-    primaryDark = Color(0xFF0F6B55),
+    primaryDark = Color(0xFF0D4F40),
     primaryContainer = Color(0xFF173D34),
 
-    onHero = Color(0xFFF2F8F6),
-    onHeroMuted = Color(0xCCF2F8F6),
+    onHero = Color(0xFFF2FAF7),
+    onHeroMuted = Color(0xCCF2FAF7),
     heroOverlay = Color(0x26FFFFFF),
     heroOutline = Color(0x4DFFFFFF),
     heroBar = Color(0x59FFFFFF),
@@ -100,7 +100,7 @@ val DarkAppColors = AppColors(
     negative = Color(0xFFFF8585),
     negativeContainer = Color(0xFF3A2222),
     warning = Color(0xFFE27A79),
-    warningContainer = Color(0xFF142B25),
+    warningContainer = Color(0xFF3A2222),
     info = Color(0xFF88B7FF),
     infoContainer = Color(0xFF152B45),
 )
