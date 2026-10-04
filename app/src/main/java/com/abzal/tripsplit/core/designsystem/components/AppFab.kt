@@ -26,8 +26,8 @@ fun AppFab(
     ExtendedFloatingActionButton(
         onClick = onClick,
         modifier = modifier,
-        containerColor = AppTheme.colors.primary,
-        contentColor = AppTheme.colors.onPrimary,
+        containerColor = AppTheme.colors.accent,
+        contentColor = AppTheme.colors.onAccent,
         shape = MaterialTheme.shapes.large,
         elevation = FloatingActionButtonDefaults.elevation(defaultElevation = Elevations.fab),
         icon = { Icon(icon, contentDescription = null) },

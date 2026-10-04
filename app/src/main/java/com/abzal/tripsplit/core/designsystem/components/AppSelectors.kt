@@ -42,9 +42,9 @@ fun AppChip(
         onClick = onClick,
         modifier = modifier.heightIn(min = Sizes.touchTarget),
         shape = CircleShape,
-        color = if (selected) colors.primary else colors.surface,
-        contentColor = if (selected) colors.onPrimary else colors.textSecondary,
-        border = if (selected) null else BorderStroke(Strokes.thin, colors.outline),
+        color = if (selected) colors.accent else colors.surface,
+        contentColor = if (selected) colors.onAccent else colors.textMuted,
+        border = if (selected) null else BorderStroke(Strokes.thin, colors.border),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xs),
@@ -69,11 +69,11 @@ fun AppSwitch(
         onCheckedChange = onCheckedChange,
         modifier = modifier,
         colors = SwitchDefaults.colors(
-            checkedThumbColor = colors.onPrimary,
-            checkedTrackColor = colors.primary,
+            checkedThumbColor = colors.onAccent,
+            checkedTrackColor = colors.accent,
             uncheckedThumbColor = colors.surface,
-            uncheckedTrackColor = colors.outline,
-            uncheckedBorderColor = colors.outline,
+            uncheckedTrackColor = colors.border,
+            uncheckedBorderColor = colors.border,
         ),
     )
 }
@@ -96,13 +96,13 @@ fun AppCheckboxRow(
             checked = checked,
             onCheckedChange = null,
             colors = CheckboxDefaults.colors(
-                checkedColor = AppTheme.colors.primary,
-                uncheckedColor = AppTheme.colors.outline,
-                checkmarkColor = AppTheme.colors.onPrimary,
+                checkedColor = AppTheme.colors.accent,
+                uncheckedColor = AppTheme.colors.border,
+                checkmarkColor = AppTheme.colors.onAccent,
             ),
             modifier = Modifier.padding(horizontal = Spacing.sm),
         )
-        Text(text = text, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textSecondary)
+        Text(text = text, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textMuted)
     }
 }
 

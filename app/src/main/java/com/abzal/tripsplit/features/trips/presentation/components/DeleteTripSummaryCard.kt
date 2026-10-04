@@ -43,11 +43,11 @@ fun DeleteTripSummaryCard(uiState: DeleteTripUiState, modifier: Modifier = Modif
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
             CoverImage(modifier = Modifier.size(Sizes.coverThumb).clip(MaterialTheme.shapes.medium))
             Column {
-                Text(text = trip.name, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.textPrimary)
+                Text(text = trip.name, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
                 Text(
                     text = "${formatTripDates(trip.startDateMillis, trip.endDateMillis)} · ${trip.currency}",
                     style = MaterialTheme.typography.bodySmall,
-                    color = AppTheme.colors.textSecondary,
+                    color = AppTheme.colors.textMuted,
                 )
             }
         }
@@ -71,7 +71,7 @@ private fun LossRow(icon: ImageVector, title: String, subtitle: String) {
     AppListRow(
         title = title,
         subtitle = subtitle,
-        leading = { IconBadge(icon = icon, tone = Tone.Negative) },
+        leading = { IconBadge(icon = icon, tone = Tone.Danger) },
     )
 }
 

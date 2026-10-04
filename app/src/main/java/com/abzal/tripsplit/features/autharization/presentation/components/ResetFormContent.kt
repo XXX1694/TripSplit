@@ -45,7 +45,7 @@ fun ResetFormContent(
         Text(
             text = "Enter the email of your account and we will send you a secure reset link.",
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
         )
         AppTextField(
             value = email,

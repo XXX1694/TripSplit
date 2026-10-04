@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.Color
 import com.abzal.tripsplit.core.designsystem.AppTheme
 
 /** Color accent used by avatars, badges, banners and pills. */
-enum class Tone { Primary, Info, Warning, Negative }
+enum class Tone { Accent, Info, Warning, Danger }
 
 class ToneColors(val container: Color, val content: Color)
 
@@ -13,9 +13,9 @@ class ToneColors(val container: Color, val content: Color)
 fun Tone.colors(): ToneColors {
     val colors = AppTheme.colors
     return when (this) {
-        Tone.Primary -> ToneColors(colors.primaryContainer, colors.primary)
+        Tone.Accent -> ToneColors(colors.accentSoft, colors.accent)
         Tone.Info -> ToneColors(colors.infoContainer, colors.info)
         Tone.Warning -> ToneColors(colors.warningContainer, colors.warning)
-        Tone.Negative -> ToneColors(colors.negativeContainer, colors.negative)
+        Tone.Danger -> ToneColors(colors.dangerContainer, colors.danger)
     }
 }

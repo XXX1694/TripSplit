@@ -33,7 +33,7 @@ import com.abzal.tripsplit.features.participants.presentation.components.tone
 fun Avatar(
     initials: String,
     modifier: Modifier = Modifier,
-    tone: Tone = Tone.Primary,
+    tone: Tone = Tone.Accent,
     size: Dp = Sizes.avatar,
 ) {
     val colors = tone.colors()
@@ -54,7 +54,7 @@ fun Avatar(
 fun IconBadge(
     icon: ImageVector,
     modifier: Modifier = Modifier,
-    tone: Tone = Tone.Primary,
+    tone: Tone = Tone.Accent,
     size: Dp = Sizes.iconBadge,
 ) {
     val colors = tone.colors()
@@ -71,7 +71,7 @@ fun IconBadge(
 fun StatusPill(
     text: String,
     modifier: Modifier = Modifier,
-    tone: Tone = Tone.Primary,
+    tone: Tone = Tone.Accent,
     icon: ImageVector? = null,
 ) {
     val colors = tone.colors()
@@ -118,7 +118,7 @@ fun InfoBanner(
 fun BigIconBadge(
     icon: ImageVector,
     modifier: Modifier = Modifier,
-    containerColor: Color = AppTheme.colors.primaryDark,
+    containerColor: Color = AppTheme.colors.accentDark,
     contentColor: Color = AppTheme.colors.onHero,
 ) {
     Box(

@@ -24,8 +24,8 @@ fun CurrencyTotalsCard(uiState: SpendingInsightsUiState, modifier: Modifier = Mo
         SectionHeader(title = "Spending by currency")
         uiState.currencyTotals.forEach { (code, total) ->
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(code, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textPrimary)
-                Text(formatMoney(total, code), style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.textPrimary)
+                Text(code, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.text)
+                Text(formatMoney(total, code), style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text)
             }
         }
     }

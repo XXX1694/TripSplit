@@ -22,8 +22,8 @@ fun categoryIcon(category: String): ImageVector = when (category) {
 
 fun categoryTone(category: String): Tone = when (category) {
     "Food" -> Tone.Warning
-    "Stay" -> Tone.Primary
+    "Stay" -> Tone.Accent
     "Transit" -> Tone.Info
-    "Fun" -> Tone.Negative
-    else -> Tone.Primary
+    "Fun" -> Tone.Danger
+    else -> Tone.Accent
 }

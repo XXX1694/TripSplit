@@ -18,7 +18,7 @@ import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.tone
 
-private val avatarTones = listOf(Tone.Primary, Tone.Warning, Tone.Info, Tone.Negative)
+private val avatarTones = listOf(Tone.Accent, Tone.Warning, Tone.Info, Tone.Danger)
 
 /** Tone for the participant at [index], so the same person always gets the same color. */
 fun avatarToneAt(index: Int): Tone = avatarTones[index % avatarTones.size]
@@ -45,7 +45,7 @@ fun AvatarStack(
         if (hiddenCount > 0) {
             Avatar(
                 initials = "+$hiddenCount",
-                tone = Tone.Primary,
+                tone = Tone.Accent,
                 size = Sizes.avatarSmall,
                 modifier = Modifier.overlap(visible.size),
             )
@@ -60,13 +60,13 @@ private fun Modifier.overlap(index: Int): Modifier =
 @Composable
 fun CoverImage(modifier: Modifier = Modifier) {
     Box(
-        modifier = modifier.background(AppTheme.colors.primaryContainer),
+        modifier = modifier.background(AppTheme.colors.accentSoft),
         contentAlignment = Alignment.Center,
     ) {
         Icon(
             imageVector = Icons.Outlined.Landscape,
             contentDescription = null,
-            tint = AppTheme.colors.primary,
+            tint = AppTheme.colors.accent,
             modifier = Modifier.size(Sizes.iconLarge),
         )
     }

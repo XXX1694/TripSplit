@@ -99,7 +99,7 @@ val sampleCategorySpending: List<CategorySpending> = listOf(
 
 @Composable
 fun sampleBarSegments(): List<BarSegment> = listOf(
-    BarSegment(534f, AppTheme.colors.primary),
+    BarSegment(534f, AppTheme.colors.accent),
     BarSegment(378f, AppTheme.colors.warning),
     BarSegment(221f, AppTheme.colors.info),
 )

@@ -38,7 +38,7 @@ fun ProfileScreen(
         InfoBanner(
             text = "Your local data is encrypted. Changes sync automatically when you're online.",
             icon = Icons.Outlined.Shield,
-            tone = Tone.Primary,
+            tone = Tone.Accent,
         )
         AccountCard(onSignOutClick = onSignOutClick, onDeleteAccountClick = onClearLocalDataClick)
         AppVersionText()

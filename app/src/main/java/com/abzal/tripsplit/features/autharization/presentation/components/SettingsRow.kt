@@ -19,7 +19,7 @@ fun SettingsRow(
     title: String,
     subtitle: String,
     modifier: Modifier = Modifier,
-    tone: Tone = Tone.Primary,
+    tone: Tone = Tone.Accent,
     trailing: @Composable () -> Unit,
     onClick: (() -> Unit)? = null,
 ) {

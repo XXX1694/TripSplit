@@ -31,12 +31,12 @@ fun JoinTripHeader() {
         Text(
             text = "Join a trip",
             style = MaterialTheme.typography.headlineLarge,
-            color = AppTheme.colors.textPrimary,
+            color = AppTheme.colors.text,
         )
         Text(
             text = "Enter the invitation code you received to share expenses and settle the trip together.",
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
             textAlign = TextAlign.Center,
         )
     }

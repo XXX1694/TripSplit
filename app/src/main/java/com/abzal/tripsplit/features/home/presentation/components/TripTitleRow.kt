@@ -27,12 +27,12 @@ fun TripTitleRow(summary: TripSummary, onMoreClick: () -> Unit) {
             Text(
                 text = summary.trip.name,
                 style = MaterialTheme.typography.titleMedium,
-                color = AppTheme.colors.textPrimary,
+                color = AppTheme.colors.text,
             )
             Text(
                 text = tripSubtitle(summary.trip),
                 style = MaterialTheme.typography.bodySmall,
-                color = AppTheme.colors.textSecondary,
+                color = AppTheme.colors.textMuted,
             )
         }
         IconButton(onClick = onMoreClick) {

@@ -17,12 +17,12 @@ fun SignUpIntro() {
         Text(
             text = "Start your next shared trip",
             style = MaterialTheme.typography.headlineMedium,
-            color = AppTheme.colors.textPrimary,
+            color = AppTheme.colors.text,
         )
         Text(
             text = "Create a secure account for Lisbon Friends 2026 and future adventures.",
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
         )
     }
 }

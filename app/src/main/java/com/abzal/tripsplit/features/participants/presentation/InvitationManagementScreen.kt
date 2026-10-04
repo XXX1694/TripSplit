@@ -54,7 +54,7 @@ fun InvitationManagementScreen(
                 text = "No invitations yet",
                 modifier = Modifier.fillMaxWidth(),
                 style = MaterialTheme.typography.bodyMedium,
-                color = AppTheme.colors.textSecondary,
+                color = AppTheme.colors.textMuted,
                 textAlign = TextAlign.Center,
             )
         }

@@ -27,7 +27,7 @@ fun AppScaffold(
 ) {
     Scaffold(
         modifier = modifier,
-        containerColor = AppTheme.colors.background,
+        containerColor = AppTheme.colors.canvas,
         topBar = topBar,
         bottomBar = bottomBar,
         floatingActionButton = floatingActionButton,

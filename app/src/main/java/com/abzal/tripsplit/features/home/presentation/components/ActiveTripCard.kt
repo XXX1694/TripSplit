@@ -39,7 +39,7 @@ fun ActiveTripCard(
                 verticalAlignment = Alignment.Bottom,
             ) {
                 AvatarStack(names = summary.participantNames)
-                TripTotal(summary, amountColor = AppTheme.colors.primary)
+                TripTotal(summary, amountColor = AppTheme.colors.accent)
             }
         }
     }

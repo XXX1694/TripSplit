@@ -27,7 +27,7 @@ fun AccountCard(onSignOutClick: () -> Unit, onDeleteAccountClick: () -> Unit) {
             icon = Icons.Outlined.PersonRemove,
             title = "Delete account",
             subtitle = "Permanently remove profile and local data",
-            tone = Tone.Negative,
+            tone = Tone.Danger,
             trailing = { ChevronIcon() },
             onClick = onDeleteAccountClick,
         )

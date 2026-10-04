@@ -32,12 +32,12 @@ fun SignInHeader() {
         Text(
             text = "Welcome back",
             style = MaterialTheme.typography.headlineLarge,
-            color = AppTheme.colors.textPrimary,
+            color = AppTheme.colors.text,
         )
         Text(
             text = "Sign in to keep your Lisbon plans, expenses, and balances in sync.",
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
             textAlign = TextAlign.Center,
         )
     }

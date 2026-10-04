@@ -31,7 +31,7 @@ fun InviteCodeCard(invitation: Invitation?) {
             Text(
                 text = "Create a code and send it to friends. They enter it in the app to join this trip.",
                 style = MaterialTheme.typography.bodyMedium,
-                color = AppTheme.colors.textSecondary,
+                color = AppTheme.colors.textMuted,
             )
         } else {
             CodeBox(code = invitation.code)

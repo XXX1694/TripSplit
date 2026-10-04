@@ -53,8 +53,8 @@ fun CategorySpendingCard(
 private fun CategoryLegend(name: String, amount: String, color: Color) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(Modifier.size(Sizes.dot).clip(CircleShape).background(color))
-        Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.textPrimary)
-        Text(name, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textSecondary)
+        Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text)
+        Text(name, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
     }
 }
 

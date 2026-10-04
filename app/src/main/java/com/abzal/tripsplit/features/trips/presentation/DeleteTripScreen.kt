@@ -58,7 +58,7 @@ fun DeleteTripScreen(
         InfoBanner(
             text = "This cannot be undone. Export your trip before deleting if you need a copy.",
             icon = Icons.Outlined.WarningAmber,
-            tone = Tone.Negative,
+            tone = Tone.Danger,
         )
         // red style marks the dangerous action
         AppTextField(

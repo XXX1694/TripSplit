@@ -38,16 +38,16 @@ fun ResetSentHeader(email: String) {
         Text(
             text = "Check your inbox",
             style = MaterialTheme.typography.headlineLarge,
-            color = AppTheme.colors.textPrimary,
+            color = AppTheme.colors.text,
         )
         Text(
             text = buildAnnotatedString {
                 append("We sent a secure reset link to ")
-                withStyle(SpanStyle(fontWeight = FontWeight.SemiBold, color = AppTheme.colors.textPrimary)) { append(email) }
+                withStyle(SpanStyle(fontWeight = FontWeight.SemiBold, color = AppTheme.colors.text)) { append(email) }
                 append(".")
             },
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
             textAlign = TextAlign.Center,
         )
     }

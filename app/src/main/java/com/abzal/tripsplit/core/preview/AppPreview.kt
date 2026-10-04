@@ -10,6 +10,6 @@ import com.abzal.tripsplit.core.designsystem.components.colors
 @Composable
 fun AppPreview(content: @Composable () -> Unit) {
     TripSplitTheme {
-        Surface(color = AppTheme.colors.background, content = content)
+        Surface(color = AppTheme.colors.canvas, content = content)
     }
 }

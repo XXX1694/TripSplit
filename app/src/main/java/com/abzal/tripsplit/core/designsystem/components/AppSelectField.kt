@@ -45,7 +45,7 @@ fun AppSelectField(
         modifier = modifier.fillMaxWidth().heightIn(min = Sizes.field),
         shape = MaterialTheme.shapes.large,
         color = colors.surface,
-        border = BorderStroke(Strokes.thin, colors.outline),
+        border = BorderStroke(Strokes.thin, colors.border),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = Spacing.md, vertical = Spacing.xs),
@@ -55,17 +55,17 @@ fun AppSelectField(
             if (leadingContent != null) {
                 leadingContent()
             } else if (leadingIcon != null) {
-                Icon(leadingIcon, contentDescription = null, tint = colors.textSecondary)
+                Icon(leadingIcon, contentDescription = null, tint = colors.textMuted)
             }
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = label, style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
+                Text(text = label, style = MaterialTheme.typography.bodySmall, color = colors.textMuted)
                 Text(
                     text = value,
                     style = MaterialTheme.typography.titleSmall,
-                    color = if (isPlaceholder) colors.textDisabled else colors.textPrimary,
+                    color = if (isPlaceholder) colors.textDisabled else colors.text,
                 )
                 if (caption != null) {
-                    Text(text = caption, style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
+                    Text(text = caption, style = MaterialTheme.typography.bodySmall, color = colors.textMuted)
                 }
             }
             trailing?.invoke()

@@ -46,7 +46,7 @@ fun SignUpFooter(
             Text(
                 text = "Already have an account?",
                 style = MaterialTheme.typography.bodyMedium,
-                color = AppTheme.colors.textSecondary,
+                color = AppTheme.colors.textMuted,
             )
             AppTextButton(text = "Sign in", onClick = onSignInClick)
         }

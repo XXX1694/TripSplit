@@ -17,7 +17,7 @@ fun EmptyTrips() {
         text = "No trips yet. Create your first trip or join one with an invitation code.",
         modifier = Modifier.fillMaxWidth(),
         style = MaterialTheme.typography.bodyMedium,
-        color = AppTheme.colors.textSecondary,
+        color = AppTheme.colors.textMuted,
         textAlign = TextAlign.Center,
     )
 }

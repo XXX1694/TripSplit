@@ -55,7 +55,7 @@ fun AppBottomNavBar(
 @Composable
 private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> Unit) {
     val colors = AppTheme.colors
-    val contentColor = if (selected) colors.primary else colors.textDisabled
+    val contentColor = if (selected) colors.accent else colors.textDisabled
     Column(
         modifier = Modifier
             .heightIn(min = Sizes.touchTarget)
@@ -63,7 +63,7 @@ private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> 
             .padding(horizontal = Spacing.sm),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Surface(shape = CircleShape, color = if (selected) colors.primaryContainer else colors.surface) {
+        Surface(shape = CircleShape, color = if (selected) colors.accentSoft else colors.surface) {
             Icon(
                 imageVector = item.icon,
                 contentDescription = null,

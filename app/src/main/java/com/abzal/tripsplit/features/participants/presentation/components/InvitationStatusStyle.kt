@@ -10,7 +10,7 @@ fun InvitationStatus.label(): String = when (this) {
 }
 
 fun InvitationStatus.tone(): Tone = when (this) {
-    InvitationStatus.ACCEPTED -> Tone.Primary
+    InvitationStatus.ACCEPTED -> Tone.Accent
     InvitationStatus.PENDING -> Tone.Warning
-    InvitationStatus.REVOKED -> Tone.Negative
+    InvitationStatus.REVOKED -> Tone.Danger
 }

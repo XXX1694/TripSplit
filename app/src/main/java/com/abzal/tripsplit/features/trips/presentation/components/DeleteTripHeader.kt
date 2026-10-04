@@ -27,18 +27,18 @@ fun DeleteTripHeader(tripName: String) {
     ) {
         BigIconBadge(
             icon = Icons.Outlined.Delete,
-            containerColor = AppTheme.colors.negativeContainer,
-            contentColor = AppTheme.colors.negative,
+            containerColor = AppTheme.colors.dangerContainer,
+            contentColor = AppTheme.colors.danger,
         )
         Text(
             text = "Delete this trip?",
             style = MaterialTheme.typography.headlineLarge,
-            color = AppTheme.colors.textPrimary,
+            color = AppTheme.colors.text,
         )
         Text(
             text = "$tripName will be permanently removed from every participant's device.",
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
             textAlign = TextAlign.Center,
         )
     }

@@ -110,9 +110,9 @@ private fun AppBarChartPreview() {
     AppPreview {
         AppBarChart(
             values = sampleBarValues(),
-            barColor = AppTheme.colors.primary,
-            highlightColor = AppTheme.colors.primary,
-            labelColor = AppTheme.colors.primary,
+            barColor = AppTheme.colors.accent,
+            highlightColor = AppTheme.colors.accent,
+            labelColor = AppTheme.colors.accent,
         )
     }
 }

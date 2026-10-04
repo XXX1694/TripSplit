@@ -18,8 +18,8 @@ import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
 @Composable
 fun InvitationSectionTitle(status: InvitationStatus, count: Int, modifier: Modifier = Modifier) {
     Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        Text(status.label().uppercase(), style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textSecondary)
-        Text("$count invitations", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textSecondary, textAlign = TextAlign.End)
+        Text(status.label().uppercase(), style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textMuted)
+        Text("$count invitations", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted, textAlign = TextAlign.End)
     }
 }
 

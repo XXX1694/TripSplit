@@ -47,9 +47,9 @@ fun AppListRow(
     ) {
         leading?.invoke()
         Column(modifier = Modifier.weight(1f)) {
-            Text(text = title, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.textPrimary)
+            Text(text = title, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text)
             if (subtitle != null) {
-                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textSecondary)
+                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
             }
         }
         trailing?.invoke()
@@ -68,13 +68,13 @@ fun ChevronIcon(modifier: Modifier = Modifier) {
         imageVector = Icons.AutoMirrored.Outlined.KeyboardArrowRight,
         contentDescription = null,
         modifier = modifier,
-        tint = AppTheme.colors.textSecondary,
+        tint = AppTheme.colors.textMuted,
     )
 }
 
 /** Short bold value at the end of a row: "EUR €", "On", "Healthy". */
 @Composable
-fun RowValue(text: String, modifier: Modifier = Modifier, color: Color = AppTheme.colors.primary) {
+fun RowValue(text: String, modifier: Modifier = Modifier, color: Color = AppTheme.colors.accent) {
     Text(text = text, modifier = modifier, style = MaterialTheme.typography.labelLarge, color = color)
 }
 

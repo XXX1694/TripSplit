@@ -20,7 +20,7 @@ fun TripTotal(summary: TripSummary, amountColor: Color) {
         Text(
             text = "Total spent",
             style = MaterialTheme.typography.bodySmall,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
         )
         Text(
             text = formatMoney(summary.totalSpent, summary.trip.currency),
@@ -36,7 +36,7 @@ private fun TripTotalPreview() {
     AppPreview {
         TripTotal(
             summary = sampleTripSummary,
-            amountColor = AppTheme.colors.primary,
+            amountColor = AppTheme.colors.accent,
         )
     }
 }

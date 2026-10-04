@@ -39,12 +39,12 @@ fun HomeGreeting(
             Text(
                 text = formatToday(),
                 style = MaterialTheme.typography.labelMedium,
-                color = AppTheme.colors.primary,
+                color = AppTheme.colors.accent,
             )
             Text(
                 text = "Where to next, ${userName.substringBefore(' ')}?",
                 style = MaterialTheme.typography.headlineMedium,
-                color = AppTheme.colors.textPrimary,
+                color = AppTheme.colors.text,
             )
         }
         Box(

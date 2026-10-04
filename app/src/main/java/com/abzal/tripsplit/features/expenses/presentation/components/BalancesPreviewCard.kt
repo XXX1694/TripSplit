@@ -42,7 +42,7 @@ fun BalancesPreviewCard(
                     Text(
                         text = formatSignedMoney(balance.amount, uiState.currency),
                         style = MaterialTheme.typography.titleSmall,
-                        color = if (isOwed) AppTheme.colors.positive else AppTheme.colors.negative,
+                        color = if (isOwed) AppTheme.colors.positive else AppTheme.colors.danger,
                     )
                 },
             )

@@ -28,7 +28,7 @@ fun ResetSteps() {
         text = "Open the link on this device, then choose a new password.",
         modifier = Modifier.fillMaxWidth(),
         style = MaterialTheme.typography.bodySmall,
-        color = AppTheme.colors.textSecondary,
+        color = AppTheme.colors.textMuted,
         textAlign = TextAlign.Center,
     )
 }

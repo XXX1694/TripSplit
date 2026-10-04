@@ -25,7 +25,7 @@ import com.abzal.tripsplit.features.participants.presentation.components.tone
 fun PlanSummaryCard(uiState: OptimizedSettlementUiState) {
     HeroCard {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
-            IconBadge(icon = Icons.Outlined.Tune, tone = Tone.Primary)
+            IconBadge(icon = Icons.Outlined.Tune, tone = Tone.Accent)
             Column {
                 Text("${uiState.transfers.size} payments settle everyone", style = MaterialTheme.typography.titleMedium)
                 Text(

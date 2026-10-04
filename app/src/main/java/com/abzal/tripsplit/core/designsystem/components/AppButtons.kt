@@ -44,10 +44,10 @@ fun PrimaryButton(
         enabled = enabled && !isLoading,
         shape = MaterialTheme.shapes.medium,
         colors = ButtonDefaults.buttonColors(
-            containerColor = colors.primary,
-            contentColor = colors.onPrimary,
-            disabledContainerColor = colors.primary,
-            disabledContentColor = colors.onPrimary,
+            containerColor = colors.accent,
+            contentColor = colors.onAccent,
+            disabledContainerColor = colors.accent,
+            disabledContentColor = colors.onAccent,
         ),
     ) {
         ButtonContent(text, icon, isLoading)
@@ -69,8 +69,8 @@ fun SecondaryButton(
         modifier = modifier.fillMaxWidth().height(Sizes.button),
         enabled = enabled,
         shape = MaterialTheme.shapes.medium,
-        border = BorderStroke(Strokes.thin, colors.outline),
-        colors = ButtonDefaults.outlinedButtonColors(containerColor = colors.surface, contentColor = colors.primary),
+        border = BorderStroke(Strokes.thin, colors.border),
+        colors = ButtonDefaults.outlinedButtonColors(containerColor = colors.surface, contentColor = colors.accent),
     ) {
         ButtonContent(text, icon, isLoading = false)
     }
@@ -92,10 +92,10 @@ fun DangerButton(
         enabled = enabled,
         shape = MaterialTheme.shapes.medium,
         colors = ButtonDefaults.buttonColors(
-            containerColor = colors.negativeContainer,
-            contentColor = colors.negative,
-            disabledContainerColor = colors.negativeContainer,
-            disabledContentColor = colors.negative,
+            containerColor = colors.dangerContainer,
+            contentColor = colors.danger,
+            disabledContainerColor = colors.dangerContainer,
+            disabledContentColor = colors.danger,
         ),
     ) {
         ButtonContent(text, icon, isLoading = false)
@@ -115,7 +115,7 @@ fun AppTextButton(
         onClick = onClick,
         modifier = modifier.heightIn(min = Sizes.touchTarget),
         enabled = enabled,
-        colors = ButtonDefaults.textButtonColors(contentColor = AppTheme.colors.primary),
+        colors = ButtonDefaults.textButtonColors(contentColor = AppTheme.colors.accent),
     ) {
         ButtonContent(text, icon, isLoading = false)
     }

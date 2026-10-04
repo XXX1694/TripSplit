@@ -67,7 +67,7 @@ fun SignUpScreen(
             )
         }
         if (uiState.error != null) {
-            InfoBanner(text = uiState.error, icon = Icons.Outlined.Shield, tone = Tone.Negative)
+            InfoBanner(text = uiState.error, icon = Icons.Outlined.Shield, tone = Tone.Danger)
         }
         InfoBanner(
             text = "Use 8+ characters with a number and symbol. Never reuse a banking password.",

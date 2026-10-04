@@ -47,7 +47,7 @@ fun ResendRow(onResendClick: () -> Unit) {
         Text(
             text = "Didn't receive it? Check spam or",
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
         )
         AppChip(
             text = if (secondsLeft > 0) "Resend available in %02d:%02d".format(secondsLeft / 60, secondsLeft % 60) else "Resend email",

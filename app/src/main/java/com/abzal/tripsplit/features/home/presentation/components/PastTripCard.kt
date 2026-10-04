@@ -46,7 +46,7 @@ fun PastTripCard(
                     verticalAlignment = Alignment.Bottom,
                 ) {
                     AvatarStack(names = summary.participantNames)
-                    TripTotal(summary, amountColor = AppTheme.colors.textPrimary)
+                    TripTotal(summary, amountColor = AppTheme.colors.text)
                 }
             }
         }

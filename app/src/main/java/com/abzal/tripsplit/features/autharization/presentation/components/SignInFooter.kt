@@ -20,7 +20,7 @@ fun SignInFooter(onSignUpClick: () -> Unit) {
             text = "New to shared travel expenses?",
             modifier = Modifier.fillMaxWidth(),
             style = MaterialTheme.typography.bodyMedium,
-            color = AppTheme.colors.textSecondary,
+            color = AppTheme.colors.textMuted,
             textAlign = TextAlign.Center,
         )
         SecondaryButton(text = "Create an account", onClick = onSignUpClick)

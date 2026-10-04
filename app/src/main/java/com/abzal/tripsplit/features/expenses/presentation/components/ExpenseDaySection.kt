@@ -30,11 +30,11 @@ fun ExpenseDaySection(
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(group.title, style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textSecondary)
+            Text(group.title, style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textMuted)
             Text(
                 text = formatMoney(group.total, uiState.tripCurrency),
                 style = MaterialTheme.typography.labelMedium,
-                color = AppTheme.colors.textSecondary,
+                color = AppTheme.colors.textMuted,
             )
         }
         AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.xxs)) {

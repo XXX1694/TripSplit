@@ -11,7 +11,7 @@ import com.abzal.tripsplit.core.preview.ThemePreviews
 
 @Composable
 fun EmptyHint(text: String, modifier: Modifier = Modifier) {
-    Text(text, modifier = modifier, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textSecondary)
+    Text(text, modifier = modifier, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textMuted)
 }
 
 @ThemePreviews

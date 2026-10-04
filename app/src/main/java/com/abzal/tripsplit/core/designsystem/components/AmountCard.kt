@@ -46,7 +46,7 @@ fun AmountCard(
         modifier = modifier,
         shape = MaterialTheme.shapes.extraLarge,
         color = colors.surface,
-        border = BorderStroke(Strokes.thick, colors.primary),
+        border = BorderStroke(Strokes.thick, colors.accent),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(Spacing.md),
@@ -56,14 +56,14 @@ fun AmountCard(
                 onClick = onCurrencyClick,
                 modifier = Modifier.heightIn(min = Sizes.touchTarget),
                 shape = CircleShape,
-                color = colors.primaryContainer,
+                color = colors.accentSoft,
             ) {
                 Row(
                     modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xs),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(currency, style = MaterialTheme.typography.labelLarge, color = colors.primary)
-                    Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null, tint = colors.primary, modifier = Modifier.size(Sizes.iconSmall))
+                    Text(currency, style = MaterialTheme.typography.labelLarge, color = colors.accent)
+                    Icon(Icons.Outlined.KeyboardArrowDown, contentDescription = null, tint = colors.accent, modifier = Modifier.size(Sizes.iconSmall))
                 }
             }
             Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.End) {
@@ -78,7 +78,7 @@ fun AmountCard(
 private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit) {
     val colors = AppTheme.colors
     val style = MaterialTheme.typography.headlineLarge.copy(
-        color = if (text.isEmpty()) colors.textDisabled else colors.textPrimary,
+        color = if (text.isEmpty()) colors.textDisabled else colors.text,
         textAlign = TextAlign.End,
     )
     BasicTextField(
@@ -86,7 +86,7 @@ private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit
         onValueChange = onChange,
         singleLine = true,
         textStyle = style,
-        cursorBrush = SolidColor(colors.primary),
+        cursorBrush = SolidColor(colors.accent),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
         decorationBox = { inner ->
             Row(horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.CenterVertically) {

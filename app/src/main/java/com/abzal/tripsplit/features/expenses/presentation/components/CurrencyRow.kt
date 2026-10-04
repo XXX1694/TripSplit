@@ -47,10 +47,10 @@ fun CurrencyRow(
                 Text(
                     text = currency.symbol,
                     style = MaterialTheme.typography.titleMedium,
-                    color = AppTheme.colors.textPrimary,
+                    color = AppTheme.colors.text,
                 )
                 if (isSelected) {
-                    Icon(Icons.Outlined.CheckCircle, contentDescription = "Selected", tint = AppTheme.colors.primary)
+                    Icon(Icons.Outlined.CheckCircle, contentDescription = "Selected", tint = AppTheme.colors.accent)
                 } else {
                     Box(Modifier.width(Sizes.iconDefault))
                 }

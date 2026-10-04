@@ -47,9 +47,9 @@ fun AppTopBar(
             Spacer(Modifier.width(Spacing.xs))
         }
         Column(modifier = Modifier.weight(1f)) {
-            Text(text = title, style = MaterialTheme.typography.titleLarge, color = AppTheme.colors.textPrimary)
+            Text(text = title, style = MaterialTheme.typography.titleLarge, color = AppTheme.colors.text)
             if (subtitle != null) {
-                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textSecondary)
+                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
             }
         }
         actions()

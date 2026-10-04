@@ -56,7 +56,7 @@ fun SignInScreen(
                 onForgotPasswordClick = onForgotPasswordClick,
             )
             if (uiState.error != null) {
-                InfoBanner(text = uiState.error, icon = Icons.Outlined.Lock, tone = Tone.Negative)
+                InfoBanner(text = uiState.error, icon = Icons.Outlined.Lock, tone = Tone.Danger)
             }
             PrimaryButton(
                 text = "Sign in securely",
@@ -69,7 +69,7 @@ fun SignInScreen(
         InfoBanner(
             text = "Your trip data is encrypted and only visible to invited participants.",
             icon = Icons.Outlined.Shield,
-            tone = Tone.Primary,
+            tone = Tone.Accent,
         )
     }
 }

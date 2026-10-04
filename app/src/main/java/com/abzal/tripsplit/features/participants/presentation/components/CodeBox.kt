@@ -25,13 +25,13 @@ import com.abzal.tripsplit.core.preview.ThemePreviews
 @Composable
 fun CodeBox(code: String) {
     val clipboard = LocalClipboardManager.current
-    Surface(shape = MaterialTheme.shapes.small, color = AppTheme.colors.background) {
+    Surface(shape = MaterialTheme.shapes.small, color = AppTheme.colors.canvas) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(start = Spacing.md),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(text = code, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.textPrimary)
+            Text(text = code, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
             IconButton(onClick = { clipboard.setText(AnnotatedString(code)) }) {
                 Icon(Icons.Outlined.ContentCopy, contentDescription = "Copy code")
             }

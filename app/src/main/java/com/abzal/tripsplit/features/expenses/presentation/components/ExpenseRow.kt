@@ -35,7 +35,7 @@ fun ExpenseRow(
             Text(
                 text = formatMoney(expense.amount, expense.currency),
                 style = MaterialTheme.typography.titleSmall,
-                color = AppTheme.colors.textPrimary,
+                color = AppTheme.colors.text,
             )
         },
     )

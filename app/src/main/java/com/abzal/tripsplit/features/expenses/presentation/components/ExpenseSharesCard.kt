@@ -49,7 +49,7 @@ fun ExpenseSharesCard(uiState: ExpenseDetailUiState, modifier: Modifier = Modifi
         )
         HorizontalDivider(color = AppTheme.colors.divider)
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text("Participant shares", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.textPrimary)
+            Text("Participant shares", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
             Text("Equal split", style = MaterialTheme.typography.labelMedium, color = AppTheme.colors.positive)
         }
         sharing.forEachIndexed { index, participant ->
@@ -58,11 +58,11 @@ fun ExpenseSharesCard(uiState: ExpenseDetailUiState, modifier: Modifier = Modifi
                 leading = { Avatar(initials = participant.name.toInitials(), tone = avatarToneAt(index)) },
                 trailing = {
                     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.md), verticalAlignment = Alignment.CenterVertically) {
-                        Text("$percent%", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textSecondary)
+                        Text("$percent%", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
                         Text(
                             text = formatMoney(uiState.sharePerPerson, expense.currency),
                             style = MaterialTheme.typography.titleSmall,
-                            color = AppTheme.colors.textPrimary,
+                            color = AppTheme.colors.text,
                         )
                     }
                 },

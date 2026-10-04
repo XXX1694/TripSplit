@@ -43,7 +43,7 @@ fun CategoryBreakdownCard(uiState: SpendingInsightsUiState, modifier: Modifier =
                 center = {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(formatMoney(total, uiState.currency), style = MaterialTheme.typography.titleSmall)
-                        Text("TOTAL", style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textSecondary)
+                        Text("TOTAL", style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textMuted)
                     }
                 },
             )
@@ -65,9 +65,9 @@ fun CategoryBreakdownCard(uiState: SpendingInsightsUiState, modifier: Modifier =
 private fun LegendRow(color: Color, name: String, percent: Double, amount: String) {
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
         Box(Modifier.size(Sizes.dot).clip(CircleShape).background(color))
-        Text(name, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.textPrimary)
-        Text("%.1f%%".format(percent), style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textSecondary)
-        Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.textPrimary, textAlign = TextAlign.End)
+        Text(name, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.text)
+        Text("%.1f%%".format(percent), style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
+        Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text, textAlign = TextAlign.End)
     }
 }
 

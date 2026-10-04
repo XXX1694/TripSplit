@@ -62,8 +62,8 @@ fun OptimizedSettlementScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text("Recommended plan", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.textPrimary)
-            StatusPill(text = uiState.currency, tone = Tone.Primary)
+            Text("Recommended plan", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
+            StatusPill(text = uiState.currency, tone = Tone.Accent)
         }
         uiState.transfers.forEach { transfer ->
             TransferCard(
@@ -82,7 +82,7 @@ fun OptimizedSettlementScreen(
                 "These payments exactly clear ${formatMoney(uiState.totalAmount, uiState.currency)} owed and leave every balance at zero."
             },
             icon = Icons.Outlined.CheckCircle,
-            tone = Tone.Primary,
+            tone = Tone.Accent,
         )
     }
 }

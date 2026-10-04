@@ -43,8 +43,8 @@ fun SplitTile(
         onClick = onClick,
         modifier = modifier,
         shape = MaterialTheme.shapes.medium,
-        color = if (isSelected) colors.primaryContainer else colors.surface,
-        border = BorderStroke(Strokes.thin, if (isSelected) colors.primary else colors.outline),
+        color = if (isSelected) colors.accentSoft else colors.surface,
+        border = BorderStroke(Strokes.thin, if (isSelected) colors.accent else colors.border),
     ) {
         Row(
             modifier = Modifier.padding(Spacing.sm),
@@ -56,15 +56,15 @@ fun SplitTile(
                 text = participant.name.substringBefore(' '),
                 modifier = Modifier.weight(1f),
                 style = MaterialTheme.typography.titleSmall,
-                color = colors.textPrimary,
+                color = colors.text,
             )
             if (percent != null) {
-                Text("$percent%", style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
+                Text("$percent%", style = MaterialTheme.typography.bodySmall, color = colors.textMuted)
                 Icon(
                     imageVector = Icons.Outlined.Check,
                     contentDescription = "Included",
-                    tint = colors.onPrimary,
-                    modifier = Modifier.size(Sizes.icon).background(colors.primary, MaterialTheme.shapes.extraSmall),
+                    tint = colors.onAccent,
+                    modifier = Modifier.size(Sizes.icon).background(colors.accent, MaterialTheme.shapes.extraSmall),
                 )
             }
         }

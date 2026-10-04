@@ -33,16 +33,16 @@ fun ResetStep(number: Int, label: String, state: StepState) {
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(horizontal = Spacing.xxs)) {
         val circle = Modifier.size(Sizes.stepCircle).clip(CircleShape)
         Box(
-            modifier = if (state == StepState.Todo) circle.border(Strokes.thin, colors.outline, CircleShape) else circle.background(colors.primary),
+            modifier = if (state == StepState.Todo) circle.border(Strokes.thin, colors.border, CircleShape) else circle.background(colors.accent),
             contentAlignment = Alignment.Center,
         ) {
             if (state == StepState.Done) {
-                Icon(Icons.Outlined.Check, contentDescription = null, tint = colors.onPrimary, modifier = Modifier.size(Sizes.iconSmall))
+                Icon(Icons.Outlined.Check, contentDescription = null, tint = colors.onAccent, modifier = Modifier.size(Sizes.iconSmall))
             } else {
                 Text(
                     text = number.toString(),
                     style = MaterialTheme.typography.labelMedium,
-                    color = if (state == StepState.Todo) colors.textDisabled else colors.onPrimary,
+                    color = if (state == StepState.Todo) colors.textDisabled else colors.onAccent,
                 )
             }
         }
@@ -50,7 +50,7 @@ fun ResetStep(number: Int, label: String, state: StepState) {
             text = label,
             modifier = Modifier.padding(top = Spacing.xxs).width(Sizes.stepLabelWidth),
             style = MaterialTheme.typography.labelMedium,
-            color = if (state == StepState.Todo) colors.textDisabled else colors.primary,
+            color = if (state == StepState.Todo) colors.textDisabled else colors.accent,
             textAlign = TextAlign.Center,
         )
     }

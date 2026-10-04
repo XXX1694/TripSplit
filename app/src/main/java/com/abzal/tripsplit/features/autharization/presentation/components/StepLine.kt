@@ -19,7 +19,7 @@ fun StepLine(isActive: Boolean, modifier: Modifier = Modifier) {
         modifier = modifier
             .padding(top = (Sizes.stepCircle - Strokes.thick) / 2)
             .height(Strokes.thick)
-            .background(if (isActive) AppTheme.colors.primary else AppTheme.colors.track),
+            .background(if (isActive) AppTheme.colors.accent else AppTheme.colors.track),
     )
 }
 

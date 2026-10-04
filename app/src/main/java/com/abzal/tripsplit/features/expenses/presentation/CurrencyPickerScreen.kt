@@ -65,7 +65,7 @@ fun CurrencyPickerScreen(
                 Text(
                     text = "No currencies found",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = AppTheme.colors.textSecondary,
+                    color = AppTheme.colors.textMuted,
                 )
             }
         }

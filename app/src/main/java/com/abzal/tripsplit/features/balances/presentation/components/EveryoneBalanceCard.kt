@@ -32,11 +32,11 @@ fun EveryoneBalanceCard(uiState: BalancesUiState, modifier: Modifier = Modifier)
     val maxAmount = uiState.balances.maxOfOrNull { abs(it.amount) }?.takeIf { it > 0 } ?: 1.0
 
     AppCard(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
-        Text("Everyone's balance", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.textPrimary)
+        Text("Everyone's balance", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
         uiState.balances.forEachIndexed { index, balance ->
             val name = uiState.participants.firstOrNull { it.id == balance.participantId }?.name.orEmpty()
             val isOwed = balance.amount >= 0
-            val color = if (isOwed) AppTheme.colors.positive else AppTheme.colors.negative
+            val color = if (isOwed) AppTheme.colors.positive else AppTheme.colors.danger
 
             Column(verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
                 AppListRow(
@@ -49,7 +49,7 @@ fun EveryoneBalanceCard(uiState: BalancesUiState, modifier: Modifier = Modifier)
                             Text(
                                 text = if (isOwed) "GETS BACK" else "OWES",
                                 style = MaterialTheme.typography.labelSmall,
-                                color = AppTheme.colors.textSecondary,
+                                color = AppTheme.colors.textMuted,
                             )
                             Text(
                                 text = formatSignedMoney(balance.amount, uiState.currency),

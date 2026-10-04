@@ -38,8 +38,8 @@ fun TransferFlow(
     modifier: Modifier = Modifier,
     fromToneIndex: Int = 0,
     toToneIndex: Int = 1,
-    contentColor: Color = AppTheme.colors.primary,
-    nameColor: Color = AppTheme.colors.textPrimary,
+    contentColor: Color = AppTheme.colors.accent,
+    nameColor: Color = AppTheme.colors.text,
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),

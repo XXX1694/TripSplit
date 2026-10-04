@@ -38,18 +38,18 @@ fun DeleteExpenseConfirmation(
     Surface(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
-        color = colors.negativeContainer,
-        border = BorderStroke(Strokes.thin, colors.negative),
+        color = colors.dangerContainer,
+        border = BorderStroke(Strokes.thin, colors.danger),
     ) {
         Column(modifier = Modifier.padding(Spacing.md), verticalArrangement = Arrangement.spacedBy(Spacing.sm)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.xs)) {
-                Icon(Icons.Outlined.WarningAmber, contentDescription = null, tint = colors.negative)
-                Text("Delete $expenseTitle?", style = MaterialTheme.typography.titleMedium, color = colors.negative)
+                Icon(Icons.Outlined.WarningAmber, contentDescription = null, tint = colors.danger)
+                Text("Delete $expenseTitle?", style = MaterialTheme.typography.titleMedium, color = colors.danger)
             }
             Text(
                 text = "All $participantCount balances will be recalculated. This action cannot be undone.",
                 style = MaterialTheme.typography.bodySmall,
-                color = colors.negative,
+                color = colors.danger,
             )
             Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                 SecondaryButton(text = "Cancel", onClick = onCancelClick, modifier = Modifier.weight(1f))

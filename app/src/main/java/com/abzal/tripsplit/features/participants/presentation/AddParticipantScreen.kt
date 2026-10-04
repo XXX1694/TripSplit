@@ -68,7 +68,7 @@ fun AddParticipantScreen(
             InfoBanner(
                 text = "${uiState.name.trim()} is ready to add as a member.",
                 icon = Icons.Outlined.CheckCircle,
-                tone = Tone.Primary,
+                tone = Tone.Accent,
             )
         }
     }

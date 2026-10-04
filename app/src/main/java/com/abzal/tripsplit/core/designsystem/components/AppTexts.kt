@@ -25,7 +25,7 @@ fun SectionHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(text = title, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.textPrimary)
+        Text(text = title, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
         if (actionText != null && onActionClick != null) {
             AppTextButton(text = actionText, onClick = onActionClick)
         }
@@ -39,7 +39,7 @@ fun Overline(text: String, modifier: Modifier = Modifier) {
         text = text.uppercase(),
         modifier = modifier,
         style = MaterialTheme.typography.labelSmall,
-        color = AppTheme.colors.textSecondary,
+        color = AppTheme.colors.textMuted,
     )
 }
 

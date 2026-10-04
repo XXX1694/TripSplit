@@ -53,7 +53,7 @@ fun HeroCard(
     Surface(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.extraLarge,
-        color = AppTheme.colors.primaryDark,
+        color = AppTheme.colors.accentDark,
         contentColor = AppTheme.colors.onHero,
     ) {
         Column(
