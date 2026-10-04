@@ -82,7 +82,7 @@ fun StatusPill(
             horizontalArrangement = Arrangement.spacedBy(Spacing.space4),
         ) {
             if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.iconTiny))
-            Text(text = text, style = MaterialTheme.typography.labelMedium)
+            Text(text = text, style = MaterialTheme.typography.labelSmall)
         }
     }
 }

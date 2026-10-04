@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 
@@ -49,7 +50,7 @@ fun AppListRow(
         Column(modifier = Modifier.weight(1f)) {
             Text(text = title, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text)
             if (subtitle != null) {
-                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
+                Text(text = subtitle, style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
             }
         }
         trailing?.invoke()

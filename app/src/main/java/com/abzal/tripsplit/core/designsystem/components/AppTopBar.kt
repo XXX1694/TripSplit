@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 
@@ -49,7 +50,7 @@ fun AppTopBar(
         Column(modifier = Modifier.weight(1f)) {
             Text(text = title, style = MaterialTheme.typography.titleLarge, color = AppTheme.colors.text)
             if (subtitle != null) {
-                Text(text = subtitle, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
+                Text(text = subtitle, style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
             }
         }
         actions()

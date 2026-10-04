@@ -77,7 +77,7 @@ fun AmountCard(
 @Composable
 private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit) {
     val colors = AppTheme.colors
-    val style = MaterialTheme.typography.headlineLarge.copy(
+    val style = MaterialTheme.typography.displayMedium.copy(
         color = if (text.isEmpty()) colors.textDisabled else colors.text,
         textAlign = TextAlign.End,
     )

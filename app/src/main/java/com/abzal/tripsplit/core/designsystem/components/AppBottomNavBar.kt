@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
@@ -71,7 +72,7 @@ private fun BottomNavTab(item: BottomNavItem, selected: Boolean, onClick: () -> 
                 modifier = Modifier.padding(horizontal = Spacing.space16, vertical = Spacing.space4).size(Sizes.icon),
             )
         }
-        Text(text = item.label, style = MaterialTheme.typography.labelMedium, color = contentColor)
+        Text(text = item.label, style = MaterialTheme.typography.captionMedium, color = contentColor)
     }
 }
 

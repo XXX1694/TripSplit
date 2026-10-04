@@ -20,10 +20,12 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.TextStyle
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.labelLink
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 
@@ -117,12 +119,17 @@ fun AppTextButton(
         enabled = enabled,
         colors = ButtonDefaults.textButtonColors(contentColor = AppTheme.colors.accent),
     ) {
-        ButtonContent(text, icon, isLoading = false)
+        ButtonContent(text, icon, isLoading = false, textStyle = MaterialTheme.typography.labelLink)
     }
 }
 
 @Composable
-private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: Boolean) {
+private fun RowScope.ButtonContent(
+    text: String,
+    icon: ImageVector?,
+    isLoading: Boolean,
+    textStyle: TextStyle = MaterialTheme.typography.labelLarge,
+) {
     if (isLoading) {
         CircularProgressIndicator(
             modifier = Modifier.size(Sizes.iconSmall),
@@ -134,7 +141,7 @@ private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: 
         Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.icon))
         Spacer(Modifier.width(Spacing.space8))
     }
-    Text(text = text, style = MaterialTheme.typography.labelLarge)
+    Text(text = text, style = textStyle)
 }
 
 @ThemePreviews

@@ -19,6 +19,7 @@ import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
@@ -58,7 +59,7 @@ fun AppSelectField(
                 Icon(leadingIcon, contentDescription = null, tint = colors.textMuted)
             }
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = label, style = MaterialTheme.typography.bodySmall, color = colors.textMuted)
+                Text(text = label, style = MaterialTheme.typography.captionMedium, color = colors.textMuted)
                 Text(
                     text = value,
                     style = MaterialTheme.typography.titleSmall,

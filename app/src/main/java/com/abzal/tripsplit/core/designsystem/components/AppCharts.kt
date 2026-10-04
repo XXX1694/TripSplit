@@ -26,6 +26,7 @@ import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleBarSegments
@@ -58,7 +59,7 @@ fun AppBarChart(
                         .height((chartHeight.value * (bar.value / max)).dp.coerceAtLeast(Spacing.space8))
                         .background(if (bar.isHighlighted) highlightColor else barColor, MaterialTheme.shapes.extraSmall),
                 )
-                Text(bar.label, style = MaterialTheme.typography.bodySmall, color = labelColor)
+                Text(bar.label, style = MaterialTheme.typography.captionMedium, color = labelColor)
             }
         }
     }
