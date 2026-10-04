@@ -11,8 +11,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.formatDate
 import com.abzal.tripsplit.features.participants.presentation.components.label
 
@@ -57,7 +57,7 @@ fun AppDateField(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppDateFieldPreview() {
     AppPreview {

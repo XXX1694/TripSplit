@@ -1,7 +1,9 @@
 package com.abzal.tripsplit.core.designsystem
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -19,22 +21,32 @@ object AppTheme {
         get() = LocalAppColors.current
 }
 
-private fun AppColors.toMaterialColorScheme() = lightColorScheme(
-    primary = primary,
-    onPrimary = onPrimary,
-    primaryContainer = primaryContainer,
-    onPrimaryContainer = primary,
-    background = background,
-    onBackground = textPrimary,
-    surface = surface,
-    onSurface = textPrimary,
-    onSurfaceVariant = textSecondary,
-    outline = outline,
-    outlineVariant = divider,
-    error = negative,
-    errorContainer = negativeContainer,
-    onErrorContainer = negative,
-)
+private fun AppColors.toMaterialColorScheme(darkTheme: Boolean): ColorScheme {
+    val base = if (darkTheme) darkColorScheme() else lightColorScheme()
+    return base.copy(
+        primary = primary,
+        onPrimary = onPrimary,
+        primaryContainer = primaryContainer,
+        onPrimaryContainer = primary,
+        background = background,
+        onBackground = textPrimary,
+        surface = surface,
+        onSurface = textPrimary,
+        surfaceVariant = track,
+        onSurfaceVariant = textSecondary,
+        surfaceTint = primary,
+        surfaceContainerLowest = background,
+        surfaceContainerLow = surface,
+        surfaceContainer = surface,
+        surfaceContainerHigh = surface,
+        surfaceContainerHighest = surface,
+        outline = outline,
+        outlineVariant = divider,
+        error = negative,
+        errorContainer = negativeContainer,
+        onErrorContainer = negative,
+    )
+}
 
 @Composable
 fun TripSplitTheme(
@@ -45,7 +57,7 @@ fun TripSplitTheme(
 
     CompositionLocalProvider(LocalAppColors provides colors) {
         MaterialTheme(
-            colorScheme = colors.toMaterialColorScheme(),
+            colorScheme = colors.toMaterialColorScheme(darkTheme),
             typography = AppTypography,
             shapes = AppShapes,
             content = content,

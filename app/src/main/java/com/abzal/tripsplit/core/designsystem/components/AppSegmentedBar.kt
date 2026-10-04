@@ -11,10 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleBarSegments
 
 /** Bar split into colored parts. Each part is a [weight] (any positive number) and a [color]. */
@@ -38,7 +38,7 @@ fun AppSegmentedBar(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppSegmentedBarPreview() {
     AppPreview {

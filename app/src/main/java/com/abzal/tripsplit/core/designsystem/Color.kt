@@ -73,6 +73,34 @@ val LightAppColors = AppColors(
     infoContainer = Color(0xFFE6EFFB),
 )
 
-// TODO: dark palette is not decided yet. Until then dark theme reuses the light colors.
+/** Dark palette: values taken from complete_design/DarkTheme. */
+val DarkAppColors = AppColors(
+    background = Color(0xFF071713),
+    surface = Color(0xFF10231F),
+    outline = Color(0xFF29423A),
+    divider = Color(0xFF223833),
+    track = Color(0xFF142B25),
 
-val DarkAppColors = LightAppColors
+    textPrimary = Color(0xFFF2F8F6),
+    textSecondary = Color(0xFF9EB2AC),
+    textDisabled = Color(0xFF6F8680),
+
+    primary = Color(0xFF55D7B1),
+    onPrimary = Color(0xFF0B1513),
+    primaryDark = Color(0xFF0F6B55),
+    primaryContainer = Color(0xFF173D34),
+
+    onHero = Color(0xFFF2F8F6),
+    onHeroMuted = Color(0xCCF2F8F6),
+    heroOverlay = Color(0x26FFFFFF),
+    heroOutline = Color(0x4DFFFFFF),
+    heroBar = Color(0x59FFFFFF),
+
+    positive = Color(0xFF58DDB7),
+    negative = Color(0xFFFF8585),
+    negativeContainer = Color(0xFF3A2222),
+    warning = Color(0xFFE27A79),
+    warningContainer = Color(0xFF142B25),
+    info = Color(0xFF88B7FF),
+    infoContainer = Color(0xFF152B45),
+)

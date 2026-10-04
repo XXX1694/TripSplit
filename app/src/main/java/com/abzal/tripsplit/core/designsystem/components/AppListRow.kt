@@ -17,11 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /**
  * Universal row: [leading] (avatar / icon badge), title with subtitle, [trailing] (amount, switch, arrow).
@@ -78,7 +78,7 @@ fun RowValue(text: String, modifier: Modifier = Modifier, color: Color = AppThem
     Text(text = text, modifier = modifier, style = MaterialTheme.typography.labelLarge, color = color)
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppDividerPreview() {
     AppPreview {
@@ -86,7 +86,7 @@ private fun AppDividerPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppListRowPreview() {
     AppPreview {
@@ -96,7 +96,7 @@ private fun AppListRowPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun ChevronIconPreview() {
     AppPreview {
@@ -104,7 +104,7 @@ private fun ChevronIconPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun RowValuePreview() {
     AppPreview {

@@ -11,10 +11,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Base of every screen: background, optional top/bottom bars and a scrollable padded column. */
 @Composable
@@ -58,7 +58,7 @@ fun BottomActionBar(
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppScaffoldPreview() {
     AppPreview {
@@ -68,7 +68,7 @@ private fun AppScaffoldPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun BottomActionBarPreview() {
     AppPreview {

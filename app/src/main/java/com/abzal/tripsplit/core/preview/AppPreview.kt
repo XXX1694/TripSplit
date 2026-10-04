@@ -6,10 +6,10 @@ import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.TripSplitTheme
 import com.abzal.tripsplit.core.designsystem.components.colors
 
-/** Wraps every @Preview: app theme and the app background. */
+/** Wraps every @Preview: app theme (follows the preview's light / dark mode) and the app background. */
 @Composable
 fun AppPreview(content: @Composable () -> Unit) {
-    TripSplitTheme(darkTheme = false) {
+    TripSplitTheme {
         Surface(color = AppTheme.colors.background, content = content)
     }
 }

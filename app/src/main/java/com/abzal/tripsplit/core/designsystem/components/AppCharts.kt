@@ -20,7 +20,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
@@ -28,6 +27,7 @@ import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleBarSegments
 import com.abzal.tripsplit.core.preview.sampleBarValues
 import com.abzal.tripsplit.features.participants.presentation.components.label
@@ -104,7 +104,7 @@ fun AppDonutChart(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppBarChartPreview() {
     AppPreview {
@@ -117,7 +117,7 @@ private fun AppBarChartPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppDonutChartPreview() {
     AppPreview {

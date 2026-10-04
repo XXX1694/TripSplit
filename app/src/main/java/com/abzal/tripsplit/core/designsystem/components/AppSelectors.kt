@@ -21,12 +21,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Pill-shaped selectable chip: categories, trip type. */
 @Composable
@@ -106,7 +106,7 @@ fun AppCheckboxRow(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppSwitchPreview() {
     AppPreview {
@@ -117,7 +117,7 @@ private fun AppSwitchPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppChipPreview() {
     AppPreview {
@@ -129,7 +129,7 @@ private fun AppChipPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppCheckboxRowPreview() {
     AppPreview {

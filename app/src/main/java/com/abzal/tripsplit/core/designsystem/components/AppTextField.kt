@@ -22,9 +22,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
 
 /**
@@ -118,7 +118,7 @@ fun AppPasswordField(
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppTextFieldPreview() {
     AppPreview {
@@ -130,7 +130,7 @@ private fun AppTextFieldPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppPasswordFieldPreview() {
     AppPreview {

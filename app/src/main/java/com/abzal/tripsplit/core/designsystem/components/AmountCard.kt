@@ -24,12 +24,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.util.currencySymbol
 
 /** Big bordered card: currency chip on the left, amount input on the right. */
@@ -100,7 +100,7 @@ private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AmountCardPreview() {
     AppPreview {

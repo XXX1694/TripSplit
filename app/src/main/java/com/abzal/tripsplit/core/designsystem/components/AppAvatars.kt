@@ -11,11 +11,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.tone
 
 private val avatarTones = listOf(Tone.Primary, Tone.Warning, Tone.Info, Tone.Negative)
@@ -72,7 +72,7 @@ fun CoverImage(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AvatarStackPreview() {
     AppPreview {
@@ -82,7 +82,7 @@ private fun AvatarStackPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun CoverImagePreview() {
     AppPreview {

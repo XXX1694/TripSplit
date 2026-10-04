@@ -7,8 +7,8 @@ import androidx.compose.material.icons.outlined.PieChart
 import androidx.compose.material.icons.outlined.Receipt
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
 
 enum class TripTab(val label: String, val icon: ImageVector) {
@@ -31,7 +31,7 @@ fun TripBottomBar(
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun TripBottomBarPreview() {
     AppPreview {

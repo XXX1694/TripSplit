@@ -19,12 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.presentation.components.label
 import com.abzal.tripsplit.features.participants.presentation.components.tone
 
@@ -119,7 +119,7 @@ fun BigIconBadge(
     icon: ImageVector,
     modifier: Modifier = Modifier,
     containerColor: Color = AppTheme.colors.primaryDark,
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color = AppTheme.colors.onHero,
 ) {
     Box(
         modifier = modifier.size(Sizes.bigBadge).clip(MaterialTheme.shapes.extraLarge).background(containerColor),
@@ -133,7 +133,7 @@ fun BigIconBadge(
 fun String.toInitials(): String =
     trim().split(" ").filter { it.isNotEmpty() }.take(2).joinToString("") { it.first().uppercase() }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AvatarPreview() {
     AppPreview {
@@ -143,7 +143,7 @@ private fun AvatarPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun IconBadgePreview() {
     AppPreview {
@@ -153,7 +153,7 @@ private fun IconBadgePreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun StatusPillPreview() {
     AppPreview {
@@ -163,7 +163,7 @@ private fun StatusPillPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun InfoBannerPreview() {
     AppPreview {
@@ -174,7 +174,7 @@ private fun InfoBannerPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun BigIconBadgePreview() {
     AppPreview {

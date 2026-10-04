@@ -10,12 +10,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Elevations
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** White rounded card that groups related content. Pass [onClick] to make the whole card clickable. */
 @Composable
@@ -54,7 +54,7 @@ fun HeroCard(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.extraLarge,
         color = AppTheme.colors.primaryDark,
-        contentColor = AppTheme.colors.onPrimary,
+        contentColor = AppTheme.colors.onHero,
     ) {
         Column(
             modifier = Modifier.padding(Spacing.lg),
@@ -64,7 +64,7 @@ fun HeroCard(
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppCardPreview() {
     AppPreview {
@@ -74,7 +74,7 @@ private fun AppCardPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun HeroCardPreview() {
     AppPreview {

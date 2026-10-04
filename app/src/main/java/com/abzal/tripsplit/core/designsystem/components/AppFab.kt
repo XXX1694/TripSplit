@@ -10,10 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Elevations
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Green floating button with icon and text: "Create trip", "Add expense". */
 @Composable
@@ -35,7 +35,7 @@ fun AppFab(
     )
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppFabPreview() {
     AppPreview {

@@ -20,12 +20,12 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
 import com.abzal.tripsplit.core.preview.AppPreview
+import com.abzal.tripsplit.core.preview.ThemePreviews
 
 /** Filled green button: the main action of a screen. */
 @Composable
@@ -137,7 +137,7 @@ private fun RowScope.ButtonContent(text: String, icon: ImageVector?, isLoading: 
     Text(text = text, style = MaterialTheme.typography.labelLarge)
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun PrimaryButtonPreview() {
     AppPreview {
@@ -148,7 +148,7 @@ private fun PrimaryButtonPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun SecondaryButtonPreview() {
     AppPreview {
@@ -159,7 +159,7 @@ private fun SecondaryButtonPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun DangerButtonPreview() {
     AppPreview {
@@ -170,7 +170,7 @@ private fun DangerButtonPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@ThemePreviews
 @Composable
 private fun AppTextButtonPreview() {
     AppPreview {
