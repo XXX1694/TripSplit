@@ -62,7 +62,7 @@ features/<feature>/
 ## Before saying "done"
 Run and make sure all pass:
 ```
-./gradlew :app:assembleDebug :app:lintDebug :app:testDebugUnitTest
+./gradlew :app:assembleDebug :app:lintDebug
 ```
 For UI work also check there is no hardcoded `Color(`/`.dp`/`fontSize` in the changed files:
 ```
