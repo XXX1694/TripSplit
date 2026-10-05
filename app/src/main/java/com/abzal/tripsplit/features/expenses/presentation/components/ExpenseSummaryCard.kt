@@ -17,8 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.designsystem.titleRegular
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleExpenses
@@ -41,14 +43,14 @@ fun ExpenseSummaryCard(expense: Expense, modifier: Modifier = Modifier) {
             ) {
                 Icon(categoryIcon(expense.category), contentDescription = null)
             }
-            Text(formatMoney(expense.amount, expense.currency), style = MaterialTheme.typography.headlineLarge)
+            Text(formatMoney(expense.amount, expense.currency), style = MaterialTheme.typography.displaySmall)
         }
         HorizontalDivider(color = AppTheme.colors.heroOutline)
         Column {
-            Text(expense.title, style = MaterialTheme.typography.titleLarge)
+            Text(expense.title, style = MaterialTheme.typography.titleRegular)
             Text(
                 text = "${expense.category} · ${formatDateTime(expense.dateMillis)}",
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.captionMedium,
                 color = AppTheme.colors.onHeroMuted,
             )
         }

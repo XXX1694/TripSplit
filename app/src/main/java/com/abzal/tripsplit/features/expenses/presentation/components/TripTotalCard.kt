@@ -16,6 +16,7 @@ import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
@@ -31,10 +32,10 @@ fun TripTotalCard(uiState: TripOverviewUiState, modifier: Modifier = Modifier) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Spacing.space4)) {
                 Text("TOTAL SPENDING", style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.onHeroMuted)
-                Text(formatMoney(uiState.totalSpent, uiState.currency), style = MaterialTheme.typography.displayMedium)
+                Text(formatMoney(uiState.totalSpent, uiState.currency), style = MaterialTheme.typography.displayLarge)
                 Text(
                     text = "${formatMoney(uiState.perPerson, uiState.currency)} per person · ${uiState.expenses.size} expenses",
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.captionMedium,
                     color = AppTheme.colors.onHeroMuted,
                 )
             }
@@ -51,7 +52,7 @@ private fun SettledBadge(percent: Int) {
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text("$percent%", style = MaterialTheme.typography.titleMedium)
-            Text("settled", style = MaterialTheme.typography.labelMedium, color = AppTheme.colors.onHeroMuted)
+            Text("settled", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.onHeroMuted)
         }
     }
 }

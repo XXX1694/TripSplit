@@ -66,7 +66,7 @@ private fun CurrencyCodeBadge(code: String, tone: Tone) {
         modifier = Modifier.size(Sizes.iconBadgeLarge).clip(MaterialTheme.shapes.medium).background(colors.container),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = code, style = MaterialTheme.typography.labelMedium, color = colors.content)
+        Text(text = code, style = MaterialTheme.typography.labelSmall, color = colors.content)
     }
 }
 

@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
@@ -19,7 +20,7 @@ import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
 fun InvitationSectionTitle(status: InvitationStatus, count: Int, modifier: Modifier = Modifier) {
     Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
         Text(status.label().uppercase(), style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textMuted)
-        Text("$count invitations", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted, textAlign = TextAlign.End)
+        Text("$count invitations", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted, textAlign = TextAlign.End)
     }
 }
 

@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
@@ -19,7 +20,7 @@ fun TripTotal(summary: TripSummary, amountColor: Color) {
     Column(horizontalAlignment = Alignment.End) {
         Text(
             text = "Total spent",
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.captionMedium,
             color = AppTheme.colors.textMuted,
         )
         Text(

@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.Overline
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
@@ -24,7 +25,7 @@ fun SplitHeader(draft: ExpenseDraft) {
         Overline("Split between")
         Text(
             text = "Equally · " + (share?.let { "${draft.currency} $it each" } ?: "$count people"),
-            style = MaterialTheme.typography.labelMedium,
+            style = MaterialTheme.typography.captionMedium,
             color = AppTheme.colors.positive,
         )
     }

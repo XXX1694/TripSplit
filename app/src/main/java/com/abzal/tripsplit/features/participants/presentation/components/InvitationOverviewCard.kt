@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
@@ -27,8 +28,8 @@ import com.abzal.tripsplit.features.participants.presentation.sampleInvitationMa
 fun InvitationOverviewCard(uiState: InvitationManagementUiState, modifier: Modifier = Modifier) {
     HeroCard(modifier = modifier) {
         Column {
-            Text("Invitation overview", style = MaterialTheme.typography.titleLarge)
-            Text("Organizer view · Member access by default", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.onHeroMuted)
+            Text("Invitation overview", style = MaterialTheme.typography.titleMedium)
+            Text("Organizer view · Member access by default", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.onHeroMuted)
         }
         Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
             InvitationStatus.entries.forEach { status ->
@@ -49,7 +50,7 @@ private fun CountTile(count: Int, label: String, modifier: Modifier = Modifier) 
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text("$count ", style = MaterialTheme.typography.titleMedium)
-        Text(label, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.onHeroMuted)
+        Text(label, style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.onHeroMuted)
     }
 }
 

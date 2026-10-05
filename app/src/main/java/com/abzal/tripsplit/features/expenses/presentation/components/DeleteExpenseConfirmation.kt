@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.bodySmallMultiline
 import com.abzal.tripsplit.core.designsystem.components.DangerButton
 import com.abzal.tripsplit.core.designsystem.components.SecondaryButton
 import com.abzal.tripsplit.core.designsystem.components.colors
@@ -48,7 +49,7 @@ fun DeleteExpenseConfirmation(
             }
             Text(
                 text = "All $participantCount balances will be recalculated. This action cannot be undone.",
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmallMultiline,
                 color = colors.danger,
             )
             Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {

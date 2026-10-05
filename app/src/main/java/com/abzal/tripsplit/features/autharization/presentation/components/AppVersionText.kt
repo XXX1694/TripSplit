@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.designsystem.micro
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 
@@ -22,7 +23,7 @@ fun AppVersionText() {
     Text(
         text = "TripSplit for Android · Version ${version ?: "-"}",
         modifier = Modifier.fillMaxWidth(),
-        style = MaterialTheme.typography.bodySmall,
+        style = MaterialTheme.typography.micro,
         color = AppTheme.colors.textDisabled,
         textAlign = TextAlign.Center,
     )

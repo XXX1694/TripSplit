@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
@@ -33,9 +34,9 @@ fun ProfileHeader(user: User?) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space16)) {
             Avatar(initials = (user?.name ?: "").toInitials(), size = Sizes.avatarLarge)
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = user?.name ?: "", style = MaterialTheme.typography.titleLarge)
+                Text(text = user?.name ?: "", style = MaterialTheme.typography.headlineSmall)
                 Text(text = user?.email ?: "", style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.onHeroMuted)
-                Text(text = "Verified account", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.onHeroMuted)
+                Text(text = "Verified account", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.onHeroMuted)
             }
             Box(
                 modifier = Modifier.size(Sizes.iconBadge).clip(MaterialTheme.shapes.small).background(AppTheme.colors.heroOverlay),

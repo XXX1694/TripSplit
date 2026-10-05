@@ -19,8 +19,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.colors
+import com.abzal.tripsplit.core.designsystem.titleRegular
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.core.preview.sampleTrip
@@ -44,10 +46,10 @@ fun TripHeaderCard(
                 Icon(icon, contentDescription = null)
             }
             Column {
-                Text(trip?.name.orEmpty(), style = MaterialTheme.typography.titleLarge)
+                Text(trip?.name.orEmpty(), style = MaterialTheme.typography.titleRegular)
                 Text(
                     text = listOfNotNull(trip?.let { formatTripDates(it.startDateMillis, it.endDateMillis) }, caption).joinToString(" · "),
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.captionMedium,
                     color = AppTheme.colors.onHeroMuted,
                 )
             }

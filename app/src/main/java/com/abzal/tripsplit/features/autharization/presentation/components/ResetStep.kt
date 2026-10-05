@@ -22,6 +22,7 @@ import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
@@ -41,7 +42,7 @@ fun ResetStep(number: Int, label: String, state: StepState) {
             } else {
                 Text(
                     text = number.toString(),
-                    style = MaterialTheme.typography.labelMedium,
+                    style = MaterialTheme.typography.captionMedium,
                     color = if (state == StepState.Todo) colors.textDisabled else colors.onAccent,
                 )
             }
@@ -49,7 +50,7 @@ fun ResetStep(number: Int, label: String, state: StepState) {
         Text(
             text = label,
             modifier = Modifier.padding(top = Spacing.space4).width(Sizes.stepLabelWidth),
-            style = MaterialTheme.typography.labelMedium,
+            style = MaterialTheme.typography.captionMedium,
             color = if (state == StepState.Todo) colors.textDisabled else colors.accent,
             textAlign = TextAlign.Center,
         )

@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.AppTheme
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
@@ -31,7 +32,7 @@ fun TripTitleRow(summary: TripSummary, onMoreClick: () -> Unit) {
             )
             Text(
                 text = tripSubtitle(summary.trip),
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.captionMedium,
                 color = AppTheme.colors.textMuted,
             )
         }

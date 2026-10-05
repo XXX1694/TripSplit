@@ -32,7 +32,7 @@ fun DailySpendingCard(uiState: SpendingInsightsUiState, modifier: Modifier = Mod
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
                 Text("DAILY AVERAGE", style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.onHeroMuted)
-                Text(formatMoney(uiState.dailyAverage, uiState.currency), style = MaterialTheme.typography.headlineMedium)
+                Text(formatMoney(uiState.dailyAverage, uiState.currency), style = MaterialTheme.typography.displaySmall)
             }
             if (peak != null) {
                 Column(horizontalAlignment = Alignment.End) {

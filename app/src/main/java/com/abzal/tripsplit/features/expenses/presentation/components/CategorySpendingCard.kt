@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppSegmentedBar
 import com.abzal.tripsplit.core.designsystem.components.BarSegment
@@ -54,7 +55,7 @@ private fun CategoryLegend(name: String, amount: String, color: Color) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(Modifier.size(Sizes.dot).clip(CircleShape).background(color))
         Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text)
-        Text(name, style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
+        Text(name, style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
     }
 }
 

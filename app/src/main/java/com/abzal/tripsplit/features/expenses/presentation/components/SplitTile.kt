@@ -19,6 +19,7 @@ import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.Strokes
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.colors
@@ -59,7 +60,7 @@ fun SplitTile(
                 color = colors.text,
             )
             if (percent != null) {
-                Text("$percent%", style = MaterialTheme.typography.bodySmall, color = colors.textMuted)
+                Text("$percent%", style = MaterialTheme.typography.captionMedium, color = colors.textMuted)
                 Icon(
                     imageVector = Icons.Outlined.Check,
                     contentDescription = "Included",

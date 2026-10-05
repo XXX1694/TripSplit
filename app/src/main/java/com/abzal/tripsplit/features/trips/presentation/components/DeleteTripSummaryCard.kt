@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppDivider
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
@@ -46,7 +47,7 @@ fun DeleteTripSummaryCard(uiState: DeleteTripUiState, modifier: Modifier = Modif
                 Text(text = trip.name, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
                 Text(
                     text = "${formatTripDates(trip.startDateMillis, trip.endDateMillis)} · ${trip.currency}",
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.captionMedium,
                     color = AppTheme.colors.textMuted,
                 )
             }

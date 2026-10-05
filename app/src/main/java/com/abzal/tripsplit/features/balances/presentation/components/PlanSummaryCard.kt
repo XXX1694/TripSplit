@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.HeroCard
 import com.abzal.tripsplit.core.designsystem.components.IconBadge
 import com.abzal.tripsplit.core.designsystem.components.Tone
@@ -30,7 +31,7 @@ fun PlanSummaryCard(uiState: OptimizedSettlementUiState) {
                 Text("${uiState.transfers.size} payments settle everyone", style = MaterialTheme.typography.titleMedium)
                 Text(
                     text = "Optimized to the minimum number of transfers.",
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.captionMedium,
                     color = AppTheme.colors.onHeroMuted,
                 )
             }

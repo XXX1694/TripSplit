@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppDonutChart
 import com.abzal.tripsplit.core.designsystem.components.BarSegment
@@ -66,7 +67,7 @@ private fun LegendRow(color: Color, name: String, percent: Double, amount: Strin
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         Box(Modifier.size(Sizes.dot).clip(CircleShape).background(color))
         Text(name, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.text)
-        Text("%.1f%%".format(percent), style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
+        Text("%.1f%%".format(percent), style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
         Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text, textAlign = TextAlign.End)
     }
 }

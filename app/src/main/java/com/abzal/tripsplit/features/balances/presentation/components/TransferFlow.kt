@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.Avatar
 import com.abzal.tripsplit.core.designsystem.components.avatarToneAt
 import com.abzal.tripsplit.core.designsystem.components.colors
@@ -48,7 +49,7 @@ fun TransferFlow(
     ) {
         PersonColumn(fromName, fromToneIndex, nameColor)
         Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(amountText, style = MaterialTheme.typography.titleLarge, color = contentColor)
+            Text(amountText, style = MaterialTheme.typography.displaySmall, color = contentColor)
             Row(verticalAlignment = Alignment.CenterVertically) {
                 HorizontalDivider(modifier = Modifier.weight(1f), color = contentColor)
                 Icon(Icons.AutoMirrored.Outlined.ArrowForward, contentDescription = null, tint = contentColor, modifier = Modifier.size(Sizes.iconSmall))
@@ -62,7 +63,7 @@ fun TransferFlow(
 private fun PersonColumn(name: String, toneIndex: Int, nameColor: Color) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Avatar(initials = name.toInitials(), tone = avatarToneAt(toneIndex), size = Sizes.avatarMedium)
-        Text(name.substringBefore(' '), style = MaterialTheme.typography.bodySmall, color = nameColor)
+        Text(name.substringBefore(' '), style = MaterialTheme.typography.captionMedium, color = nameColor)
     }
 }
 

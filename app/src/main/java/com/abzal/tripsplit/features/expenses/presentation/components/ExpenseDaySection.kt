@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
@@ -33,7 +34,7 @@ fun ExpenseDaySection(
             Text(group.title, style = MaterialTheme.typography.labelSmall, color = AppTheme.colors.textMuted)
             Text(
                 text = formatMoney(group.total, uiState.tripCurrency),
-                style = MaterialTheme.typography.labelMedium,
+                style = MaterialTheme.typography.captionMedium,
                 color = AppTheme.colors.textMuted,
             )
         }

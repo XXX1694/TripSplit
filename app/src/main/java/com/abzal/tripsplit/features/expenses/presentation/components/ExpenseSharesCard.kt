@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.AppTheme
 import com.abzal.tripsplit.core.designsystem.Sizes
 import com.abzal.tripsplit.core.designsystem.Spacing
+import com.abzal.tripsplit.core.designsystem.captionMedium
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppListRow
 import com.abzal.tripsplit.core.designsystem.components.Avatar
@@ -50,7 +51,7 @@ fun ExpenseSharesCard(uiState: ExpenseDetailUiState, modifier: Modifier = Modifi
         HorizontalDivider(color = AppTheme.colors.divider)
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text("Participant shares", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
-            Text("Equal split", style = MaterialTheme.typography.labelMedium, color = AppTheme.colors.positive)
+            Text("Equal split", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.positive)
         }
         sharing.forEachIndexed { index, participant ->
             AppListRow(
@@ -58,7 +59,7 @@ fun ExpenseSharesCard(uiState: ExpenseDetailUiState, modifier: Modifier = Modifi
                 leading = { Avatar(initials = participant.name.toInitials(), tone = avatarToneAt(index)) },
                 trailing = {
                     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space16), verticalAlignment = Alignment.CenterVertically) {
-                        Text("$percent%", style = MaterialTheme.typography.bodySmall, color = AppTheme.colors.textMuted)
+                        Text("$percent%", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
                         Text(
                             text = formatMoney(uiState.sharePerPerson, expense.currency),
                             style = MaterialTheme.typography.titleSmall,
