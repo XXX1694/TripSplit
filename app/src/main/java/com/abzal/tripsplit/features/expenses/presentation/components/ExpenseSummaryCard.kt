@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.expenses.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -47,7 +48,7 @@ fun ExpenseSummaryCard(expense: Expense, modifier: Modifier = Modifier) {
         }
         HorizontalDivider(color = AppTheme.colors.heroOutline)
         Column {
-            Text(expense.title, style = MaterialTheme.typography.titleRegular)
+            Text(expense.title, style = MaterialTheme.typography.titleRegular, maxLines = 2, overflow = TextOverflow.Ellipsis)
             Text(
                 text = "${expense.category} · ${formatDateTime(expense.dateMillis)}",
                 style = MaterialTheme.typography.captionMedium,

@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.core.designsystem.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,9 +49,9 @@ fun AppListRow(
     ) {
         leading?.invoke()
         Column(modifier = Modifier.weight(1f)) {
-            Text(text = title, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text)
+            Text(text = title, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
             if (subtitle != null) {
-                Text(text = subtitle, style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
+                Text(text = subtitle, style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted, maxLines = 2, overflow = TextOverflow.Ellipsis)
             }
         }
         trailing?.invoke()

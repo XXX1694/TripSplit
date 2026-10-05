@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.balances.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -63,7 +64,7 @@ fun TransferFlow(
 private fun PersonColumn(name: String, toneIndex: Int, nameColor: Color) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Avatar(initials = name.toInitials(), tone = avatarToneAt(toneIndex), size = Sizes.avatarMedium)
-        Text(name.substringBefore(' '), style = MaterialTheme.typography.captionMedium, color = nameColor)
+        Text(name.substringBefore(' '), style = MaterialTheme.typography.captionMedium, color = nameColor, maxLines = 1, overflow = TextOverflow.Ellipsis)
     }
 }
 

@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.core.designsystem.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -82,7 +83,7 @@ fun StatusPill(
             horizontalArrangement = Arrangement.spacedBy(Spacing.space4),
         ) {
             if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.iconTiny))
-            Text(text = text, style = MaterialTheme.typography.labelSmall)
+            Text(text = text, style = MaterialTheme.typography.labelSmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }

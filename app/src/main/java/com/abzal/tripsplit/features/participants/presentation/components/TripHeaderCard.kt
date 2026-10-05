@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.participants.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -46,7 +47,7 @@ fun TripHeaderCard(
                 Icon(icon, contentDescription = null)
             }
             Column {
-                Text(trip?.name.orEmpty(), style = MaterialTheme.typography.titleRegular)
+                Text(trip?.name.orEmpty(), style = MaterialTheme.typography.titleRegular, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(
                     text = listOfNotNull(trip?.let { formatTripDates(it.startDateMillis, it.endDateMillis) }, caption).joinToString(" · "),
                     style = MaterialTheme.typography.captionMedium,

@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.core.designsystem.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -59,14 +60,16 @@ fun AppSelectField(
                 Icon(leadingIcon, contentDescription = null, tint = colors.textMuted)
             }
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = label, style = MaterialTheme.typography.captionMedium, color = colors.textMuted)
+                Text(text = label, style = MaterialTheme.typography.captionMedium, color = colors.textMuted, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(
                     text = value,
                     style = MaterialTheme.typography.titleSmall,
                     color = if (isPlaceholder) colors.textDisabled else colors.text,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
                 if (caption != null) {
-                    Text(text = caption, style = MaterialTheme.typography.bodySmall, color = colors.textMuted)
+                    Text(text = caption, style = MaterialTheme.typography.bodySmall, color = colors.textMuted, maxLines = 2, overflow = TextOverflow.Ellipsis)
                 }
             }
             trailing?.invoke()

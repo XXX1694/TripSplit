@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.participants.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,7 +47,7 @@ fun EditParticipantPanel(
     ) {
         Column(modifier = Modifier.padding(Spacing.space16), verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Text("Editing ${participantName.substringBefore(' ')}", style = MaterialTheme.typography.titleMedium)
+                Text("Editing ${participantName.substringBefore(' ')}", style = MaterialTheme.typography.titleMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 AppTextButton(text = "Cancel", onClick = onCancelClick)
             }
             AppTextField(value = editingName, onValueChange = onNameChange, label = "Display name")

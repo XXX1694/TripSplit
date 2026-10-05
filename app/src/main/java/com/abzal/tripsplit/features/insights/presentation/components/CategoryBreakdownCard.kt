@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.insights.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -66,7 +67,7 @@ fun CategoryBreakdownCard(uiState: SpendingInsightsUiState, modifier: Modifier =
 private fun LegendRow(color: Color, name: String, percent: Double, amount: String) {
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
         Box(Modifier.size(Sizes.dot).clip(CircleShape).background(color))
-        Text(name, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.text)
+        Text(name, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
         Text("%.1f%%".format(percent), style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.textMuted)
         Text(amount, style = MaterialTheme.typography.titleSmall, color = AppTheme.colors.text, textAlign = TextAlign.End)
     }

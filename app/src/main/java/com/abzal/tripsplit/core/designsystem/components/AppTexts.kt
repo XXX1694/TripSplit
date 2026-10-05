@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.core.designsystem.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,7 +26,7 @@ fun SectionHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(text = title, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
+        Text(text = title, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
         if (actionText != null && onActionClick != null) {
             AppTextButton(text = actionText, onClick = onActionClick)
         }

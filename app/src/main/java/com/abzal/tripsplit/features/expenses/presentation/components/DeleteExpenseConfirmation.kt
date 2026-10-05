@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.expenses.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -45,7 +46,7 @@ fun DeleteExpenseConfirmation(
         Column(modifier = Modifier.padding(Spacing.space16), verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
                 Icon(Icons.Outlined.WarningAmber, contentDescription = null, tint = colors.danger)
-                Text("Delete $expenseTitle?", style = MaterialTheme.typography.titleMedium, color = colors.danger)
+                Text("Delete $expenseTitle?", style = MaterialTheme.typography.titleMedium, color = colors.danger, maxLines = 2, overflow = TextOverflow.Ellipsis)
             }
             Text(
                 text = "All $participantCount balances will be recalculated. This action cannot be undone.",

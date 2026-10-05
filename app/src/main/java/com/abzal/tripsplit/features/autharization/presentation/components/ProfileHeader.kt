@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.autharization.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,8 +35,8 @@ fun ProfileHeader(user: User?) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space16)) {
             Avatar(initials = (user?.name ?: "").toInitials(), size = Sizes.avatarLarge)
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = user?.name ?: "", style = MaterialTheme.typography.headlineSmall)
-                Text(text = user?.email ?: "", style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.onHeroMuted)
+                Text(text = user?.name ?: "", style = MaterialTheme.typography.headlineSmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(text = user?.email ?: "", style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.onHeroMuted, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(text = "Verified account", style = MaterialTheme.typography.captionMedium, color = AppTheme.colors.onHeroMuted)
             }
             Box(

@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.core.designsystem.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -52,7 +53,7 @@ fun AppChip(
             horizontalArrangement = Arrangement.spacedBy(Spacing.space8),
         ) {
             if (icon != null) Icon(icon, contentDescription = null, modifier = Modifier.size(Sizes.iconSmall))
-            Text(text = text, style = MaterialTheme.typography.labelMedium)
+            Text(text = text, style = MaterialTheme.typography.labelMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }

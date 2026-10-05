@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.expenses.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -58,6 +59,8 @@ fun SplitTile(
                 modifier = Modifier.weight(1f),
                 style = MaterialTheme.typography.titleSmall,
                 color = colors.text,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
             if (percent != null) {
                 Text("$percent%", style = MaterialTheme.typography.captionMedium, color = colors.textMuted)

@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.home.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -27,6 +28,8 @@ fun TripTotal(summary: TripSummary, amountColor: Color) {
             text = formatMoney(summary.totalSpent, summary.trip.currency),
             style = MaterialTheme.typography.titleMedium,
             color = amountColor,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }

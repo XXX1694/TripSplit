@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.trips.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,7 +45,7 @@ fun DeleteTripSummaryCard(uiState: DeleteTripUiState, modifier: Modifier = Modif
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             CoverImage(modifier = Modifier.size(Sizes.coverThumb).clip(MaterialTheme.shapes.medium))
             Column {
-                Text(text = trip.name, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
+                Text(text = trip.name, style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(
                     text = "${formatTripDates(trip.startDateMillis, trip.endDateMillis)} · ${trip.currency}",
                     style = MaterialTheme.typography.captionMedium,

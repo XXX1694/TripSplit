@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.home.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
@@ -29,11 +30,15 @@ fun TripTitleRow(summary: TripSummary, onMoreClick: () -> Unit) {
                 text = summary.trip.name,
                 style = MaterialTheme.typography.titleMedium,
                 color = AppTheme.colors.text,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
             Text(
                 text = tripSubtitle(summary.trip),
                 style = MaterialTheme.typography.captionMedium,
                 color = AppTheme.colors.textMuted,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
         }
         IconButton(onClick = onMoreClick) {

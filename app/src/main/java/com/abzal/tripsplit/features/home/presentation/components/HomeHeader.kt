@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.home.presentation.components
 
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -45,6 +46,8 @@ fun HomeGreeting(
                 text = "Where to next, ${userName.substringBefore(' ')}?",
                 style = MaterialTheme.typography.headlineMedium,
                 color = AppTheme.colors.text,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
             )
         }
         Box(
