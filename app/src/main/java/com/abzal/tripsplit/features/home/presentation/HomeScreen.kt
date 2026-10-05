@@ -1,5 +1,7 @@
 package com.abzal.tripsplit.features.home.presentation
 
+import androidx.compose.material.icons.outlined.Luggage
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
@@ -17,7 +19,6 @@ import com.abzal.tripsplit.core.designsystem.components.SectionHeader
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.home.presentation.components.ActiveTripCard
-import com.abzal.tripsplit.features.home.presentation.components.EmptyTrips
 import com.abzal.tripsplit.features.home.presentation.components.HomeGreeting
 import com.abzal.tripsplit.features.home.presentation.components.PastTripCard
 
@@ -52,7 +53,13 @@ fun HomeScreen(
         HomeGreeting(userName = uiState.userName, onProfileClick = onProfileClick)
 
         if (uiState.trips.isEmpty()) {
-            EmptyTrips()
+            EmptyState(
+                title = "No trips yet",
+                message = "Create your first trip or join one with an invitation code.",
+                icon = Icons.Outlined.Luggage,
+                actionText = "Create trip",
+                onActionClick = onCreateTripClick,
+            )
         }
         if (activeTrip != null) {
             SectionHeader(title = "Active trip")

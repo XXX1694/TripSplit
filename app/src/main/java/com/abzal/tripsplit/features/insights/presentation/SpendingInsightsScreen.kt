@@ -1,5 +1,8 @@
 package com.abzal.tripsplit.features.insights.presentation
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.PieChart
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.runtime.Composable
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
@@ -20,6 +23,13 @@ fun SpendingInsightsScreen(
         topBar = { AppTopBar(title = "Insights", subtitle = uiState.trip?.name, onBackClick = { onTabClick(TripTab.Overview) }) },
         bottomBar = { TripBottomBar(selected = TripTab.Insights, onTabClick = onTabClick) },
     ) {
+        if (uiState.expenses.isEmpty()) {
+            EmptyState(
+                title = "No spending yet",
+                message = "Insights appear after the first expense is added.",
+                icon = Icons.Outlined.PieChart,
+            )
+        }
         DailySpendingCard(uiState)
         CategoryBreakdownCard(uiState)
         if (uiState.currencyTotals.size > 1) CurrencyTotalsCard(uiState)

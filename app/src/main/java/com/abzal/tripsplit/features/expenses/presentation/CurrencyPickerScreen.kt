@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.expenses.presentation
 
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
@@ -62,10 +63,10 @@ fun CurrencyPickerScreen(
                 )
             }
             if (uiState.visibleCurrencies.isEmpty()) {
-                Text(
-                    text = "No currencies found",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = AppTheme.colors.textMuted,
+                EmptyState(
+                    title = "No currencies found",
+                    message = "Check the name or the code and try again.",
+                    icon = Icons.Outlined.Search,
                 )
             }
         }

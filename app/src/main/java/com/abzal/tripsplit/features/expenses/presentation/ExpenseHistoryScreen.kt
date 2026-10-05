@@ -1,5 +1,7 @@
 package com.abzal.tripsplit.features.expenses.presentation
 
+import androidx.compose.material.icons.outlined.Receipt
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
@@ -77,7 +79,15 @@ fun ExpenseHistoryScreen(
         }
         ExpenseFilterRow(uiState, onClearFilters, onCategoryFilter, onPayerFilter, onCurrencyFilter)
 
-        if (uiState.groups.isEmpty()) EmptyHint("No expenses found")
+        if (uiState.groups.isEmpty()) {
+            EmptyState(
+                title = "No expenses found",
+                message = "Try another filter or add the first expense of this trip.",
+                icon = Icons.Outlined.Receipt,
+                actionText = "Add expense",
+                onActionClick = onAddExpenseClick,
+            )
+        }
         uiState.groups.forEach { group ->
             ExpenseDaySection(group = group, uiState = uiState, onExpenseClick = onExpenseClick)
         }

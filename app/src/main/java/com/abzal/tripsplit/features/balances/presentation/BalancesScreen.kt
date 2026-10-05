@@ -1,5 +1,7 @@
 package com.abzal.tripsplit.features.balances.presentation
 
+import androidx.compose.material.icons.outlined.Balance
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Calculate
 import androidx.compose.material.icons.outlined.Payments
@@ -31,7 +33,15 @@ fun BalancesScreen(
         bottomBar = { TripBottomBar(selected = TripTab.Balances, onTabClick = onTabClick) },
     ) {
         BalanceSummaryCard(uiState)
-        EveryoneBalanceCard(uiState)
+        if (uiState.balances.isEmpty()) {
+            EmptyState(
+                title = "No balances yet",
+                message = "Add participants and expenses to see who owes whom.",
+                icon = Icons.Outlined.Balance,
+            )
+        } else {
+            EveryoneBalanceCard(uiState)
+        }
         InfoBanner(
             text = "Paid minus share equals net. Positive means the person gets money back.",
             icon = Icons.Outlined.Calculate,

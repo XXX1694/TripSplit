@@ -1,5 +1,8 @@
 package com.abzal.tripsplit.features.participants.presentation
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Groups
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
@@ -60,6 +63,13 @@ fun ParticipantManagementScreen(
     ) {
         QuickAddParticipantCard(email = uiState.newEmail, onEmailChange = onEmailChange, onAddClick = onQuickAddClick)
 
+        if (uiState.participants.isEmpty()) {
+            EmptyState(
+                title = "No participants yet",
+                message = "Add friends by email or invite them with a code.",
+                icon = Icons.Outlined.Groups,
+            )
+        }
         AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.space4)) {
             uiState.participants.forEachIndexed { index, participant ->
                 if (index > 0) AppDivider()

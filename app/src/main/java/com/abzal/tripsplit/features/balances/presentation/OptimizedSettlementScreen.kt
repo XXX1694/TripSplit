@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.balances.presentation
 
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
@@ -64,6 +65,13 @@ fun OptimizedSettlementScreen(
         ) {
             Text("Recommended plan", style = MaterialTheme.typography.titleMedium, color = AppTheme.colors.text)
             StatusPill(text = uiState.currency, tone = Tone.Accent)
+        }
+        if (uiState.transfers.isEmpty()) {
+            EmptyState(
+                title = "Everyone is settled",
+                message = "Nobody owes anything, there are no payments to make.",
+                icon = Icons.Outlined.CheckCircle,
+            )
         }
         uiState.transfers.forEach { transfer ->
             TransferCard(

@@ -1,5 +1,7 @@
 package com.abzal.tripsplit.features.participants.presentation
 
+import androidx.compose.material.icons.outlined.VpnKey
+import com.abzal.tripsplit.core.designsystem.components.EmptyState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -50,12 +52,12 @@ fun InvitationManagementScreen(
         FilterChips(uiState, onFilterChange)
 
         if (visible.isEmpty()) {
-            Text(
-                text = "No invitations yet",
-                modifier = Modifier.fillMaxWidth(),
-                style = MaterialTheme.typography.bodyMedium,
-                color = AppTheme.colors.textMuted,
-                textAlign = TextAlign.Center,
+            EmptyState(
+                title = "No invitations yet",
+                message = "Create an invitation code and share it with friends.",
+                icon = Icons.Outlined.VpnKey,
+                actionText = "Invite participants",
+                onActionClick = onInviteClick,
             )
         }
         InvitationStatus.entries.forEach { status ->
