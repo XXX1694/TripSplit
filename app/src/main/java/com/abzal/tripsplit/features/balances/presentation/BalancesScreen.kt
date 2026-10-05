@@ -27,7 +27,7 @@ fun BalancesScreen(
     onRecordSettlementClick: () -> Unit,
 ) {
     AppScaffold(
-        topBar = { AppTopBar(title = "Balances", subtitle = uiState.trip?.name) },
+        topBar = { AppTopBar(title = "Balances", subtitle = uiState.trip?.name, onBackClick = { onTabClick(TripTab.Overview) }) },
         bottomBar = { TripBottomBar(selected = TripTab.Balances, onTabClick = onTabClick) },
     ) {
         BalanceSummaryCard(uiState)

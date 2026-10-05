@@ -17,7 +17,7 @@ fun SpendingInsightsScreen(
     onTabClick: (TripTab) -> Unit,
 ) {
     AppScaffold(
-        topBar = { AppTopBar(title = "Insights", subtitle = uiState.trip?.name) },
+        topBar = { AppTopBar(title = "Insights", subtitle = uiState.trip?.name, onBackClick = { onTabClick(TripTab.Overview) }) },
         bottomBar = { TripBottomBar(selected = TripTab.Insights, onTabClick = onTabClick) },
     ) {
         DailySpendingCard(uiState)

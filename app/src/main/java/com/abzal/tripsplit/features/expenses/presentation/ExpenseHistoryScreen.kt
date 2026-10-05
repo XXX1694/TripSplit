@@ -47,6 +47,7 @@ fun ExpenseHistoryScreen(
         topBar = {
             AppTopBar(
                 title = "Expenses",
+                onBackClick = { onTabClick(TripTab.Overview) },
                 subtitle = "${uiState.filteredExpenses.size} entries · ${formatMoney(uiState.total, uiState.tripCurrency)}",
                 actions = {
                     IconButton(onClick = {

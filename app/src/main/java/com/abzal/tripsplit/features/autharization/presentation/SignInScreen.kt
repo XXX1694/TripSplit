@@ -1,21 +1,17 @@
 package com.abzal.tripsplit.features.autharization.presentation
 
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Login
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Shield
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
 import com.abzal.tripsplit.core.designsystem.components.AppScaffold
+import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.InfoBanner
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.designsystem.components.Tone
@@ -41,9 +37,9 @@ fun SignInScreen(
     val isFormValid = email.contains("@") && password.length >= MIN_PASSWORD_LENGTH
 
     AppScaffold(
+        topBar = { AppTopBar(title = "Sign in") },
         bottomBar = { SignInFooter(onSignUpClick = onSignUpClick) },
     ) {
-        Spacer(Modifier.statusBarsPadding().height(Spacing.space24))
         SignInHeader()
         AppCard {
             SignInForm(
