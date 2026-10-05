@@ -11,9 +11,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 
-class ParticipantRepositoryImpl : ParticipantRepository {
-    private val participants = MutableStateFlow<List<Participant>>(emptyList())
-    private val invitations = MutableStateFlow<List<Invitation>>(emptyList())
+class ParticipantRepositoryImpl(
+    initialParticipants: List<Participant> = emptyList(),
+    initialInvitations: List<Invitation> = emptyList(),
+) : ParticipantRepository {
+    private val participants = MutableStateFlow(initialParticipants)
+    private val invitations = MutableStateFlow(initialInvitations)
 
     override fun observeParticipants(tripId: String): Flow<List<Participant>> =
         participants.map { list -> list.filter { it.tripId == tripId } }

@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 
-class ExpenseRepositoryImpl : ExpenseRepository {
-    private val expenses = MutableStateFlow<List<Expense>>(emptyList())
+class ExpenseRepositoryImpl(initialExpenses: List<Expense> = emptyList()) : ExpenseRepository {
+    private val expenses = MutableStateFlow(initialExpenses)
 
     override fun observeExpenses(tripId: String): Flow<List<Expense>> =
         expenses.map { list -> list.filter { it.tripId == tripId }.sortedByDescending { it.dateMillis } }

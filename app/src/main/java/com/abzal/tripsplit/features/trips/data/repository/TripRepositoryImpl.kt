@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 
-class TripRepositoryImpl : TripRepository {
-    private val trips = MutableStateFlow<List<Trip>>(emptyList())
+class TripRepositoryImpl(initialTrips: List<Trip> = emptyList()) : TripRepository {
+    private val trips = MutableStateFlow(initialTrips)
 
     override fun observeTrips(): Flow<List<Trip>> = trips
 

@@ -18,10 +18,10 @@ import com.abzal.tripsplit.features.trips.domain.repository.TripRepository
 /** Manual dependency container; one instance lives in [com.abzal.tripsplit.TripSplitApp]. */
 class AppContainer {
     val authRepository: AuthRepository by lazy { AuthRepositoryImpl() }
-    val tripRepository: TripRepository by lazy { TripRepositoryImpl() }
-    val expenseRepository: ExpenseRepository by lazy { ExpenseRepositoryImpl() }
+    val tripRepository: TripRepository by lazy { TripRepositoryImpl(DemoData.trips) }
+    val expenseRepository: ExpenseRepository by lazy { ExpenseRepositoryImpl(DemoData.expenses) }
     val currencyRepository: CurrencyRepository by lazy { CurrencyRepositoryImpl() }
-    val participantRepository: ParticipantRepository by lazy { ParticipantRepositoryImpl() }
+    val participantRepository: ParticipantRepository by lazy { ParticipantRepositoryImpl(DemoData.participants, DemoData.invitations) }
     val balanceRepository: BalanceRepository by lazy {
         BalanceRepositoryImpl(expenseRepository, participantRepository)
     }

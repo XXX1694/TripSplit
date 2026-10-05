@@ -12,6 +12,11 @@ class CurrencyRepositoryImpl : CurrencyRepository {
         CurrencyInfo("RUB", "Russian Ruble", "₽"),
         CurrencyInfo("TRY", "Turkish Lira", "₺"),
         CurrencyInfo("JPY", "Japanese Yen", "¥"),
+        CurrencyInfo("CHF", "Swiss Franc", "CHF"),
+        CurrencyInfo("CAD", "Canadian Dollar", "CA$"),
+        CurrencyInfo("AUD", "Australian Dollar", "A$"),
+        CurrencyInfo("CNY", "Chinese Yuan", "CN¥"),
+        CurrencyInfo("AED", "UAE Dirham", "AED"),
     )
 
     override fun getCurrencies(): List<CurrencyInfo> = currencies
