@@ -60,6 +60,7 @@ class HomeViewModel(
         }
     }
 
+    // One combined flow per trip (expenses + participants); restarts when the list of trips changes.
     private fun observeTripSummaries() = tripRepository.observeTrips().flatMapLatest { trips ->
         if (trips.isEmpty()) {
             flowOf(emptyList())

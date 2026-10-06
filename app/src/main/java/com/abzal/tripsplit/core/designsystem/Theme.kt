@@ -22,6 +22,7 @@ object AppTheme {
 }
 
 private fun AppColors.toMaterialColorScheme(darkTheme: Boolean): ColorScheme {
+    // Every surface role is filled, so Material parts (menus, date picker) match the app palette.
     val base = if (darkTheme) darkColorScheme() else lightColorScheme()
     return base.copy(
         primary = accent,

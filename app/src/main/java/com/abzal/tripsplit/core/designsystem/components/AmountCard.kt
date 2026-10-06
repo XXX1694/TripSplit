@@ -88,6 +88,7 @@ private fun AmountInput(text: String, symbol: String, onChange: (String) -> Unit
         textStyle = style,
         cursorBrush = SolidColor(colors.accent),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        // Currency symbol on the left, a "0.00" hint while the field is empty.
         decorationBox = { inner ->
             Row(horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.CenterVertically) {
                 Text(symbol, style = style.copy(color = colors.textDisabled))

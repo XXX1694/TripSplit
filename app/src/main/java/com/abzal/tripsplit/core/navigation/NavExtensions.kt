@@ -29,6 +29,7 @@ fun NavHostController.navigateAndClear(route: String, clearUpTo: String) {
 
 /** Switches between the bottom tabs of a trip without piling up screens in the back stack. */
 fun NavHostController.navigateToTripTab(tripId: String, tab: TripTab) {
+    // Overview is the base of the tabs, so going there means popping back to it.
     if (tab == TripTab.Overview) {
         popBackStack(Routes.TRIP_OVERVIEW, inclusive = false)
         return
@@ -39,6 +40,7 @@ fun NavHostController.navigateToTripTab(tripId: String, tab: TripTab) {
         else -> Routes.insights(tripId)
     }
     navigate(route) {
+        // Other tabs replace each other on top of Overview instead of stacking up.
         popUpTo(Routes.TRIP_OVERVIEW)
         launchSingleTop = true
     }

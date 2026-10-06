@@ -66,6 +66,7 @@ fun NavGraphBuilder.expensesGraph(navController: NavHostController) {
         composable(Routes.CURRENCY_PICKER) {
             CurrencyPickerRoute(
                 onBackClick = { navController.popBackStack() },
+                // Send the choice back to the screen that opened the picker.
                 onCurrencySelected = { code ->
                     navController.previousBackStackEntry?.savedStateHandle?.set(Routes.RESULT_CURRENCY, code)
                     navController.popBackStack()

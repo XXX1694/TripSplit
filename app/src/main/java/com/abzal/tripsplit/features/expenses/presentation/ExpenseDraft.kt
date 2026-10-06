@@ -12,6 +12,7 @@ data class ExpenseDraft(
     val paidById: String? = null,
     val participantIds: Set<String> = emptySet(),
 ) {
+    // Accepts a decimal comma as well as a dot.
     val amount: Double? get() = amountText.replace(',', '.').toDoubleOrNull()
 
     val isValid: Boolean

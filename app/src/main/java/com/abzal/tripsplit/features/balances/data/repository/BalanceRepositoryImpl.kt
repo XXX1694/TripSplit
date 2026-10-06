@@ -29,6 +29,8 @@ class BalanceRepositoryImpl(
         participantRepository.observeParticipants(tripId),
         observeSettlements(tripId),
     ) { expenses, participants, tripSettlements ->
+        // Balance = paid - own share (equal split) + payments sent - payments received.
+        // Positive: the person gets money back, negative: the person owes.
         val totals = participants.associate { it.id to 0.0 }.toMutableMap()
         expenses.forEach { expense ->
             totals[expense.paidById] = (totals[expense.paidById] ?: 0.0) + expense.amount
@@ -44,6 +46,7 @@ class BalanceRepositoryImpl(
 
     override fun observeOptimizedTransfers(tripId: String): Flow<List<Transfer>> =
         observeBalances(tripId).map { balances ->
+            // Greedy settlement: match the biggest-first debtors with creditors until everything is covered.
             val debtors = balances.filter { it.amount < -EPS }.map { it.participantId to -it.amount }.toMutableList()
             val creditors = balances.filter { it.amount > EPS }.map { it.participantId to it.amount }.toMutableList()
             val transfers = mutableListOf<Transfer>()

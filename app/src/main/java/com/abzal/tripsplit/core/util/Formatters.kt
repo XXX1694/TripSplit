@@ -56,6 +56,7 @@ fun formatSignedMoney(amount: Double, currencyCode: String): String {
 
 /** "Today", "Yesterday" or "29 Sep". */
 fun formatRelativeDate(millis: Long): String {
+    // Compare calendar days in the device time zone, not the raw 24-hour distance.
     val day = 24 * 60 * 60 * 1000L
     val zoneOffset = java.util.TimeZone.getDefault().getOffset(millis)
     val nowOffset = java.util.TimeZone.getDefault().getOffset(System.currentTimeMillis())

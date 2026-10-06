@@ -56,6 +56,7 @@ fun AppBarChart(
                 Box(
                     modifier = Modifier
                         .width(Sizes.chartBar)
+                        // at least a small stub so empty days stay visible
                         .height((chartHeight.value * (bar.value / max)).dp.coerceAtLeast(Spacing.space8))
                         .background(if (bar.isHighlighted) highlightColor else barColor, MaterialTheme.shapes.extraSmall),
                 )
@@ -91,7 +92,7 @@ fun AppDonutChart(
                     drawArc(
                         color = segment.color,
                         startAngle = startAngle,
-                        sweepAngle = (sweep - 2f).coerceAtLeast(0f),
+                        sweepAngle = (sweep - 2f).coerceAtLeast(0f), // small gap between segments
                         useCenter = false,
                         topLeft = topLeft,
                         size = arcSize,

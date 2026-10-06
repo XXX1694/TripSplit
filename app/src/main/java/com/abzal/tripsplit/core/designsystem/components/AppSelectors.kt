@@ -95,7 +95,7 @@ fun AppCheckboxRow(
     ) {
         Checkbox(
             checked = checked,
-            onCheckedChange = null,
+            onCheckedChange = null, // the whole row handles the toggle
             colors = CheckboxDefaults.colors(
                 checkedColor = AppTheme.colors.accent,
                 uncheckedColor = AppTheme.colors.border,

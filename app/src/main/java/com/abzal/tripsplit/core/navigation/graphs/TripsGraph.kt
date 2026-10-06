@@ -25,6 +25,7 @@ fun NavGraphBuilder.tripsGraph(navController: NavHostController) {
         composable(Routes.CREATE_TRIP) { entry ->
             CreateTripRoute(
                 onBackClick = { navController.popBackStack() },
+                // Replace the form with the new trip so Back does not return to it.
                 onCreated = { tripId ->
                     navController.navigate(Routes.tripOverview(tripId)) {
                         popUpTo(Routes.CREATE_TRIP) { inclusive = true }

@@ -55,6 +55,7 @@ class ParticipantRepositoryImpl(
     }
 
     override suspend fun joinByCode(code: String): Result<String> {
+        // A code works once: only a pending invitation can be accepted.
         val invitation = invitations.value.firstOrNull {
             it.code.equals(code.trim(), ignoreCase = true) && it.status == InvitationStatus.PENDING
         } ?: return Result.failure(IllegalArgumentException("Invalid invitation code"))

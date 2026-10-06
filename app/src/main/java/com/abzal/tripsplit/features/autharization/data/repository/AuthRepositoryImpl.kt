@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-/** Local in-memory stub. Replace with Room/remote data source later. */
+/** Local in-memory stub: any credentials are accepted. Replace with Room/remote data source later. */
 class AuthRepositoryImpl : AuthRepository {
     private companion object {
         val DEMO_USER = User(id = "demo", name = "Maya Kim", email = "maya@hey.com")
