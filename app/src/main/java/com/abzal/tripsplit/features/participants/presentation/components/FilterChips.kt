@@ -1,7 +1,8 @@
 package com.abzal.tripsplit.features.participants.presentation.components
 
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppChip
@@ -14,13 +15,15 @@ import com.abzal.tripsplit.features.participants.presentation.sampleInvitationMa
 
 @Composable
 fun FilterChips(uiState: InvitationManagementUiState, onFilterChange: (InvitationStatus?) -> Unit) {
-    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
-        AppChip(
-            text = "All ${uiState.invitations.size}",
-            selected = uiState.statusFilter == null,
-            onClick = { onFilterChange(null) },
-        )
-        InvitationStatus.entries.forEach { status ->
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
+        item {
+            AppChip(
+                text = "All ${uiState.invitations.size}",
+                selected = uiState.statusFilter == null,
+                onClick = { onFilterChange(null) },
+            )
+        }
+        items(InvitationStatus.entries) { status ->
             AppChip(
                 text = "${status.label()} ${uiState.countOf(status)}",
                 selected = uiState.statusFilter == status,
