@@ -1,5 +1,8 @@
 package com.abzal.tripsplit.features.autharization.presentation
 
+import com.abzal.tripsplit.core.designsystem.components.AppTextButton
+import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Login
 import androidx.compose.material.icons.outlined.Lock
@@ -29,6 +32,7 @@ fun SignInScreen(
     onSignInClick: (email: String, password: String) -> Unit,
     onSignUpClick: () -> Unit,
     onForgotPasswordClick: () -> Unit,
+    onDemoClick: () -> Unit,
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -61,6 +65,11 @@ fun SignInScreen(
                 enabled = isFormValid,
                 onClick = { onSignInClick(email, password) },
             )
+            AppTextButton(
+                text = "Continue with demo account",
+                onClick = onDemoClick,
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
         InfoBanner(
             text = "Your trip data is encrypted and only visible to invited participants.",
@@ -79,6 +88,7 @@ private fun SignInScreenPreview() {
             onSignInClick = { _, _ -> },
             onSignUpClick = {},
             onForgotPasswordClick = {},
+            onDemoClick = {},
         )
     }
 }

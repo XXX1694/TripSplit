@@ -18,5 +18,6 @@ fun SignInRoute(
         onSignInClick = { email, password -> viewModel.signIn(email, password, onSignedIn) },
         onSignUpClick = onSignUpClick,
         onForgotPasswordClick = onForgotPasswordClick,
+        onDemoClick = { viewModel.continueAsDemo(onSignedIn) },
     )
 }
