@@ -7,4 +7,6 @@ data class Trip(
     val startDateMillis: Long? = null,
     val endDateMillis: Long? = null,
     val destination: String = "",
+    /** Key of the cover photo, see `coverImageRes`. */
+    val cover: String? = null,
 )

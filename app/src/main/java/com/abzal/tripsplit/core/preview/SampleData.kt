@@ -32,6 +32,7 @@ val sampleTrip = Trip(
     startDateMillis = now - 3 * DAY,
     endDateMillis = now + 2 * DAY,
     destination = "Lisbon, Portugal",
+    cover = "lisbon",
 )
 
 val samplePastTrip = Trip(
@@ -41,6 +42,7 @@ val samplePastTrip = Trip(
     startDateMillis = now - 200 * DAY,
     endDateMillis = now - 194 * DAY,
     destination = "Kyoto, Japan",
+    cover = "kyoto",
 )
 
 val sampleParticipants: List<Participant> = listOf(

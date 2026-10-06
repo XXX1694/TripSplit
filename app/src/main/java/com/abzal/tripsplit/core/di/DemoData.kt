@@ -11,19 +11,20 @@ object DemoData {
     private const val DAY = 86_400_000L
     private val now = System.currentTimeMillis()
 
-    private fun trip(id: String, name: String, destination: String, currency: String, startDaysAgo: Int, lengthDays: Int) = Trip(
+    private fun trip(id: String, name: String, destination: String, currency: String, startDaysAgo: Int, lengthDays: Int, cover: String? = null) = Trip(
         id = id,
         name = name,
         currency = currency,
         startDateMillis = now - startDaysAgo * DAY,
         endDateMillis = now - startDaysAgo * DAY + lengthDays * DAY,
         destination = destination,
+        cover = cover,
     )
 
     val trips: List<Trip> = listOf(
-        trip("lisbon", "Lisbon Friends 2026", "Lisbon, Portugal", "EUR", startDaysAgo = 6, lengthDays = 8),
-        trip("kyoto", "Kyoto Spring", "Kyoto, Japan", "JPY", startDaysAgo = 200, lengthDays = 6),
-        trip("alps", "Alpine Weekend", "Innsbruck, Austria", "EUR", startDaysAgo = 260, lengthDays = 2),
+        trip("lisbon", "Lisbon Friends 2026", "Lisbon, Portugal", "EUR", startDaysAgo = 6, lengthDays = 8, cover = "lisbon"),
+        trip("kyoto", "Kyoto Spring", "Kyoto, Japan", "JPY", startDaysAgo = 200, lengthDays = 6, cover = "kyoto"),
+        trip("alps", "Alpine Weekend", "Innsbruck, Austria", "EUR", startDaysAgo = 260, lengthDays = 2, cover = "alps"),
         trip("berlin", "Berlin Weekend", "Berlin, Germany", "EUR", startDaysAgo = 300, lengthDays = 3),
         trip("istanbul", "Istanbul Getaway", "Istanbul, Turkey", "TRY", startDaysAgo = 340, lengthDays = 5),
         trip("prague", "Prague Autumn", "Prague, Czechia", "EUR", startDaysAgo = 380, lengthDays = 4),

@@ -26,6 +26,7 @@ class TripRepositoryImpl(initialTrips: List<Trip> = emptyList()) : TripRepositor
             startDateMillis = draft.startDateMillis,
             endDateMillis = draft.endDateMillis,
             destination = draft.destination,
+            cover = draft.cover,
         )
         trips.update { it + trip }
         return trip

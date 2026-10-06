@@ -59,6 +59,7 @@ class EditTripViewModel(
                 current.copy(
                     name = draft.name,
                     destination = draft.destination,
+                    cover = draft.cover,
                     currency = draft.currency,
                     startDateMillis = draft.startDateMillis,
                     endDateMillis = draft.endDateMillis,
