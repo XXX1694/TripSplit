@@ -1,19 +1,18 @@
 package com.abzal.tripsplit.features.expenses.presentation.components
 
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.runtime.Composable
 import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppChip
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CategoryChips(selected: String, onSelect: (String) -> Unit) {
-    FlowRow(horizontalArrangement = Arrangement.spacedBy(Spacing.space8), verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
-        expenseCategories.forEach { category ->
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(Spacing.space8)) {
+        items(expenseCategories) { category ->
             AppChip(
                 text = category,
                 icon = categoryIcon(category),
