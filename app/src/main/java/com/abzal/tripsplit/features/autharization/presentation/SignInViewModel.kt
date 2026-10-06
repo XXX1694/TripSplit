@@ -20,6 +20,13 @@ class SignInViewModel(
     private val _uiState = MutableStateFlow(SignInUiState())
     val uiState: StateFlow<SignInUiState> = _uiState.asStateFlow()
 
+    fun continueAsDemo(onSuccess: () -> Unit) {
+        viewModelScope.launch {
+            authRepository.signInAsDemo()
+            onSuccess()
+        }
+    }
+
     fun signIn(email: String, password: String, onSuccess: () -> Unit) {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }

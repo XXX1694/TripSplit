@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.asStateFlow
 
 /** Local in-memory stub. Replace with Room/remote data source later. */
 class AuthRepositoryImpl : AuthRepository {
+    private companion object {
+        val DEMO_USER = User(id = "demo", name = "Maya Kim", email = "maya@hey.com")
+    }
+
     private val _currentUser = MutableStateFlow<User?>(null)
     override val currentUser: StateFlow<User?> = _currentUser.asStateFlow()
 
@@ -16,6 +20,11 @@ class AuthRepositoryImpl : AuthRepository {
         val user = User(id = UUID.randomUUID().toString(), name = email.substringBefore('@'), email = email)
         _currentUser.value = user
         return Result.success(user)
+    }
+
+    override suspend fun signInAsDemo(): User {
+        _currentUser.value = DEMO_USER
+        return DEMO_USER
     }
 
     override suspend fun signUp(name: String, email: String, password: String): Result<User> {
