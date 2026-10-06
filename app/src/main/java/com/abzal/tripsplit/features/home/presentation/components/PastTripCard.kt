@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.home.presentation.components
 
+import com.abzal.tripsplit.core.designsystem.components.coverImageRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -34,7 +35,11 @@ fun PastTripCard(
 ) {
     AppCard(modifier = modifier, onClick = onClick, contentPadding = Spacing.none, verticalArrangement = Arrangement.Top) {
         Row(modifier = Modifier.height(IntrinsicSize.Min)) {
-            CoverImage(modifier = Modifier.width(Sizes.coverSide).fillMaxHeight())
+            CoverImage(
+                contentDescription = "Cover photo of ${summary.trip.name}",
+                imageRes = coverImageRes(summary.trip.cover),
+                modifier = Modifier.width(Sizes.coverSide).fillMaxHeight(),
+            )
             Column(
                 modifier = Modifier.weight(1f).padding(Spacing.space16),
                 verticalArrangement = Arrangement.spacedBy(Spacing.space12),

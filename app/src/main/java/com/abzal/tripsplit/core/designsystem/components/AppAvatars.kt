@@ -56,22 +56,6 @@ fun AvatarStack(
 private fun Modifier.overlap(index: Int): Modifier =
     if (index == 0) this else offset(x = (-6 * index).dp)
 
-/** Placeholder for a trip photo until real covers are added. */
-@Composable
-fun CoverImage(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier.background(AppTheme.colors.accentSoft),
-        contentAlignment = Alignment.Center,
-    ) {
-        Icon(
-            imageVector = Icons.Outlined.Landscape,
-            contentDescription = null,
-            tint = AppTheme.colors.accent,
-            modifier = Modifier.size(Sizes.iconLarge),
-        )
-    }
-}
-
 @ThemePreviews
 @Composable
 private fun AvatarStackPreview() {
@@ -79,13 +63,5 @@ private fun AvatarStackPreview() {
         AvatarStack(
             names = listOf("Food", "Stay", "Transit"),
         )
-    }
-}
-
-@ThemePreviews
-@Composable
-private fun CoverImagePreview() {
-    AppPreview {
-        CoverImage()
     }
 }

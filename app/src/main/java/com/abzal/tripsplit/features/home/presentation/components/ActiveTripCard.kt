@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.home.presentation.components
 
+import com.abzal.tripsplit.core.designsystem.components.coverImageRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,7 +31,11 @@ fun ActiveTripCard(
     modifier: Modifier = Modifier,
 ) {
     AppCard(modifier = modifier, onClick = onClick, contentPadding = Spacing.none, verticalArrangement = Arrangement.Top) {
-        CoverImage(modifier = Modifier.fillMaxWidth().height(Sizes.coverCard))
+        CoverImage(
+            contentDescription = "Cover photo of ${summary.trip.name}",
+            imageRes = coverImageRes(summary.trip.cover),
+            modifier = Modifier.fillMaxWidth().height(Sizes.coverCard),
+        )
         Column(modifier = Modifier.padding(Spacing.space16), verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
             TripTitleRow(summary, onMoreClick)
             Row(

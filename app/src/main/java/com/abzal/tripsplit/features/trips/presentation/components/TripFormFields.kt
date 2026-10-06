@@ -1,5 +1,6 @@
 package com.abzal.tripsplit.features.trips.presentation.components
 
+import com.abzal.tripsplit.core.designsystem.components.coverImageRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,7 +44,11 @@ fun TripFormFields(
     infoText: String = "You can add expenses in any currency. Conversion rates are saved per expense.",
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.space12)) {
-        CoverImage(modifier = Modifier.fillMaxWidth().height(Sizes.coverBanner).clip(MaterialTheme.shapes.extraLarge))
+        CoverImage(
+            contentDescription = "Cover photo of ${draft.name.ifBlank { "the trip" }}",
+            imageRes = coverImageRes(draft.cover),
+            modifier = Modifier.fillMaxWidth().height(Sizes.coverBanner).clip(MaterialTheme.shapes.extraLarge),
+        )
         AppTextField(
             value = draft.name,
             onValueChange = { onDraftChange(draft.copy(name = it)) },
