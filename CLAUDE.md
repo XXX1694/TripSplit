@@ -46,6 +46,11 @@ features/<feature>/
   - shapes: `MaterialTheme.shapes.*`.
   - accent variants: `Tone` (Accent, Info, Warning, Danger).
 - Everything tappable is at least 48 dp (`Sizes.touchTarget`).
+- **Screens:** `AppScaffold` (or `AppLazyScaffold` for lists) + `AppTopBar` (Material `TopAppBar`) on every screen; every screen except the start ones has a back arrow.
+- **Lists:** long or growing lists use `LazyColumn` (`AppLazyScaffold`, `items(..., key = ...)`); horizontal chip rows use `LazyRow`. Never `forEach` inside a scrolling `Column` for long lists.
+- **Long text:** titles and names get `maxLines` + `TextOverflow.Ellipsis`.
+- **Empty lists** show `EmptyState`, never a blank screen.
+- **Images** come from resources through `CoverImage` (`Image` + meaningful `contentDescription`); icons that carry meaning also get a `contentDescription`.
 - Must look right in light **and** dark theme (check both previews).
 - Texts are currently plain English strings in code; keep the same style until string resources are introduced.
 
