@@ -15,7 +15,6 @@ import com.abzal.tripsplit.features.expenses.presentation.ExpenseDetailRoute
 import com.abzal.tripsplit.features.expenses.presentation.ExpenseHistoryRoute
 import com.abzal.tripsplit.features.expenses.presentation.TripOverviewRoute
 
-/** Expenses */
 fun NavGraphBuilder.expensesGraph(navController: NavHostController) {
         composable(Routes.TRIP_OVERVIEW) { entry ->
             val tripId = entry.tripId()

@@ -5,8 +5,6 @@ import com.abzal.tripsplit.core.preview.sampleTrip
 import com.abzal.tripsplit.features.trips.domain.model.TripDraft
 import com.abzal.tripsplit.features.trips.domain.model.toDraft
 
-// Sample UI states for @Preview.
-
 val sampleTripDraft: TripDraft = sampleTrip.toDraft()
 
 val sampleCreateTripUiState = CreateTripUiState(draft = sampleTripDraft)

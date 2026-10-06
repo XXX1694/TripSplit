@@ -7,8 +7,6 @@ import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.core.preview.sampleSettlements
 import com.abzal.tripsplit.core.preview.sampleTrip
 
-// Sample UI states for @Preview.
-
 val sampleExpenseDraft: ExpenseDraft = sampleExpenses.first().toDraft()
 
 val sampleExpenseDayGroup = ExpenseDayGroup(

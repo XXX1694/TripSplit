@@ -59,8 +59,6 @@ fun ResetFormContent(
     }
 }
 
-// ---------- Step 2: "Check your inbox" ----------
-
 @ThemePreviews
 @Composable
 private fun ResetFormContentPreview() {

@@ -10,7 +10,6 @@ import com.abzal.tripsplit.features.balances.presentation.BalancesRoute
 import com.abzal.tripsplit.features.balances.presentation.OptimizedSettlementRoute
 import com.abzal.tripsplit.features.balances.presentation.RecordSettlementRoute
 
-/** Balances & settlements */
 fun NavGraphBuilder.balancesGraph(navController: NavHostController) {
         composable(Routes.BALANCES) { entry ->
             val tripId = entry.tripId()

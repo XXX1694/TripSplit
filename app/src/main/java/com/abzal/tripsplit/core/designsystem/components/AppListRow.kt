@@ -63,7 +63,6 @@ fun AppDivider(modifier: Modifier = Modifier) {
     HorizontalDivider(modifier = modifier, color = AppTheme.colors.divider)
 }
 
-/** Arrow at the end of a clickable row. */
 @Composable
 fun ChevronIcon(modifier: Modifier = Modifier) {
     Icon(

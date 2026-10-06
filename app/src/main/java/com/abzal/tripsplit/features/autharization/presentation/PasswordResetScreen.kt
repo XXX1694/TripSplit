@@ -32,8 +32,6 @@ fun PasswordResetScreen(
     }
 }
 
-// ---------- Step 1: enter email ----------
-
 @ThemePreviews
 @Composable
 private fun PasswordResetScreenPreview() {

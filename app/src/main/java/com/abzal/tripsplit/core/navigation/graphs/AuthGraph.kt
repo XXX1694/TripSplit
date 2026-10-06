@@ -10,7 +10,6 @@ import com.abzal.tripsplit.features.autharization.presentation.ProfileRoute
 import com.abzal.tripsplit.features.autharization.presentation.SignInRoute
 import com.abzal.tripsplit.features.autharization.presentation.SignUpRoute
 
-/** Authorization & account */
 fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable(Routes.SIGN_IN) {
             SignInRoute(

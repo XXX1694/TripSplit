@@ -5,8 +5,6 @@ import com.abzal.tripsplit.core.preview.samplePastTrip
 import com.abzal.tripsplit.core.preview.sampleTrip
 import com.abzal.tripsplit.core.preview.sampleUser
 
-// Sample UI states for @Preview.
-
 val sampleTripSummaries: List<TripSummary> = listOf(
     TripSummary(sampleTrip, sampleParticipants.map { it.name }, totalSpent = 1284.6),
     TripSummary(samplePastTrip, sampleParticipants.take(2).map { it.name }, totalSpent = 218_400.0),

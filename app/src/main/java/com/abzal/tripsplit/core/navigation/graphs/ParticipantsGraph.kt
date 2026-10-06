@@ -10,7 +10,6 @@ import com.abzal.tripsplit.features.participants.presentation.InvitationManageme
 import com.abzal.tripsplit.features.participants.presentation.InviteParticipantsRoute
 import com.abzal.tripsplit.features.participants.presentation.ParticipantManagementRoute
 
-/** Participants & invitations */
 fun NavGraphBuilder.participantsGraph(navController: NavHostController) {
         composable(Routes.PARTICIPANTS) { entry ->
             val tripId = entry.tripId()

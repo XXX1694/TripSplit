@@ -12,7 +12,6 @@ import com.abzal.tripsplit.features.trips.presentation.CreateTripRoute
 import com.abzal.tripsplit.features.trips.presentation.DeleteTripRoute
 import com.abzal.tripsplit.features.trips.presentation.EditTripRoute
 
-/** Trips */
 fun NavGraphBuilder.tripsGraph(navController: NavHostController) {
         composable(Routes.HOME) {
             HomeRoute(

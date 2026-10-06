@@ -77,26 +77,18 @@ val AppTypography = Typography(
     labelSmall = LabelBadge,
 )
 
-/** Title/Regular: trip name, screen title. */
 val Typography.titleRegular: TextStyle get() = TitleRegular
 
-/** Label/Link: text link. */
 val Typography.labelLink: TextStyle get() = LabelLink
 
-/** Caption/Medium: indicator label, small captions. */
 val Typography.captionMedium: TextStyle get() = CaptionMedium
 
-/** Caption/Small: metadata and secondary text. */
 val Typography.captionSmall: TextStyle get() = CaptionSmall
 
-/** Micro: app version, fine print. */
 val Typography.micro: TextStyle get() = Micro
 
-/** Body/Small with 140% line height for multi-line messages. */
 val Typography.bodySmallMultiline: TextStyle get() = BodySmallMultiline
 
-/** Caption/Medium with 135% line height for multi-line captions. */
 val Typography.captionMediumMultiline: TextStyle get() = CaptionMediumMultiline
 
-/** Caption/Small with 135% line height for multi-line captions and instructions. */
 val Typography.captionSmallMultiline: TextStyle get() = CaptionSmallMultiline

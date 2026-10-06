@@ -66,14 +66,12 @@ object Sizes {
     val stepLabelWidth = 72.dp
 }
 
-/** Line widths. */
 object Strokes {
     val thin = 1.dp
     val thick = 2.dp
     val donut = 18.dp
 }
 
-/** Shadow heights. */
 object Elevations {
     val card = 2.dp
     val fab = 4.dp

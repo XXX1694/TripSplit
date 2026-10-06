@@ -4,8 +4,6 @@ import com.abzal.tripsplit.core.preview.sampleInvitations
 import com.abzal.tripsplit.core.preview.sampleParticipants
 import com.abzal.tripsplit.core.preview.sampleTrip
 
-// Sample UI states for @Preview.
-
 val sampleParticipantManagementUiState = ParticipantManagementUiState(
     trip = sampleTrip,
     participants = sampleParticipants,
