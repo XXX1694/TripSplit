@@ -1,26 +1,17 @@
 package com.abzal.tripsplit.features.participants.presentation
 
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.outlined.VpnKey
 import com.abzal.tripsplit.core.designsystem.components.EmptyState
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.PersonAdd
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.style.TextAlign
-import com.abzal.tripsplit.core.designsystem.AppTheme
-import com.abzal.tripsplit.core.designsystem.Spacing
-import com.abzal.tripsplit.core.designsystem.components.AppScaffold
+import com.abzal.tripsplit.core.designsystem.components.AppLazyScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
-import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.participants.domain.model.InvitationStatus
@@ -40,7 +31,7 @@ fun InvitationManagementScreen(
     val clipboard = LocalClipboardManager.current
     val visible = uiState.visibleInvitations
 
-    AppScaffold(
+    AppLazyScaffold(
         topBar = { AppTopBar(title = "Invitations", subtitle = uiState.trip?.name, onBackClick = onBackClick) },
         bottomBar = {
             BottomActionBar {
@@ -48,30 +39,30 @@ fun InvitationManagementScreen(
             }
         },
     ) {
-        InvitationOverviewCard(uiState)
-        FilterChips(uiState, onFilterChange)
+        item { InvitationOverviewCard(uiState) }
+        item { FilterChips(uiState, onFilterChange) }
 
         if (visible.isEmpty()) {
-            EmptyState(
-                title = "No invitations yet",
-                message = "Create an invitation code and share it with friends.",
-                icon = Icons.Outlined.VpnKey,
-                actionText = "Invite participants",
-                onActionClick = onInviteClick,
-            )
+            item {
+                EmptyState(
+                    title = "No invitations yet",
+                    message = "Create an invitation code and share it with friends.",
+                    icon = Icons.Outlined.VpnKey,
+                    actionText = "Invite participants",
+                    onActionClick = onInviteClick,
+                )
+            }
         }
         InvitationStatus.entries.forEach { status ->
             val group = visible.filter { it.status == status }
             if (group.isNotEmpty()) {
-                Column(verticalArrangement = Arrangement.spacedBy(Spacing.space8)) {
-                    InvitationSectionTitle(status, group.size)
-                    group.forEach { invitation ->
-                        InvitationCard(
-                            invitation = invitation,
-                            onCopyClick = { clipboard.setText(AnnotatedString(invitation.code)) },
-                            onRevokeClick = { onRevokeClick(invitation.id) },
-                        )
-                    }
+                item(key = "title-${status.name}") { InvitationSectionTitle(status, group.size) }
+                items(group, key = { it.id }) { invitation ->
+                    InvitationCard(
+                        invitation = invitation,
+                        onCopyClick = { clipboard.setText(AnnotatedString(invitation.code)) },
+                        onRevokeClick = { onRevokeClick(invitation.id) },
+                    )
                 }
             }
         }
