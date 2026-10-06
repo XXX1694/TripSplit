@@ -1,9 +1,7 @@
 package com.abzal.tripsplit.features.expenses.presentation.components
 
-import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.abzal.tripsplit.core.designsystem.Spacing
@@ -24,29 +22,35 @@ fun ExpenseFilterRow(
     onCurrencyFilter: (String?) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        modifier = modifier.horizontalScroll(rememberScrollState()),
+    LazyRow(
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(Spacing.space8),
     ) {
-        AppChip(text = "All", selected = !uiState.hasFilters, onClick = onClearFilters)
-        AppDropdownChip(
-            title = "Category",
-            options = expenseCategories,
-            selected = uiState.categoryFilter,
-            onSelect = onCategoryFilter,
-        )
-        AppDropdownChip(
-            title = "Payer",
-            options = uiState.participants.map { it.name },
-            selected = uiState.participants.firstOrNull { it.id == uiState.payerFilter }?.name,
-            onSelect = { name -> onPayerFilter(uiState.participants.firstOrNull { it.name == name }?.id) },
-        )
-        AppDropdownChip(
-            title = "Currency",
-            options = uiState.availableCurrencies,
-            selected = uiState.currencyFilter,
-            onSelect = onCurrencyFilter,
-        )
+        item { AppChip(text = "All", selected = !uiState.hasFilters, onClick = onClearFilters) }
+        item {
+            AppDropdownChip(
+                title = "Category",
+                options = expenseCategories,
+                selected = uiState.categoryFilter,
+                onSelect = onCategoryFilter,
+            )
+        }
+        item {
+            AppDropdownChip(
+                title = "Payer",
+                options = uiState.participants.map { it.name },
+                selected = uiState.participants.firstOrNull { it.id == uiState.payerFilter }?.name,
+                onSelect = { name -> onPayerFilter(uiState.participants.firstOrNull { it.name == name }?.id) },
+            )
+        }
+        item {
+            AppDropdownChip(
+                title = "Currency",
+                options = uiState.availableCurrencies,
+                selected = uiState.currencyFilter,
+                onSelect = onCurrencyFilter,
+            )
+        }
     }
 }
 
