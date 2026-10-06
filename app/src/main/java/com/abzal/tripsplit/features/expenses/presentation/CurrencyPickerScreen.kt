@@ -1,23 +1,18 @@
 package com.abzal.tripsplit.features.expenses.presentation
 
+import androidx.compose.foundation.lazy.itemsIndexed
 import com.abzal.tripsplit.core.designsystem.components.EmptyState
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import com.abzal.tripsplit.core.designsystem.AppTheme
-import com.abzal.tripsplit.core.designsystem.Spacing
 import com.abzal.tripsplit.core.designsystem.components.AppCard
-import com.abzal.tripsplit.core.designsystem.components.AppScaffold
+import com.abzal.tripsplit.core.designsystem.components.AppLazyScaffold
 import com.abzal.tripsplit.core.designsystem.components.AppTextField
 import com.abzal.tripsplit.core.designsystem.components.AppTopBar
 import com.abzal.tripsplit.core.designsystem.components.BottomActionBar
 import com.abzal.tripsplit.core.designsystem.components.PrimaryButton
 import com.abzal.tripsplit.core.designsystem.components.SectionHeader
-import com.abzal.tripsplit.core.designsystem.components.colors
 import com.abzal.tripsplit.core.preview.AppPreview
 import com.abzal.tripsplit.core.preview.ThemePreviews
 import com.abzal.tripsplit.features.expenses.presentation.components.CurrencyRow
@@ -33,7 +28,7 @@ fun CurrencyPickerScreen(
 ) {
     val selected = uiState.selectedCurrency
 
-    AppScaffold(
+    AppLazyScaffold(
         topBar = { AppTopBar(title = "Choose currency", onBackClick = onBackClick) },
         bottomBar = {
             BottomActionBar {
@@ -46,27 +41,31 @@ fun CurrencyPickerScreen(
             }
         },
     ) {
-        AppTextField(
-            value = uiState.query,
-            onValueChange = onQueryChange,
-            label = "Search name or code",
-            leadingIcon = Icons.Outlined.Search,
-        )
-        AppCard(verticalArrangement = Arrangement.spacedBy(Spacing.none)) {
-            SectionHeader(title = "All currencies")
-            uiState.visibleCurrencies.forEachIndexed { index, currency ->
+        item {
+            AppTextField(
+                value = uiState.query,
+                onValueChange = onQueryChange,
+                label = "Search name or code",
+                leadingIcon = Icons.Outlined.Search,
+            )
+        }
+        item { SectionHeader(title = "All currencies") }
+        if (uiState.visibleCurrencies.isEmpty()) {
+            item {
+                EmptyState(
+                    title = "No currencies found",
+                    message = "Check the name or the code and try again.",
+                    icon = Icons.Outlined.Search,
+                )
+            }
+        }
+        itemsIndexed(uiState.visibleCurrencies, key = { _, currency -> currency.code }) { index, currency ->
+            AppCard(onClick = { onCurrencyClick(currency.code) }) {
                 CurrencyRow(
                     currency = currency,
                     toneIndex = index,
                     isSelected = currency.code == uiState.selectedCode,
                     onClick = { onCurrencyClick(currency.code) },
-                )
-            }
-            if (uiState.visibleCurrencies.isEmpty()) {
-                EmptyState(
-                    title = "No currencies found",
-                    message = "Check the name or the code and try again.",
-                    icon = Icons.Outlined.Search,
                 )
             }
         }
